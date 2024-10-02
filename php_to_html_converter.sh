@@ -3,26 +3,17 @@
 # Directory where PHP files are located (you can modify this)
 directory="."
 
-# Output directory for static HTML files
-output_directory="./html_output"
-
 # Check if PHP is installed
 if ! command -v php &> /dev/null; then
     echo "PHP is not installed. Please install PHP to run this script."
     exit 1
 fi
 
-# Create the output directory if it doesn't exist
-if [ ! -d "$output_directory" ]; then
-    mkdir -p "$output_directory"
-    echo "Created output directory: $output_directory"
-fi
-
 # Loop through all PHP files in the specified directory
 for php_file in "$directory"/*.php; do
     if [ -f "$php_file" ]; then
-        # Create the corresponding HTML filename in the output directory
-        html_file="$output_directory/$(basename "${php_file%.php}.html")"
+        # Create the corresponding HTML filename in the same directory
+        html_file="${php_file%.php}.html"
         
         # Execute the PHP file and get the output, catching any errors
         if php_output=$(php "$php_file" 2>&1); then
