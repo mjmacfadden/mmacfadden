@@ -23,8 +23,19 @@ myModal.addEventListener('shown.bs.modal', function () {
 })
 
 
-// Check if the current URL is "mark-more.php"
-if (window.location.pathname === "/mark-more.html") {
-    // Redirect to "markmore.php"
-    window.location.href = "/markmore.html";
+// Create an object with old paths as keys and new paths as values
+const redirects = {
+    "/mark-more.html": "/markmore.php",
+    "/old-page1.html": "/new-page1.html",
+    "/old-page2.php": "/new-page2.php",
+    "/templates/": "/templates.html"
+};
+
+// Get the current path
+const currentPath = window.location.pathname;
+
+// Check if the current path exists in the redirects object
+if (redirects[currentPath]) {
+    // Redirect to the new URL
+    window.location.href = redirects[currentPath];
 }
