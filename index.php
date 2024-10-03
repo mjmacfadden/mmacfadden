@@ -9,7 +9,7 @@
     <div class="row text-center">
       <div class="col-12 pb-4">
         <p>follow me on:</p>
-        <img src="img/substack_logo.png" style="width:800%; max-width:400px;" alt="Find me on Substack" class="mt-1 mb-4"/>
+        <img src="img/substack_logo.png" style="width:80%; max-width:400px;" alt="Find me on Substack" class="mt-1 mb-4"/>
         <h2 class="mt-4">Creativity and Innovation in Teaching and Learning.</h2>
         <p class="mb-4">Join hundreds of other creatives and innovators to receive my weekly round up and occassional essays.</p>
         <!-- https://substackapi.com/ -->
