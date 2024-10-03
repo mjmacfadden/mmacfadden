@@ -1,5 +1,7 @@
 <?php 
-$og_title = "About - Mike Macfadden";
+$page_title = "Mike Macfadden - About";
+$meta_description = "My name is Mike Macfadden. I'm a high school teacher. I write a lot about creativity and innovation in teaching and learning.";
+$og_title = "Mike Macfadden - About";
 //$og_url = "https://yourwebsite.com/custom-page";
 //$og_image = "https://yourwebsite.com/custom-image.jpg";
 

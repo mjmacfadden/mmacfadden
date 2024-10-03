@@ -7,9 +7,16 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Michael Macfadden</title>
-    <meta name="description" content="">
+    <title><?php echo $page_title ?? 'Mike Macfadden'; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="Mike Macfadden" />
+    <meta name="keywords" content="Mike Macfadden, Michael Macfadden, personal blog, creativity and innovation in teaching and learning, learning strategies, education" />
+    <!-- Meta Description -->
+    <meta name="description" content="<?php echo $meta_description ?? 'Welcome to Mike Macfadden\'s homepage where I discuss creativity and innovation in teaching and learning to inspire students and teachers alike.'; ?>" />
+
+
+
     <!-- Open Graph Data -->
     <?php
     // Set default Open Graph values, in case they're not defined in individual pages

@@ -1,5 +1,9 @@
-<?php include 'header.php';
+<?php 
+  $page_title = "Mike Macfadden - 404";
+  $meta_description = "We've restructed here a bit. It seems the link you're looking for doesn't exist anymore.";
+  include 'header.php';
 ?>
+
 
 <div class="page_header">
   <div class="container py-4">

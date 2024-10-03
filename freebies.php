@@ -1,5 +1,13 @@
-<?php include 'header.php';
+<?php 
+$page_title = "Mike Macfadden - Freebies";
+$meta_description = "Congratulations, you found my \"freebies\". Herein you'll find my Penmanship and Teaching the Research Paper quick start guides.";
+$og_title = "Mike Macfadden - Freebies";
+//$og_url = "https://yourwebsite.com/custom-page";
+//$og_image = "https://yourwebsite.com/custom-image.jpg";
+
+include 'header.php';
 ?>
+
 
 <div class="page_header">
   <div class="container py-4">
