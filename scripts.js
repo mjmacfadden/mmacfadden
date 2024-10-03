@@ -24,7 +24,7 @@ myModal.addEventListener('shown.bs.modal', function () {
 
 
 // Check if the current URL is "mark-more.php"
-if (window.location.pathname === "/mark-more.php") {
+if (window.location.pathname === "/mark-more.html") {
     // Redirect to "markmore.php"
-    window.location.href = "/markmore.php";
+    window.location.href = "/markmore.html";
 }
