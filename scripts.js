@@ -26,7 +26,9 @@ myModal.addEventListener('shown.bs.modal', function () {
 // Create an object with old paths as keys and new paths as values
 const redirects = {
     "/mark-more.html": "/markmore.php",
-    "/templates/": "/templates.html"
+    "/templates/": "/templates.html",
+    "/templates": "/templates.html",
+    "/mark-more": "/markmore.html"
 };
 
 // Get the current path
