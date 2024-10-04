@@ -46,13 +46,35 @@
       <p>Welcome to my homepage. I'm so glad you are here.</p>
       <p>I recently finished a complete overhaul of my website. If you're thinking it looks different than last time you were here, you are correct. It totally is.<p>
       <p>I've tried to retain everything here that I considered valauble, with the exception that ALL of my archived and future articles will now live on <a href="https://mmacfadden.substack.com" target="_blank">Substack</a>. It'd be pretty cool if you subscribed.</p>
-      <p>Thanks again for stopping by!</p>
+      <p>In the meantime, check out some of my online projects below. Thanks again for stopping by!</p>
     </div>
     <div class="col-md-6 py-4 text-center">
         <img src="img/mmacfadden_headshot.jpg" class="img-fluid rounded-circle headshot" alt="Mike Macfadden's headshot"/>
         <figcaption>Mike Macfadden</figcaption>
       </div>
     </div>
+</div>
+
+<div class="projects">
+  <div class="container-fluid">
+    <div class="row d-flex and align-items-stretch text-light text-shadow text-center" style="height:100%;">
+      <div class="col-sm-12 col-md-3 py-4 project american_handkerchief">
+        <img src="img/projects/american_handkerchief_logo.png" class="img-shadow img-fluid py-4" alt="American Handkerchief" />
+        <br>
+        <a href="https://americanhandkerchief.com" target="_blank">
+          <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
+        </a>
+      </div>
+      <div class="col-sm-12 col-md-3 project mqotd"></div>
+      <div class="col-sm-12 col-md-3 project cryptoswatch">
+        <img src="img/projects/cryptoswatch_logo.png" class="img-shadow img-fluid py-4 px-4 mt-4" style="max-width:200px; opacity:.8;" alt="cryptoswatch" />
+        <br>
+        <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
+
+      </div>
+      <div class="col-sm-12 col-md-3 project meaningful_attendance"></div>
+    </div>
+  </div>
 </div>
 
 <div class="media_mentions">
