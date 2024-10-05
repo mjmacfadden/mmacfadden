@@ -112,6 +112,10 @@ HOME PAGE
 .media_mentions img {
   max-width: 225px;
   width: 100%;
+  transition: 0.2s;
+}
+.media_mentions img:hover {
+  opacity: 0.8;
 }
 
 .media_mentions p {
@@ -126,9 +130,6 @@ HOME PAGE
 .home figcaption {
   opacity: 0.8;
   font-size: 14px;
-}
-.projects {
-  background: #f1f1f1;
 }
 .project {
   min-height: 400px;
