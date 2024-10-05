@@ -61,7 +61,7 @@
       <div class="col-sm-12 col-md-3 py-4 project american_handkerchief">
         <img src="img/projects/american_handkerchief_logo.png" class="img-shadow img-fluid py-4" alt="American Handkerchief" />
         <br>
-        <a href="https://americanhandkerchief.com" target="_blank">
+        <a href="https://www.americanhandkerchief.com" target="_blank">
           <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
         </a>
       </div>

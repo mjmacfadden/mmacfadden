@@ -3,45 +3,50 @@
 GLOBAL
 =================================================
 */
-body{
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
-h1,h2,h3,h4,h5,h6{
-    font-weight:700;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
 }
-.navbar{
-    text-transform: uppercase;
+.navbar {
+  text-transform: uppercase;
 }
-.text-shadow{
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+.text-shadow {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
 }
 .img-shadow,
-.btn-shadow{
-    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.25));
+.btn-shadow {
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
 }
 a,
-.nav-tabs .nav-link{
-    color:#30bdb6;
+.nav-tabs .nav-link {
+  color: #30bdb6;
 }
-.page_header{
-    background-color: #D0E4E4;
+.page_header {
+  background-color: #d0e4e4;
 }
-.nav-item i{
-    cursor: pointer;
+.nav-item i {
+  cursor: pointer;
 }
-.btn-primary{
-    background-color:#30bdb6;
-    border-color:#30bdb6;
+.btn-primary {
+  background-color: #30bdb6;
+  border-color: #30bdb6;
 }
-.btn-primary:hover{
-    background-color:#30bdb6d4;
-    border-color:#30bdb6d4;;
+.btn-primary:hover {
+  background-color: #30bdb6d4;
+  border-color: #30bdb6d4;
 }
-.btn-primary:active{
-    background-color:#30bdb6b0 !important;
-    border-color:#30bdb6b0 !important;
+.btn-primary:active {
+  background-color: #30bdb6b0 !important;
+  border-color: #30bdb6b0 !important;
 }
 
 /*
@@ -50,30 +55,30 @@ SEARCH MODAL
 =================================================
 */
 .modal-fullscreen {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-  .modal-content {
-    height: 100%;
-    border-radius: 0;
-  }
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1rem;
-    color: #000;
-  }
-#searchInput, 
-#searchSubmit{
-    max-width:600px;
-    width:100%;
-    font-size:24px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-.modal-header{
-    border-bottom:none;
+.modal-content {
+  height: 100%;
+  border-radius: 0;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1rem;
+  color: #000;
+}
+#searchInput,
+#searchSubmit {
+  max-width: 600px;
+  width: 100%;
+  font-size: 24px;
+}
+.modal-header {
+  border-bottom: none;
 }
 
 /*
@@ -81,12 +86,12 @@ SEARCH MODAL
 SEARCH PAGE
 =================================================
 */
-.search_page{
-    min-height:200px;
+.search_page {
+  min-height: 200px;
 }
-.searchInput, 
-.searchSubmit{
-    font-size:24px;
+.searchInput,
+.searchSubmit {
+  font-size: 24px;
 }
 
 /*
@@ -94,72 +99,71 @@ SEARCH PAGE
 HOME PAGE
 =================================================
 */
-.hero{
-    min-height: 400px;
-    background-color: #D0E4E4;
+.hero {
+  min-height: 400px;
+  background-color: #d0e4e4;
 }
 .media_mentions {
-    background: url('img/bg_widget_white.gif');
-    box-shadow: inset 0px 0px 34px -2px rgba(0, 0, 0, 0.11);
-    padding: 20px 0;
+  background: url("img/bg_widget_white.gif");
+  box-shadow: inset 0px 0px 34px -2px rgba(0, 0, 0, 0.11);
+  padding: 20px 0;
 }
 
 .media_mentions img {
-    max-width: 225px;
-    width:100%;
+  max-width: 225px;
+  width: 100%;
 }
 
 .media_mentions p {
-    font-size: 12px;
-    font-weight: 700;
-    padding-top: 15px;
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 15px;
 }
-.home .headshot{
-    max-width:200px;
-    margin-bottom:11px;
+.home .headshot {
+  max-width: 200px;
+  margin-bottom: 11px;
 }
-.home figcaption{
-    opacity:.8;
-    font-size:14px;
+.home figcaption {
+  opacity: 0.8;
+  font-size: 14px;
 }
-.projects{
-    background:#f1f1f1;
+.projects {
+  background: #f1f1f1;
 }
-.project{
-    min-height:400px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; 
-    filter: brightness(50%);
-    transition:.2s;
-
+.project {
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(50%);
+  transition: 0.2s;
 }
-.project:hover{
-    filter: brightness(100%);
+.project:hover {
+  filter: brightness(100%);
 }
-.projects h3{
-    font-weight:200;
+.projects h3 {
+  font-weight: 200;
 }
-.american_handkerchief{
-    background-image:url('img/projects/american_handkerchief.jpg');
+.american_handkerchief {
+  background-image: url("img/projects/american_handkerchief.jpg");
 }
-.mqotd{
-    background-image:url('img/projects/mqotd.jpg');
+.mqotd {
+  background-image: url("img/projects/mqotd.jpg");
 }
-.meaningful_attendance{
-    background-image:url('img/projects/meaningful_attendance.jpg');
+.meaningful_attendance {
+  background-image: url("img/projects/meaningful_attendance.jpg");
 }
-.cryptoswatch{
-    background-image:url('img/projects/cryptoswatch.jpg');
+.cryptoswatch {
+  background-image: url("img/projects/cryptoswatch.jpg");
 }
 /*
 =================================================
 ABOUT PAGE
 =================================================
 */
-.about_me{
-    max-width:800px;
-    margin:auto;
+.about_me {
+  max-width: 800px;
+  margin: auto;
 }
 
 /*
@@ -167,25 +171,25 @@ ABOUT PAGE
 MEDIA PAGE
 =================================================
 */
-.media_page ul{
-    margin-bottom:44px;
+.media_page ul {
+  margin-bottom: 44px;
 }
-.media_page li{
-    font-weight:600; 
+.media_page li {
+  font-weight: 600;
 }
-.media_page img{
-    width:100%;
-    max-width:225px;
-    margin-bottom:11px;
+.media_page img {
+  width: 100%;
+  max-width: 225px;
+  margin-bottom: 11px;
 }
 /*
 =================================================
 MARK MORE
 =================================================
 */
-.mark_more_logo{
-    max-width:600px;
-    width:90%;
+.mark_more_logo {
+  max-width: 600px;
+  width: 90%;
 }
 
 /*
@@ -193,8 +197,8 @@ MARK MORE
 FREEBIES
 =================================================
 */
-.freebies{
-    min-height:400px;
+.freebies {
+  min-height: 400px;
 }
 
 /*
@@ -202,48 +206,55 @@ FREEBIES
 TEMPLATES PAGE
 =================================================
 */
-.templates img{
-    width:100%;
-    max-width: 225px;
+.templates img {
+  width: 100%;
+  max-width: 225px;
 }
-.templates p{
-    font-size: 11px;
-    margin: 10px auto;
+.templates p {
+  font-size: 11px;
+  margin: 10px auto;
 }
-.substack{
-    background-color: #bbe7e4;
-    min-height:300px;
+.substack {
+  background-color: #bbe7e4;
+  min-height: 300px;
 }
-.substack p{
-    font-size:16px;
+.substack p {
+  font-size: 16px;
 }
-.substack .success{
-    margin:0 auto !important;
+.substack .success {
+  margin: 0 auto !important;
 }
 /*
 =================================================
 404
 =================================================
 */
-.redirect a{
-    font-weight:700;
+.redirect a {
+  font-weight: 700;
 }
 /*
 =================================================
 FOOTER
 =================================================
 */
-.bottom_footer{
-    background:#141414;
-    color:#838383;
-    font-size:11px;
+.bottom_footer {
+  background: #141414;
+  color: #838383;
+  font-size: 11px;
 }
-footer{
-    font-size:.8rem;
+footer {
+  font-size: 0.8rem;
 }
-footer .text-light{
-    color:#30BDB6 !important;
+footer .text-light {
+  color: #30bdb6 !important;
 }
-footer a{
-    text-decoration:none !important;
+footer a {
+  text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+  /* Your custom styles for small screens here */
+  .project {
+    filter: brightness(100%);
+  }
 }

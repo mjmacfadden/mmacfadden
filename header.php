@@ -15,8 +15,6 @@
     <!-- Meta Description -->
     <meta name="description" content="<?php echo $meta_description ?? 'Welcome to Mike Macfadden\'s homepage where I discuss creativity and innovation in teaching and learning to inspire students and teachers alike.'; ?>" />
 
-
-
     <!-- Open Graph Data -->
     <?php
     // Set default Open Graph values, in case they're not defined in individual pages
@@ -38,7 +36,7 @@
     <meta name="twitter:description" content="<?php echo htmlspecialchars($og_description); ?>">
     <meta name="twitter:image" content="<?php echo htmlspecialchars($og_image); ?>">
 
-    <base href="/">
+    <base href="/mmacfadden/">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
