@@ -12,6 +12,13 @@ fi
 # Loop through all PHP files in the specified directory
 for php_file in "$directory"/*.php; do
     if [ -f "$php_file" ]; then
+        # Skip specific files like header.php and footer.php
+        base_filename=$(basename "$php_file")
+        if [[ "$base_filename" == "header.php" || "$base_filename" == "footer.php" ]]; then
+            echo "Skipping $base_filename"
+            continue
+        fi
+        
         # Create the corresponding HTML filename in the same directory
         html_file="${php_file%.php}.html"
         
