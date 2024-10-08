@@ -1,7 +1,7 @@
 <?php 
-$page_title = "Mike Macfadden - About";
-$meta_description = "My name is Mike Macfadden. I'm a high school teacher. I write a lot about creativity and innovation in teaching and learning.";
-$og_title = "Mike Macfadden - About";
+$page_title = "Mike Macfadden - Period Square Generator";
+$meta_description = "The Periodic Square Generator is a simple tool that lets you build an interactive periodic table of elements that links out to a URL via QR Code.";
+$og_title = "Mike Macfadden - Periodic Square Generator";
 //$og_url = "https://yourwebsite.com/custom-page";
 //$og_image = "https://yourwebsite.com/custom-image.jpg";
 

@@ -7,16 +7,16 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mike Macfadden - Period Square Generator</title>
+    <title>Mike Macfadden - Books</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- SEO Meta Tags -->
     <meta name="author" content="Mike Macfadden" />
     <meta name="keywords" content="Mike Macfadden, Michael Macfadden, personal blog, creativity and innovation in teaching and learning, learning strategies, education" />
     <!-- Meta Description -->
-    <meta name="description" content="The Periodic Square Generator is a simple tool that lets you build an interactive periodic table of elements that links out to a URL via QR Code." />
+    <meta name="description" content="Sometimes I write children's stories for my two boys and then publish them to Amazon KDP, but you can read them here for free." />
 
     <!-- Open Graph Data -->
-        <meta property="og:title" content="Mike Macfadden - Periodic Square Generator" />
+        <meta property="og:title" content="Mike Macfadden - Books" />
     <meta property="og:description" content="The official website of Mike Macfadden." />
     <meta property="og:url" content="https://mmacfadden.com" />
     <meta property="og:image" content="img/og/og_homepage.jpg" />
@@ -24,7 +24,7 @@
     <meta property="og:site_name" content="Your Website Name" />
     <!-- Twitter Card Data -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mike Macfadden - Periodic Square Generator">
+    <meta name="twitter:title" content="Mike Macfadden - Books">
     <meta name="twitter:description" content="The official website of Mike Macfadden.">
     <meta name="twitter:image" content="img/og/og_homepage.jpg">
 
@@ -100,85 +100,37 @@
     <div class="row py-4">
       <!-- First Row -->
       <div class="col">
-        <h1>Periodic Square</h1>
+        <h1>Books</h1>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container py-4 periodic_square">
+<div class="container py-4 books">
     <div class="row py-4">
-        <div class="col-md-4">
-
-            <!-- Form to input element details -->
-            <form id="elementForm" class="text-center">
-                <input type="number" id="atomicNumber" placeholder="Atomic Number" required>
-                <input type="text" id="atomicSymbol" placeholder="Atomic Symbol" required>
-                <input type="text" id="atomicWeight" placeholder="Atomic Weight" required>
-                <input type="text" id="elementName" placeholder="Element Name" required>
-                <input type="text" id="urlInput" placeholder="URL for QR code" required>
-                <button class="btn btn-dark" type="submit">Generate</button>
-            </form>
+        <div class="col-md-8">
+            <h2>Somtimes I write Children's Stories</h3>
+            <p>I wrote a few children's stories for my two boys, and I published them on Amazon KDP.</p>
+            <a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank">
+                <img src="img/some_friends.webp" class="img-fluid" alt="Some Friends - Children's Stories" />
+            </a>
         </div>
-        <div class="col-md-8 text-center">
 
-            <!-- Container for the generated periodic square -->
-            <div id="periodicSquareContainer"></div>
-            <!-- Download Button -->
-            <i class="bi bi-download" id="downloadButton" style="display: none;"></i>
-
-
-            <!-- Qrious Library -->
-            <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
-            <!-- html2canvas Library -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <script>
-                // Handle form submission
-                document.getElementById('elementForm').addEventListener('submit', function(event) {
-                    event.preventDefault(); // Prevent form submission
-
-                    // Get input values
-                    const atomicNumber = document.getElementById('atomicNumber').value;
-                    const atomicSymbol = document.getElementById('atomicSymbol').value;
-                    const atomicWeight = document.getElementById('atomicWeight').value;
-                    const elementName = document.getElementById('elementName').value;
-                    const url = document.getElementById('urlInput').value;
-
-                    // Create the periodic square
-                    const squareContainer = document.getElementById('periodicSquareContainer');
-                    squareContainer.innerHTML = `
-                        <div class="element-square" id="elementSquare">
-                            <div class="element-number">${atomicNumber}</div>
-                            <div class="element-symbol">${atomicSymbol}</div>
-                            <canvas id="qrcode"></canvas>
-                            <div class="element-name">${elementName}</div>
-                            <div class="element-weight">${atomicWeight}</div>
-                        </div>
-                    `;
-
-                    // Generate QR code for the given URL
-                    const qr = new QRious({
-                        element: document.getElementById('qrcode'),
-                        size: 125,
-                        value: url
-                    });
-
-                    // Show the download button
-                    document.getElementById('downloadButton').style.display = 'block';
-
-                    // Handle download button click
-                    document.getElementById('downloadButton').addEventListener('click', function() {
-                        html2canvas(document.getElementById('elementSquare')).then(function(canvas) {
-                            const link = document.createElement('a');
-                            link.download = 'periodic_square.jpg'; // Filename
-                            link.href = canvas.toDataURL('image/jpeg', 1.0); // Convert canvas to JPEG
-                            link.click(); // Trigger download
-                        });
-                    });
-                });
-            </script>
-        </div>
+        <div class="col-md-1"></div>
+<div class="col-md-3 text-center sidebar">
+    <h6>About Mike Macfadden</h6>
+    <img src="img/mmacfadden_headshot.jpg" class="image-fluid rounded-circle my-4" width="200px" alt="Mike Macfadden" />
+    <p class="mb-4 text-start">I'm a high school teacher who writes about creativity and innovation. I also like to monkey around with computers.</p>
+    <div class="my-4 social_share">
+        <i class="bi bi-twitter"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-substack"></i>
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-youtube"></i>
     </div>
+    <h6 class="mb-4">Subscribe to my newsletter</h6>
+    <iframe class="substack_embed" src="https://mmacfadden.substack.com/embed" width="100%" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+</div>    </div>
 </div>
 
  <!-- Footer -->
