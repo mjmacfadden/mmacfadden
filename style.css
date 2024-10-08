@@ -56,6 +56,9 @@ SIDEBAR
 .sidebar h6 {
   text-transform: uppercase;
 }
+.substack_embed{
+  height:320px;
+}
 
 .social_share {
   padding: 22px 0;
@@ -272,5 +275,8 @@ footer a {
   /* Your custom styles for small screens here */
   .project {
     filter: brightness(100%);
+    .substack_embed{
+      height:600px;
+    }
   }
 }

@@ -21,7 +21,7 @@ include 'header.php';
 
 <div class="container py-4">
   <div class="row py-4">
-    <div class="col-8">
+    <div class="col-md-8">
       <h2>Hello There</h2>
       <p>I’m Mike Macfadden, and I am a high school teacher that writes about creativity and innovation in teaching and learning.</p>
       <h2>Here's What I Do Here</h2>
