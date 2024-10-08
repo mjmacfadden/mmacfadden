@@ -271,6 +271,62 @@ footer a {
   text-decoration: none !important;
 }
 
+/*
+=================================================
+PERIODIC SQUARE GENERATOR
+=================================================
+*/
+.element-square {
+  display: inline-block;
+  border: 1px solid #000;
+  width: 400px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+.element-number {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+.element-symbol {
+  font-size: 170px;
+  font-weight: bold;
+  margin: 20px;
+  display:inline-block;
+  line-height: 1;
+}
+.element-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.element-weight {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.periodic_square form {
+  margin-bottom: 20px;
+}
+.periodic_square label, 
+.periodic_square input {
+  display: block;
+  margin: 10px auto;
+  width: 200px;
+}
+.periodic_square input {
+  padding: 5px;
+}
+.periodic_square button{
+  width:200px;
+}
+#downloadButton{
+  cursor:pointer;
+  font-size:20px;
+  margin-top:10px;
+}
 @media (max-width: 768px) {
   /* Your custom styles for small screens here */
   .project {
