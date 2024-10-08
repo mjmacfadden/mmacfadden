@@ -48,7 +48,22 @@ a,
   background-color: #30bdb6b0 !important;
   border-color: #30bdb6b0 !important;
 }
+/*
+=================================================
+SIDEBAR
+=================================================
+*/
+.sidebar h6 {
+  text-transform: uppercase;
+}
 
+.social_share {
+  padding: 22px 0;
+}
+.sidebar i {
+  font-size: 24px !important;
+  padding: 0 10px;
+}
 /*
 =================================================
 SEARCH MODAL
@@ -145,16 +160,16 @@ HOME PAGE
 .projects h3 {
   font-weight: 200;
 }
-.american_handkerchief {
+.projects .american_handkerchief {
   background-image: url("img/projects/american_handkerchief.jpg");
 }
-.mqotd {
+.projects .mqotd {
   background-image: url("img/projects/mqotd.jpg");
 }
-.meaningful_attendance {
+.projects .meaningful_attendance {
   background-image: url("img/projects/meaningful_attendance.jpg");
 }
-.cryptoswatch {
+.projects .cryptoswatch {
   background-image: url("img/projects/cryptoswatch.jpg");
 }
 /*
