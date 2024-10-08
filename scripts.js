@@ -30,6 +30,7 @@ const redirects = {
   "/templates": "/templates.html",
   "/mark-more": "/markmore.html",
   "/about/": "/about.html",
+  "/period-square/": "periodic-square.html",
 };
 
 // Get the current path
