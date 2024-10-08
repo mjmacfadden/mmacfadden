@@ -14,7 +14,7 @@ for php_file in "$directory"/*.php; do
     if [ -f "$php_file" ]; then
         # Skip specific files like header.php and footer.php
         base_filename=$(basename "$php_file")
-        if [[ "$base_filename" == "header.php" || "$base_filename" == "footer.php" ]]; then
+        if [[ "$base_filename" == "header.php" || "$base_filename" == "footer.php" || "$base_filename" == "sidebar.php" ]]; then
             echo "Skipping $base_filename"
             continue
         fi
