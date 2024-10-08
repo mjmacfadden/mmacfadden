@@ -31,6 +31,7 @@ const redirects = {
   "/mark-more": "/markmore.html",
   "/about/": "/about.html",
   "/periodic-square/": "periodic-square.html",
+  "/2018/01/25/project-based-grading/": "https://mmacfadden.substack.com/p/project-based-grading",
 };
 
 // Get the current path
