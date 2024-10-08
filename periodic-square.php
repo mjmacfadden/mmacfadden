@@ -13,7 +13,7 @@ include 'header.php';
     <div class="row py-4">
       <!-- First Row -->
       <div class="col">
-        <h1>Periodic Sqare</h1>
+        <h1>Periodic Square</h1>
       </div>
     </div>
   </div>

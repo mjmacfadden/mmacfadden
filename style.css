@@ -276,6 +276,9 @@ footer a {
 PERIODIC SQUARE GENERATOR
 =================================================
 */
+.periodic_square{
+  min-height:435px;
+}
 .element-square {
   display: inline-block;
   border: 1px solid #000;
@@ -314,13 +317,13 @@ PERIODIC SQUARE GENERATOR
 .periodic_square input {
   display: block;
   margin: 10px auto;
-  width: 200px;
+  width: 100%;
 }
 .periodic_square input {
   padding: 5px;
 }
 .periodic_square button{
-  width:200px;
+  width:100%;
 }
 #downloadButton{
   cursor:pointer;
