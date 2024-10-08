@@ -282,7 +282,8 @@ PERIODIC SQUARE GENERATOR
 .element-square {
   display: inline-block;
   border: 1px solid #000;
-  width: 400px;
+  width: 100%;
+  max-width:400px;
   padding: 10px;
   text-align: center;
   position: relative;
@@ -291,8 +292,8 @@ PERIODIC SQUARE GENERATOR
   font-size: 24px;
   font-weight: bold;
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 10px;
+  left: 20px;
 }
 .element-symbol {
   font-size: 170px;
