@@ -2,8 +2,8 @@
 $page_title = "Mike Macfadden - Period Square Generator";
 $meta_description = "The Periodic Square Generator is a simple tool that lets you build an interactive periodic table of elements that links out to a URL via QR Code.";
 $og_title = "Mike Macfadden - Periodic Square Generator";
-//$og_url = "https://yourwebsite.com/custom-page";
-//$og_image = "https://yourwebsite.com/custom-image.jpg";
+$og_url = "https://mmacfadden.com/periodic-square.html";
+$og_image = "img/og/og_periodic_square.jpg";
 
 include 'header.php';
 ?>
@@ -27,9 +27,9 @@ include 'header.php';
             <form id="elementForm" class="text-center">
                 <input type="number" id="atomicNumber" placeholder="Atomic Number" required>
                 <input type="text" id="atomicSymbol" placeholder="Atomic Symbol" required>
-                <input type="text" id="atomicWeight" placeholder="Atomic Weight" required>
+                <input type="number" step=".0001" id="atomicWeight" placeholder="Atomic Weight" required>
                 <input type="text" id="elementName" placeholder="Element Name" required>
-                <input type="text" id="urlInput" placeholder="URL for QR code" required>
+                <input type="url" id="urlInput" placeholder="URL for QR code" required>
                 <button class="btn btn-dark" type="submit">Generate</button>
             </form>
         </div>
@@ -72,7 +72,7 @@ include 'header.php';
                     // Generate QR code for the given URL
                     const qr = new QRious({
                         element: document.getElementById('qrcode'),
-                        size: 125,
+                        size: 120,
                         value: url
                     });
 

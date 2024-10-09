@@ -18,15 +18,15 @@
     <!-- Open Graph Data -->
         <meta property="og:title" content="Mike Macfadden - Periodic Square Generator" />
     <meta property="og:description" content="The official website of Mike Macfadden." />
-    <meta property="og:url" content="https://mmacfadden.com" />
-    <meta property="og:image" content="img/og/og_homepage.jpg" />
+    <meta property="og:url" content="https://mmacfadden.com/periodic-square.html" />
+    <meta property="og:image" content="img/og/og_periodic_square.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Your Website Name" />
     <!-- Twitter Card Data -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mike Macfadden - Periodic Square Generator">
     <meta name="twitter:description" content="The official website of Mike Macfadden.">
-    <meta name="twitter:image" content="img/og/og_homepage.jpg">
+    <meta name="twitter:image" content="img/og/og_periodic_square.jpg">
 
     <base href="/">
     <!-- Bootstrap 5 CSS -->
@@ -114,9 +114,9 @@
             <form id="elementForm" class="text-center">
                 <input type="number" id="atomicNumber" placeholder="Atomic Number" required>
                 <input type="text" id="atomicSymbol" placeholder="Atomic Symbol" required>
-                <input type="text" id="atomicWeight" placeholder="Atomic Weight" required>
+                <input type="number" step=".0001" id="atomicWeight" placeholder="Atomic Weight" required>
                 <input type="text" id="elementName" placeholder="Element Name" required>
-                <input type="text" id="urlInput" placeholder="URL for QR code" required>
+                <input type="url" id="urlInput" placeholder="URL for QR code" required>
                 <button class="btn btn-dark" type="submit">Generate</button>
             </form>
         </div>
@@ -159,7 +159,7 @@
                     // Generate QR code for the given URL
                     const qr = new QRious({
                         element: document.getElementById('qrcode'),
-                        size: 125,
+                        size: 120,
                         value: url
                     });
 

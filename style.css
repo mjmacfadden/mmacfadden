@@ -56,8 +56,8 @@ SIDEBAR
 .sidebar h6 {
   text-transform: uppercase;
 }
-.substack_embed{
-  height:320px;
+.substack_embed {
+  height: 320px;
 }
 
 .social_share {
@@ -276,14 +276,14 @@ footer a {
 PERIODIC SQUARE GENERATOR
 =================================================
 */
-.periodic_square{
-  min-height:435px;
+.periodic_square {
+  min-height: 500px;
 }
 .element-square {
   display: inline-block;
   border: 1px solid #000;
   width: 100%;
-  max-width:400px;
+  max-width: 400px;
   padding: 10px;
   text-align: center;
   position: relative;
@@ -296,10 +296,10 @@ PERIODIC SQUARE GENERATOR
   left: 20px;
 }
 .element-symbol {
-  font-size: 170px;
+  font-size: 150px;
   font-weight: bold;
-  margin: 20px;
-  display:inline-block;
+  margin: 60px 5px 20px 5px;
+  display: inline-block;
   line-height: 1;
 }
 .element-name {
@@ -314,7 +314,7 @@ PERIODIC SQUARE GENERATOR
 .periodic_square form {
   margin-bottom: 20px;
 }
-.periodic_square label, 
+.periodic_square label,
 .periodic_square input {
   display: block;
   margin: 10px auto;
@@ -323,20 +323,20 @@ PERIODIC SQUARE GENERATOR
 .periodic_square input {
   padding: 5px;
 }
-.periodic_square button{
-  width:100%;
+.periodic_square button {
+  width: 100%;
 }
-#downloadButton{
-  cursor:pointer;
-  font-size:20px;
-  margin-top:10px;
+#downloadButton {
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 10px;
 }
 @media (max-width: 768px) {
   /* Your custom styles for small screens here */
   .project {
     filter: brightness(100%);
-    .substack_embed{
-      height:600px;
+    .substack_embed {
+      height: 600px;
     }
   }
 }
