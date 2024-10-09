@@ -21,7 +21,7 @@
     $og_title = isset($og_title) ? $og_title : "Mike Macfadden";
     $og_description = isset($og_description) ? $og_description : "The official website of Mike Macfadden.";
     $og_url = isset($og_url) ? $og_url : "https://mmacfadden.com";
-    $og_image = isset($og_image) ? $og_image : "img/og/og_homepage.jpg";
+    $og_image = isset($og_image) ? $og_image : "https://mmacfadden.com/img/og/og_homepage.jpg";
     $og_type = isset($og_type) ? $og_type : "website";
     ?>
     <meta property="og:title" content="<?php echo htmlspecialchars($og_title); ?>" />

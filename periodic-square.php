@@ -3,7 +3,7 @@ $page_title = "Mike Macfadden - Period Square Generator";
 $meta_description = "The Periodic Square Generator is a simple tool that lets you build an interactive periodic table of elements that links out to a URL via QR Code.";
 $og_title = "Mike Macfadden - Periodic Square Generator";
 $og_url = "https://mmacfadden.com/periodic-square.html";
-$og_image = "img/og/og_periodic_square.jpg";
+$og_image = "https://mmacfadden.com/img/og/og_periodic_square.jpg";
 
 include 'header.php';
 ?>
