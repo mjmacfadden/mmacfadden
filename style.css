@@ -331,12 +331,20 @@ PERIODIC SQUARE GENERATOR
   font-size: 20px;
   margin-top: 10px;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1200px) {
   /* Your custom styles for small screens here */
   .project {
     filter: brightness(100%);
-    .substack_embed {
-      height: 600px;
-    }
   }
+  .substack_embed {
+      height: 550px;
+    }
+}
+
+@media (max-width: 768px) {
+  /* Your custom styles for small screens here */
+    .substack_embed {
+      height: 650px;
+    }
 }

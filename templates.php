@@ -1,4 +1,11 @@
-<?php include 'header.php';
+<?php 
+    $page_title = "Mike Macfadden - Templates";
+    $meta_description = "Find amazing Google Slides Templates. They're free to download and easy to use. Perfect for teachers and students.";
+    $og_title = "Mike Macfadden - Templates";
+    //$og_url = "https://yourwebsite.com/custom-page";
+    $og_image = "https://mmacfadden.com/img/og/og_templates.jpg";
+
+    include 'header.php';
 ?>
 
 <div class="container templates my-4 py-4">
