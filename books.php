@@ -24,9 +24,13 @@ include 'header.php';
         <div class="col-md-8">
             <h2>Somtimes I write Children's Stories</h3>
             <p>I wrote a few children's stories for my two boys, and I published them on Amazon KDP.</p>
-            <a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank">
+            <!--<a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank">
                 <img src="img/some_friends.webp" class="img-fluid" alt="Some Friends - Children's Stories" />
-            </a>
+            </a>-->
+
+            <?php
+                include 'books/somebears.php';
+            ?>      
         </div>
 
         <?php

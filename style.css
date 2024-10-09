@@ -48,6 +48,11 @@ a,
   background-color: #30bdb6b0 !important;
   border-color: #30bdb6b0 !important;
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+  filter: invert(100%);
+  opacity:50%;
+}
 /*
 =================================================
 SIDEBAR
