@@ -364,8 +364,16 @@ PERIODIC SQUARE GENERATOR
   .substack_embed {
     height: 550px;
   }
+  .sidebar i {
+    padding: 0 5px;
+  }
 }
 
+@media (max-width: 992px) {
+  .sidebar i {
+    padding: 0 1px;
+  }
+}
 @media (max-width: 768px) {
   /* Your custom styles for small screens here */
   .substack_embed {
