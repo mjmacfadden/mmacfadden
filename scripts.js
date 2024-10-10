@@ -22,6 +22,34 @@ myModal.addEventListener("shown.bs.modal", function () {
   myInput.focus();
 });
 
+// Function to hide all story divs
+function hideAllStories() {
+  const stories = document.querySelectorAll(".story_book");
+  stories.forEach((story) => (story.style.display = "none"));
+}
+
+// Function to show the selected story
+function showStory(storyId) {
+  hideAllStories(); // Hide all stories first
+  const story = document.getElementById(storyId);
+  if (story) {
+    story.style.display = "block"; // Show the selected story
+  }
+}
+
+// Add event listeners to links
+document.querySelectorAll(".story-link").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default link behavior
+
+    // Print to the console to detect click
+    console.log("Link clicked:", this.getAttribute("data-target"));
+
+    const targetStory = this.getAttribute("data-target");
+    showStory(targetStory);
+  });
+});
+
 // Create an object with old paths as keys and new paths as values
 const redirects = {
   "/mark-more.html": "/markmore.php",
@@ -31,7 +59,8 @@ const redirects = {
   "/mark-more": "/markmore.html",
   "/about/": "/about.html",
   "/periodic-square/": "periodic-square.html",
-  "/2018/01/25/project-based-grading/": "https://mmacfadden.substack.com/p/project-based-grading",
+  "/2018/01/25/project-based-grading/":
+    "https://mmacfadden.substack.com/p/project-based-grading",
 };
 
 // Get the current path

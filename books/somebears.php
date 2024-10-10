@@ -1,4 +1,4 @@
-<div class="some_bears" style="width:100%; max-width:500px; margin:0 auto; border:1px solid #CCCCCC;">  
+<div class="some_bears story_book" id="some_bears" style="width:100%; max-width:500px; margin:0 auto; border:1px solid #CCCCCC;">  
   <div id="someBears" class="carousel slide">
     <!-- Carousel Indicators -->
     <div class="carousel-indicators">

@@ -49,9 +49,9 @@ a,
   border-color: #30bdb6b0 !important;
 }
 .carousel-control-prev-icon,
-.carousel-control-next-icon{
+.carousel-control-next-icon {
   filter: invert(100%);
-  opacity:50%;
+  opacity: 50%;
 }
 /*
 =================================================
@@ -218,6 +218,24 @@ MARK MORE
 
 /*
 =================================================
+BOOKS
+=================================================
+*/
+.some_bears {
+  margin-top: 44px !important;
+  margin-bottom: 44px !important;
+}
+.story_book {
+  display: none;
+}
+.books nav {
+  margin-bottom: 44px;
+}
+#some_bears {
+  display: block;
+}
+/*
+=================================================
 FREEBIES
 =================================================
 */
@@ -343,13 +361,13 @@ PERIODIC SQUARE GENERATOR
     filter: brightness(100%);
   }
   .substack_embed {
-      height: 550px;
-    }
+    height: 550px;
+  }
 }
 
 @media (max-width: 768px) {
   /* Your custom styles for small screens here */
-    .substack_embed {
-      height: 650px;
-    }
+  .substack_embed {
+    height: 650px;
+  }
 }
