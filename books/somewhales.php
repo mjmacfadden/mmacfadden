@@ -16,8 +16,6 @@
       <button type="button" data-bs-target="#someWhales" data-bs-slide-to="11" aria-label="Slide 12"></button>
       <button type="button" data-bs-target="#someWhales" data-bs-slide-to="12" aria-label="Slide 13"></button>
       <button type="button" data-bs-target="#someWhales" data-bs-slide-to="13" aria-label="Slide 14"></button>
-      <button type="button" data-bs-target="#someWhales" data-bs-slide-to="14" aria-label="Slide 15"></button>
-      <button type="button" data-bs-target="#someWhales" data-bs-slide-to="15" aria-label="Slide 16"></button>
     </div>
 
     <!-- Carousel Images -->
@@ -68,12 +66,6 @@
       </div>
       <div class="carousel-item">
         <img src="img/books/somewhales/14.jpg" class="d-block w-100" alt="Image 14">
-      </div>
-      <div class="carousel-item">
-        <img src="img/books/somewhales/15.jpg" class="d-block w-100" alt="Image 15">
-      </div>
-      <div class="carousel-item">
-        <img src="img/books/somewhales/16.jpg" class="d-block w-100" alt="Image 16">
       </div>
     </div>
 

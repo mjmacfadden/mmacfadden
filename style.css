@@ -222,11 +222,12 @@ BOOKS
 =================================================
 */
 .some_bears {
-  margin-top: 44px !important;
-  margin-bottom: 44px !important;
+
 }
 .story_book {
   display: none;
+  margin-top: 44px !important;
+  margin-bottom: 44px !important;
 }
 .books nav {
   margin-bottom: 44px;
