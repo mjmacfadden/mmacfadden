@@ -31,6 +31,14 @@
                 </a>
             </ul>
 
+            <!-- District 225 -->
+            <img src="img/media/glenbrook225.png" alt="Glenbrook District 225">
+            <ul>
+                <a href="https://www.glenbrook225.org/resources/news-events-and-schedules/the-glenbrooks-community-publication/dbpp-the-glenbrooks/~board/the-glenbrooks/post/the-glenbrooks-winter-2024-issue" target="_blank">
+                    <li>The Glenbrooks – Winter 2024 Issue (page - 24)</li>
+                </a>
+            </ul>
+
             <!-- The Oracle -->
             <img src="img/media/oracle.png" alt="The Oracle">
             <ul>
