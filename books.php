@@ -3,7 +3,7 @@ $page_title = "Mike Macfadden - Books";
 $meta_description = "Sometimes I write children's stories for my two boys and then publish them to Amazon KDP, but you can read them here for free.";
 $og_title = "Mike Macfadden - Books";
 //$og_url = "https://yourwebsite.com/custom-page";
-//$og_image = "https://yourwebsite.com/custom-image.jpg";
+$og_image = "https://mmacfadden.com/img/og/og_books.jpg";
 
 include 'header.php';
 ?>
