@@ -16,7 +16,7 @@ font-family: "Poppins", sans-serif;
     font-weight:700;
 }
 .copied{
-    position:absolute;
+    position:fixed;
     top:25px;
     background:grey;
     color:white;
