@@ -111,3 +111,30 @@ IMAGE GALLERY
     margin:2px 0 2px 0;
     cursor:pointer;
 }
+
+/*
+=================================================
+JIGGLE ANIMATION
+=================================================
+*/
+/* Define the jiggle animation */
+@keyframes jiggle {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Style the paragraph */
+p.jiggle {
+    display: block; /* Allow the element to be animated smoothly */
+    font-size: 20px;
+    cursor: pointer; /* Optional: Change cursor to pointer */
+    transition: transform 0.2s ease;
+}
+
+/* Apply the jiggle animation on hover */
+p.jiggle:hover {
+    animation: jiggle 0.3s ease 1;
+}
