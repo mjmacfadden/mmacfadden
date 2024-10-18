@@ -4,6 +4,11 @@ document.querySelectorAll('.flip').forEach(card => {
         card.classList.toggle('flipped');
     });
 });
+// Trigger flip using another element (like a button)
+document.getElementById('flipTrigger').addEventListener('click', function() {
+    const card = document.querySelector('.flip'); // Select the card you want to flip
+    card.classList.toggle('flipped'); // Toggle the 'flipped' class on the card
+});
 
 // Function to check if card is flipped and flip it
 function flipCardIfNotFlipped() {
@@ -92,27 +97,48 @@ function hideElements() {
 // Set initial values from URL parameters when the page loads
 window.onload = function() {
     const params = getUrlParams();
-    
-    // Update the card content
-    document.getElementById('to').innerHTML = `To: ${params.to}`;
-    document.getElementById('from').innerHTML = `From: ${params.from}`;
-    document.getElementById('message').innerHTML = params.message;
-    
-    // Optional: Populate input fields with the current URL values
-    document.getElementById('toInput').value = params.to !== '' ? params.to : '';
-    document.getElementById('fromInput').value = params.from !== '' ? params.from : '';
-    document.getElementById('messageInput').value = params.message !== '' ? params.message : '';
 
-    // Set the image based on the URL parameter
-    const selectedImage = document.getElementById(params.imageId);
-    if (selectedImage) {
-        const imageUrl = selectedImage.src;
-        updateBackgroundImage(imageUrl, params.imageId);  // Update the background image based on the saved imageId
-    }
+    // Define default values
+    const defaultParams = {
+        to: '',
+        from: '',
+        message: '',
+        imageId: '1', // Default image ID
+        hideClass: 'false'
+    };
 
-    // Hide elements if the 'hide' parameter is true
-    if (params.hideClass === 'true') {
-        hideElements();
+    // Compare URL parameters with default values
+    const isParamsDifferent = (
+        params.to !== defaultParams.to ||
+        params.from !== defaultParams.from ||
+        params.message !== defaultParams.message ||
+        params.imageId !== defaultParams.imageId ||
+        params.hideClass !== defaultParams.hideClass
+    );
+
+    // Only update the card if the URL parameters differ from defaults
+    if (isParamsDifferent) {
+        // Update the card content
+        document.getElementById('to').innerHTML = `To: ${params.to}`;
+        document.getElementById('from').innerHTML = `From: ${params.from}`;
+        document.getElementById('message').innerHTML = params.message;
+
+        // Optional: Populate input fields with the current URL values
+        document.getElementById('toInput').value = params.to !== '' ? params.to : '';
+        document.getElementById('fromInput').value = params.from !== '' ? params.from : '';
+        document.getElementById('messageInput').value = params.message !== '' ? params.message : '';
+
+        // Set the image based on the URL parameter
+        const selectedImage = document.getElementById(params.imageId);
+        if (selectedImage) {
+            const imageUrl = selectedImage.src;
+            updateBackgroundImage(imageUrl, params.imageId);  // Update the background image based on the saved imageId
+        }
+
+        // Hide elements if the 'hide' parameter is true
+        if (params.hideClass === 'true') {
+            hideElements();
+        }
     }
 };
 
@@ -124,4 +150,20 @@ function copyUrlToClipboard() {
     navigator.clipboard.writeText(currentUrl).catch(err => {
         console.error('Failed to copy the URL: ', err);
     });
+}
+
+//Display "copied url" message after button click
+function copyUrlToClipboard() {
+    // Copy URL to clipboard
+    const currentUrl = window.location.href;
+    navigator.clipboard.writeText(currentUrl);
+
+    // Show the copied message
+    const copiedMessage = document.querySelector('.copied');
+    copiedMessage.style.display = 'block';
+
+    // Hide the message after 1.5 seconds
+    setTimeout(() => {
+        copiedMessage.style.display = 'none';
+    }, 2000); // 1.5 seconds
 }

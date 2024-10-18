@@ -17,9 +17,17 @@ font-family: "Poppins", sans-serif;
 }
 .copied{
     position:absolute;
-    top:20px;
+    top:25px;
     background:grey;
     color:white;
+    width:150px;
+    padding: 3px 5 px;
+    font-size:22px;
+    border-radius: 4px;
+    left:50%;
+    margin-left:-75px;
+    z-index:10;
+    display:none;
 }
 
 .flip {
@@ -82,6 +90,7 @@ font-family: "Poppins", sans-serif;
 }
 .arrow{
     opacity:.5;
+    cursor:pointer;
 }
 .arrow img{
     height:22px;
