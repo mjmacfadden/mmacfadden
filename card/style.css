@@ -1,25 +1,32 @@
 * {
     box-sizing: border-box;
-    font-weight: normal;
 }
 
 body {
 text-align: center;
 font-family: "Poppins", sans-serif;
-padding: 3em;
 }
-
+.logo{
+    color:#CCC;
+    text-decoration:none;
+    font-size:24px;
+}
 .back h2{
     font-size:14px;
     font-weight:700;
+}
+.copied{
+    position:absolute;
+    top:20px;
+    background:grey;
+    color:white;
 }
 
 .flip {
     position: relative;
     display: inline-block;
-    margin-right: 2px;
-    margin-bottom: 1em;
-    width: 400px;
+    margin: 0 auto 1em auto;
+    width: 100%;
     cursor: pointer;
 }
 .flip > .front,
@@ -28,16 +35,19 @@ padding: 3em;
     transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
     transition-duration: 1s;
     transition-property: transform, opacity;
-    max-width:350px;
+    aspect-ratio: 4/5;
     width:100%;
+    max-width:500px;
+    max-height:650px;
     background-size: cover!important;
     background-position: center!important;
-    height:438px;
-    padding: 1em 2em;
+    padding: 1em 1em;
     background: #FFFFFF;
     border:1px solid #f1f1f1;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    font-size:22px;
+    font-weight:100;
 }
 .flip .front {
     transform: rotateY(0deg);
@@ -58,21 +68,36 @@ padding: 3em;
     opacity: 1;
     transform: rotateY(0deg);
 }
+.center-card{
+    display:inline-block;
+    margin:0 auto;
+    aspect-ratio: 4/5;
+    width:100%;
+    max-width:500px;
+    max-height:650px;
+}
 
 .text-shadow {
     text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
 }
-
+.arrow{
+    opacity:.5;
+}
+.arrow img{
+    height:22px;
+    position:relative;
+    top:-10px;
+}
 /*
 =================================================
 IMAGE GALLERY 
 =================================================
 */
 .thumb{
-    max-width:150px;
+    max-width:149px;
 }
 .img-thumbnail{
     padding:0;
-    margin:5px;
+    margin:2px 0 2px 0;
     cursor:pointer;
 }
