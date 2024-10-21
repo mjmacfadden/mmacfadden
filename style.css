@@ -1,140 +1,382 @@
-* {
-    box-sizing: border-box;
-}
-
+/*
+=================================================
+GLOBAL
+=================================================
+*/
 body {
-text-align: center;
-font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
-.logo{
-    color:#CCC;
-    text-decoration:none;
-    font-size:24px;
-    font-family: "Limelight", sans-serif;;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
 }
-.back h2{
-    font-size:14px;
-    font-weight:700;
+.navbar {
+  text-transform: uppercase;
 }
-.copied{
-    position:fixed;
-    top:25px;
-    background:grey;
-    color:white;
-    width:150px;
-    padding: 3px 5 px;
-    font-size:22px;
-    border-radius: 4px;
-    left:50%;
-    margin-left:-75px;
-    z-index:10;
-    display:none;
-}
-
-.flip {
-    position: relative;
-    display: inline-block;
-    margin: 0 auto 1em auto;
-    width: 100%;
-    cursor: pointer;
-}
-.flip > .front,
-.flip > .back {
-    display: block;
-    transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
-    transition-duration: 1s;
-    transition-property: transform, opacity;
-    aspect-ratio: 4/5;
-    width:100%;
-    max-width:500px;
-    max-height:650px;
-    background-size: cover!important;
-    background-position: center!important;
-    padding: 1em 1em;
-    background: #FFFFFF;
-    border:1px solid #f1f1f1;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    font-size:22px;
-    font-weight:100;
-}
-.flip .front {
-    transform: rotateY(0deg);
-}
-.flip .back {
-    position: absolute;
-    opacity: 0;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    transform: rotateY(-180deg);
-}
-.flip.flipped .front {
-    transform: rotateY(180deg);
-}
-.flip.flipped .back {
-    opacity: 1;
-    transform: rotateY(0deg);
-}
-.center-card{
-    display:inline-block;
-    margin:0 auto;
-    aspect-ratio: 4/5;
-    width:100%;
-    max-width:500px;
-    max-height:650px;
-}
-
 .text-shadow {
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
 }
-.arrow{
-    opacity:.5;
-    cursor:pointer;
+.img-shadow,
+.btn-shadow {
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
 }
-.arrow img{
-    height:22px;
-    position:relative;
-    top:-10px;
+a,
+.nav-tabs .nav-link {
+  color: #30bdb6;
+}
+.page_header {
+  background-color: #d0e4e4;
+}
+.nav-item i {
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #30bdb6;
+  border-color: #30bdb6;
+}
+.btn-primary:hover {
+  background-color: #30bdb6d4;
+  border-color: #30bdb6d4;
+}
+.btn-primary:active {
+  background-color: #30bdb6b0 !important;
+  border-color: #30bdb6b0 !important;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
+  opacity: 50%;
 }
 /*
 =================================================
-IMAGE GALLERY 
+SIDEBAR
 =================================================
 */
-.thumb{
-    max-width:149px;
+.sidebar h6 {
+  text-transform: uppercase;
 }
-.img-thumbnail{
-    padding:0;
-    margin:2px;
-    cursor:pointer;
+.substack_embed {
+  height: 320px;
+}
+
+.social_share {
+  padding: 22px 0;
+}
+.sidebar i {
+  font-size: 24px !important;
+  padding: 0 10px;
+}
+/*
+=================================================
+SEARCH MODAL
+=================================================
+*/
+.modal-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.modal-content {
+  height: 100%;
+  border-radius: 0;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1rem;
+  color: #000;
+}
+#searchInput,
+#searchSubmit {
+  max-width: 600px;
+  width: 100%;
+  font-size: 24px;
+}
+.modal-header {
+  border-bottom: none;
 }
 
 /*
 =================================================
-JIGGLE ANIMATION
+SEARCH PAGE
 =================================================
 */
-/* Define the jiggle animation */
-@keyframes jiggle {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
+.search_page {
+  min-height: 200px;
+}
+.searchInput,
+.searchSubmit {
+  font-size: 24px;
 }
 
-/* Style the paragraph */
-p.jiggle {
-    display: block; /* Allow the element to be animated smoothly */
-    font-size: 20px;
-    cursor: pointer; /* Optional: Change cursor to pointer */
-    transition: transform 0.2s ease;
+/*
+=================================================
+HOME PAGE
+=================================================
+*/
+.hero {
+  min-height: 400px;
+  background-color: #d0e4e4;
+}
+.media_mentions {
+  background: url("img/bg_widget_white.gif");
+  box-shadow: inset 0px 0px 34px -2px rgba(0, 0, 0, 0.11);
+  padding: 20px 0;
 }
 
-/* Apply the jiggle animation on hover */
-p.jiggle:hover {
-    animation: jiggle 0.3s ease 1;
+.media_mentions img {
+  max-width: 225px;
+  width: 100%;
+  transition: 0.2s;
+}
+.media_mentions img:hover {
+  opacity: 0.8;
+}
+
+.media_mentions p {
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 15px;
+}
+.home .headshot {
+  max-width: 200px;
+  margin-bottom: 11px;
+}
+.home figcaption {
+  opacity: 0.8;
+  font-size: 14px;
+}
+.project {
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(50%);
+  transition: 0.2s;
+}
+.project:hover {
+  filter: brightness(100%);
+}
+.projects h3 {
+  font-weight: 200;
+}
+.projects .american_handkerchief {
+  background-image: url("img/projects/american_handkerchief.jpg");
+}
+.projects .mqotd {
+  background-image: url("img/projects/mqotd.jpg");
+}
+.projects .meaningful_attendance {
+  background-image: url("img/projects/meaningful_attendance.jpg");
+}
+.projects .cryptoswatch {
+  background-image: url("img/projects/cryptoswatch.jpg");
+}
+/*
+=================================================
+ABOUT PAGE
+=================================================
+*/
+.about_me {
+  max-width: 800px;
+  margin: auto;
+}
+
+/*
+=================================================
+MEDIA PAGE
+=================================================
+*/
+.media_page ul {
+  margin-bottom: 44px;
+}
+.media_page li {
+  font-weight: 600;
+}
+.media_page img {
+  width: 100%;
+  max-width: 225px;
+  margin-bottom: 11px;
+}
+/*
+=================================================
+MARK MORE
+=================================================
+*/
+.mark_more_logo {
+  max-width: 600px;
+  width: 90%;
+}
+
+/*
+=================================================
+BOOKS
+=================================================
+*/
+.some_bears {
+
+}
+.story_book {
+  display: none;
+  margin-top: 44px !important;
+  margin-bottom: 44px !important;
+}
+.books nav {
+  margin-bottom: 44px;
+}
+#some_bears {
+  display: block;
+}
+/*
+=================================================
+FREEBIES
+=================================================
+*/
+.freebies {
+  min-height: 400px;
+}
+
+/*
+=================================================
+TEMPLATES PAGE
+=================================================
+*/
+.templates img {
+  width: 100%;
+  max-width: 225px;
+}
+.templates p {
+  font-size: 11px;
+  margin: 10px auto;
+}
+.substack {
+  background-color: #bbe7e4;
+  min-height: 300px;
+}
+.substack p {
+  font-size: 16px;
+}
+.substack .success {
+  margin: 0 auto !important;
+}
+/*
+=================================================
+404
+=================================================
+*/
+.redirect a {
+  font-weight: 700;
+}
+/*
+=================================================
+FOOTER
+=================================================
+*/
+.bottom_footer {
+  background: #141414;
+  color: #838383;
+  font-size: 11px;
+}
+footer {
+  font-size: 0.8rem;
+}
+footer .text-light {
+  color: #30bdb6 !important;
+}
+footer a {
+  text-decoration: none !important;
+}
+
+/*
+=================================================
+PERIODIC SQUARE GENERATOR
+=================================================
+*/
+.periodic_square {
+  min-height: 500px;
+}
+.element-square {
+  display: inline-block;
+  border: 1px solid #000;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+.element-number {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+.element-symbol {
+  font-size: 150px;
+  font-weight: bold;
+  margin: 60px 5px 20px 5px;
+  display: inline-block;
+  line-height: 1;
+}
+.element-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.element-weight {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.periodic_square form {
+  margin-bottom: 20px;
+}
+.periodic_square label,
+.periodic_square input {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+}
+.periodic_square input {
+  padding: 5px;
+}
+.periodic_square button {
+  width: 100%;
+}
+#downloadButton {
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+@media (max-width: 1200px) {
+  /* Your custom styles for small screens here */
+  .project {
+    filter: brightness(100%);
+  }
+  .substack_embed {
+    height: 550px;
+  }
+  .sidebar i {
+    padding: 0 5px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar i {
+    padding: 0 1px;
+  }
+}
+@media (max-width: 768px) {
+  /* Your custom styles for small screens here */
+  .substack_embed {
+    height: 650px;
+  }
 }
