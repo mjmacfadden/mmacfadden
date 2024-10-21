@@ -11,6 +11,8 @@ const imagesData = [
     {filename: "halloween_jackolanterns", alt: "Halloween - Jackolanterns", id: "9", classes: "thumb img-thumbnail"},
     {filename: "halloween_jackolantern_and_skull", alt: "Halloween - Jackolantern and Skull", id: "10", classes: "thumb img-thumbnail"},
     {filename: "halloween_kitty", alt: "Halloween - Kitty", id: "11", classes: "thumb img-thumbnail"},
+    {filename: "halloween_haunted_hill", alt: "Halloween - Haunted Hill", id: "12", classes: "thumb img-thumbnail"},
+
 ];
 
 function displayImages() {
