@@ -108,7 +108,7 @@ IMAGE GALLERY
 }
 .img-thumbnail{
     padding:0;
-    margin:2px 0 2px 0;
+    margin:2px;
     cursor:pointer;
 }
 

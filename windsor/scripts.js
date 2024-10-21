@@ -1,3 +1,38 @@
+// Array of arrays to hold image data
+const imagesData = [
+    {filename: "birthday_balloon_cake", alt: "Birthday - Balloon Cake", id: "1", classes: "thumb img-thumbnail"},
+    {filename: "birthday_cupcake_cart", alt: "Birthday - Cupcake Cart", id: "2", classes: "thumb img-thumbnail"},
+    {filename: "birthday_cupcake_line_art", alt: "Birthday - Cupcake Line Art", id: "3", classes: "thumb img-thumbnail"},
+    {filename: "birthday_gift_box", alt: "Birthday - Gift Box", id: "4", classes: "thumb img-thumbnail"},
+    {filename: "birthday_happy_cake", alt: "Birthday - Happy Cake", id: "5", classes: "thumb img-thumbnail"},
+    {filename: "birthday_owl", alt: "Birthday - Owl", id: "6", classes: "thumb img-thumbnail"},
+    {filename: "birthday_unicorn", alt: "Birthday - Unicorn", id: "7", classes: "thumb img-thumbnail"},
+    {filename: "birthday_wreath", alt: "Birthday - Wreath", id: "8", classes: "thumb img-thumbnail"},
+    {filename: "halloween_jackolanterns", alt: "Halloween - Jackolanterns", id: "9", classes: "thumb img-thumbnail"},
+    {filename: "halloween_jackolantern_and_skull", alt: "Halloween - Jackolantern and Skull", id: "10", classes: "thumb img-thumbnail"},
+    {filename: "halloween_kitty", alt: "Halloween - Kitty", id: "11", classes: "thumb img-thumbnail"},
+];
+
+function displayImages() {
+    imagesData.forEach(image => {
+    const imgElement = document.createElement('img');
+    imgElement.src = `img/${image.filename}.jpg`;
+    imgElement.alt = image.alt;
+    imgElement.id = image.id;
+    imgElement.className = image.classes;
+
+    document.getElementById('card_images').appendChild(imgElement);
+    });
+    // Add event listeners to all image thumbnails
+    const thumbnails = document.querySelectorAll('.thumb');
+    thumbnails.forEach((thumb) => {
+        thumb.addEventListener('click', function() {
+            const imageId = thumb.getAttribute('id');  // Get the ID of the clicked image
+            updateBackgroundImage(imageId);  // Update the background image of the card and flip to front
+        });
+    });
+}
+
 // CARD FLIP
 document.querySelectorAll('.flip').forEach(card => {
     card.addEventListener('click', function() {
@@ -59,31 +94,36 @@ document.getElementById('fromInput').addEventListener('input', updateCardAndUrl)
 document.getElementById('messageInput').addEventListener('input', updateCardAndUrl);
 
 // Function to update the front card background image and flip to front
-function updateBackgroundImage(imageUrl, imageId) {
+function updateBackgroundImage(imageId) {
     const frontDiv = document.querySelector('.front');
     const card = document.querySelector('.flip');
     
-    // Update the background image
-    frontDiv.style.backgroundImage = `url(${imageUrl})`;
-    frontDiv.setAttribute('data-image-id', imageId); // Store the image ID
-    updateCardAndUrl();
-
-    // Ensure the card flips to the front if it's currently on the back
-    if (card.classList.contains('flipped')) {
-        card.classList.remove('flipped');
+    // Ensure the elements exist
+    if (!frontDiv || !card) {
+        console.error('Front card or flip element not found in the DOM.');
+        return;
+    }
+    
+    // Find the image data by ID in the imagesData array
+    const imageData = imagesData.find(image => image.id === imageId.toString());
+    
+    if (imageData) {
+        // Construct the image URL from the filename in the array
+        const imageUrl = `img/${imageData.filename}.jpg`;
+        
+        // Update the background image
+        frontDiv.style.backgroundImage = `url(${imageUrl})`;
+        frontDiv.setAttribute('data-image-id', imageId); // Store the image ID
+        updateCardAndUrl(); // Assuming this updates the card's URL and other details
+        
+        // Ensure the card flips to the front if it's currently on the back
+        if (card.classList.contains('flipped')) {
+            card.classList.remove('flipped');
+        }
+    } else {
+        console.error(`Image with ID ${imageId} not found in imagesData`);
     }
 }
-
-// Add event listeners to all image thumbnails
-const thumbnails = document.querySelectorAll('.thumb');
-thumbnails.forEach((thumb) => {
-    thumb.addEventListener('click', function() {
-        const imageUrl = thumb.src;  // Get the source of the clicked image
-        const imageId = thumb.getAttribute('id');  // Get the ID of the clicked image
-        updateBackgroundImage(imageUrl, imageId);  // Update the background image of the card and flip to front
-    });
-});
-
 
 // Function to hide elements with the 'hide' class
 function hideElements() {
@@ -95,7 +135,7 @@ function hideElements() {
 }
 
 // Set initial values from URL parameters when the page loads
-window.onload = function() {
+function urlParams() {
     const params = getUrlParams();
 
     // Define default values
@@ -128,19 +168,31 @@ window.onload = function() {
         document.getElementById('fromInput').value = params.from !== '' ? params.from : '';
         document.getElementById('messageInput').value = params.message !== '' ? params.message : '';
 
-        // Set the image based on the URL parameter
-        const selectedImage = document.getElementById(params.imageId);
-        if (selectedImage) {
-            const imageUrl = selectedImage.src;
-            updateBackgroundImage(imageUrl, params.imageId);  // Update the background image based on the saved imageId
-        }
-
-        // Hide elements if the 'hide' parameter is true
-        if (params.hideClass === 'true') {
-            hideElements();
-        }
+        // Load the image from URL parameters
+        loadImageFromUrlParams(params.imageId); // Pass the imageId directly to the function
     }
-};
+
+    // Hide elements if the 'hide' parameter is true
+    if (params.hideClass === 'true') {
+        hideElements();
+    }
+}
+
+// Function to load the image based on the image ID from URL parameters
+function loadImageFromUrlParams(imageId) {
+    // Find the image data by the image ID from the URL parameters
+    const selectedImage = imagesData.find(image => image.id === imageId.toString()); // Ensure ID is a string
+
+    if (selectedImage) {
+        // Construct the image URL
+        const imageUrl = `img/${selectedImage.filename}.jpg`;
+
+        // Update the background image with the selected image data
+        updateBackgroundImage(selectedImage.id);  // Pass the image ID to update the background
+    } else {
+        console.error(`Image with ID ${imageId} not found in imagesData.`);
+    }
+}
 
 // Function to copy the current URL with parameters to the clipboard
 function copyUrlToClipboard() {
@@ -167,3 +219,8 @@ function copyUrlToClipboard() {
         copiedMessage.style.display = 'none';
     }, 2000); // 1.5 seconds
 }
+
+window.onload = function() {
+    displayImages();
+    urlParams();
+};
