@@ -12,7 +12,10 @@ const imagesData = [
     {filename: "halloween_haunted_hill", alt: "Halloween - Haunted Hill", id: "10", classes: "thumb img-thumbnail"},
     {filename: "halloween_jackolantern_and_skull", alt: "Halloween - Jackolantern and Skull", id: "11", classes: "thumb img-thumbnail"},
     {filename: "halloween_kitty", alt: "Halloween - Kitty", id: "12", classes: "thumb img-thumbnail"},
-    
+    {filename: "thankyou_bouquet", alt: "Thank You - Bouquet", id: "13", classes: "thumb img-thumbnail"},
+    {filename: "thankyou_hand_heart", alt: "Thank You - Hand Heart", id: "14", classes: "thumb img-thumbnail"},
+    {filename: "thankyou_heart_and_roses", alt: "Thank You - Heart and Roses", id: "15", classes: "thumb img-thumbnail"},
+    {filename: "thankyou_watercolor_landscape", alt: "Thank You - Watercolor Landscape", id: "16", classes: "thumb img-thumbnail"},
 
 ];
 
