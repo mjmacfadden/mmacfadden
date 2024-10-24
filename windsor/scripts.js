@@ -24,6 +24,10 @@ const imagesData = [
     {category: "hanukkah", filename: "hanukkah_snowy_menorah", alt: "Hanukkah - Snowy Menorah", id: "22", classes: "thumb img-thumbnail"},
     {category: "christmas", filename: "christmas_santa_cottage", alt: "Christmas - Santa Cottage", id: "23", classes: "thumb img-thumbnail"},
     {category: "christmas", filename: "christmas_vintage_vector", alt: "Christmas - Vintage Vector", id: "24", classes: "thumb img-thumbnail"},
+    {category: "thanksgiving", filename: "thanksgiving_turkey_barrel", alt: "Thanksgiving - Turkey Barrel", id: "25", classes: "thumb img-thumbnail"},
+    {category: "thanksgiving", filename: "thanksgiving_turkey_on_pumpkin", alt: "Thanksgiving - Turkey on Pumpkin", id: "26", classes: "thumb img-thumbnail"},
+    {category: "christmas", filename: "christmas_sleigh_and_cottage", alt: "Christmas - Sleigh and Cottage", id: "27" , classes: "thumb img-thumbnail"},
+    {category: "christmas", filename: "christmas_home_and_tree", alt: "Christmas - Home and Tree", id: "28" , classes: "thumb img-thumbnail"},
 
 ];
 
@@ -34,8 +38,15 @@ function displayImages(category = null) {
     const cardImages = document.getElementById('card_images');
     cardImages.innerHTML = '';
 
+    // Sort the imagesData array by category
+    const sortedImages = [...imagesData].sort((a, b) => {
+        if (a.category < b.category) return -1;
+        if (a.category > b.category) return 1;
+        return 0;
+    });
+
     // Filter and display images based on the category
-    imagesData
+    sortedImages
         .filter(image => !category || image.category === category)
         .forEach(image => {
             const imgElement = document.createElement('img');
