@@ -28,7 +28,11 @@ const imagesData = [
     {category: "thanksgiving", filename: "thanksgiving_turkey_on_pumpkin", alt: "Thanksgiving - Turkey on Pumpkin", id: "26", classes: "thumb img-thumbnail"},
     {category: "christmas", filename: "christmas_sleigh_and_cottage", alt: "Christmas - Sleigh and Cottage", id: "27" , classes: "thumb img-thumbnail"},
     {category: "christmas", filename: "christmas_home_and_tree", alt: "Christmas - Home and Tree", id: "28" , classes: "thumb img-thumbnail"},
-
+    {category: "congratulations", filename: "congrautlations_hands_up", alt: "Congratulations - Hands Up", id: "29" , classes: "thumb img-thumbnail"},
+    {category: "congratulations", filename: "congratulations_sip_sip_hooray", alt: "Congratulations - Sip Sip, Hooray", id: "30" , classes: "thumb img-thumbnail"},
+    {category: "graduation", filename: "graduation_congratulations_cap", alt: "Graduation - Congratulations Cap", id: "31" , classes: "thumb img-thumbnail"},
+    {category: "thanksgiving", filename: "thanksgiving_stoic_turkey", alt: "Thanksgiving - Stoic Turkey", id: "32" , classes: "thumb img-thumbnail"},
+    {category: "thanksgiving", filename: "thanksgiving_turkey_cornicopia", alt: "Thanksgiving - Turkey Cornicopia", id: "33" , classes: "thumb img-thumbnail"},
 ];
 
 let activeButton = null; // To track the currently active button
@@ -107,6 +111,12 @@ document.getElementById('birthday').addEventListener('click', function(event) {
 document.getElementById('christmas').addEventListener('click', function(event) {
     handleButtonClick('christmas', 'christmas', event);
 });
+document.getElementById('congratulations').addEventListener('click', function(event) {
+    handleButtonClick('congratulations', 'congratulations', event);
+});
+document.getElementById('graduation').addEventListener('click', function(event) {
+    handleButtonClick('graduation', 'graduation', event);
+});
 document.getElementById('halloweed').addEventListener('click', function(event) {
     handleButtonClick('halloween', 'halloweed', event);
 });
@@ -119,6 +129,7 @@ document.getElementById('thanksgiving').addEventListener('click', function(event
 document.getElementById('thank_you').addEventListener('click', function(event) {
     handleButtonClick('thank_you', 'thank_you', event);
 });
+
 
 
 
