@@ -38,11 +38,11 @@
             </div>
         </div>
         <div class="container py-4">
-            <div class="row">
+            <div class="row ">
                 <div class="col-md-6" id="conditional-full-width">
                     <div class="center-card">
                         <div class="flip">
-                            <div class="front" style="background-image: url(img/birthday_unicorn.jpg)">
+                            <div class="front" style="background-image: url(img/choose_a_design.jpg)">
                             </div>
                             <div class="back">
                                 <h2 id="to">To: <span></span></span></h2>
@@ -51,9 +51,9 @@
                             </div>
                         </div>
                     </div>
-                    <p class="arrow jiggle" id="flipTrigger">click to flip <img src="img/arrow.png" class="arrow" /></p>
+                    <p class="arrow jiggle" id="flipTrigger">click to flip <img src="img/arrow_up.png" class="arrow" /></p>
                 </div>
-                <div class="col-md-6 hide">
+                <div class="col-md-6 hide input_form">
                     <form class="card p-3" style="border:none;">
                         <div class="mb-3">
                             <input type="text" class="form-control" id="toInput" placeholder="to..." oninput="updateCardAndUrl()">
@@ -66,13 +66,23 @@
                         </div>
                         <button type="button" class="btn btn-secondary" id="updateButton" onclick="copyUrlToClipboard()">Share <i class="bi bi-send"></i></button>
                     </form> 
+                    <div class="filters">
+                        <p class="arrow">filter the cards <img src="img/arrow_down.png" class="arrow mb-3" style="top:10px;" /></p>
+                        <button class="btn btn-outline-secondary btn-sm" id="birthday">Birthday</button>
+                        <button class="btn btn-outline-secondary btn-sm" id="christmas">Christams</button>
+                        <button class="btn btn-outline-secondary btn-sm" id="halloweed">Halloween</button>
+                        <button class="btn btn-outline-secondary btn-sm" id="hanukkah">Hanukkah</button>
+                        <button class="btn btn-outline-secondary btn-sm" id="thanksgiving">Thanksgiving</button>
+                        <button class="btn btn-outline-secondary btn-sm" id="thank_you">Thank You</button>
                     </div>
                 </div>
             </div>
             
             <div class="row hide">
                 <div class="col">
-                    <div class="pt-4" id="card_images"></div>
+                    <div class="pt-4" id="card_images">
+
+                    </div>
                 </div>
             </div>
         </div>

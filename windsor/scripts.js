@@ -1,42 +1,52 @@
 // Array of arrays to hold image data
 const imagesData = [
-    {filename: "birthday_balloon_cake", alt: "Birthday - Balloon Cake", id: "1", classes: "thumb img-thumbnail"},
-    {filename: "birthday_cupcake_cart", alt: "Birthday - Cupcake Cart", id: "2", classes: "thumb img-thumbnail"},
-    {filename: "birthday_cupcake_line_art", alt: "Birthday - Cupcake Line Art", id: "3", classes: "thumb img-thumbnail"},
-    {filename: "birthday_gift_box", alt: "Birthday - Gift Box", id: "4", classes: "thumb img-thumbnail"},
-    {filename: "birthday_happy_cake", alt: "Birthday - Happy Cake", id: "5", classes: "thumb img-thumbnail"},
-    {filename: "birthday_owl", alt: "Birthday - Owl", id: "6", classes: "thumb img-thumbnail"},
-    {filename: "birthday_unicorn", alt: "Birthday - Unicorn", id: "7", classes: "thumb img-thumbnail"},
-    {filename: "birthday_wreath", alt: "Birthday - Wreath", id: "8", classes: "thumb img-thumbnail"},
-    {filename: "halloween_jackolanterns", alt: "Halloween - Jackolanterns", id: "9", classes: "thumb img-thumbnail"},
-    {filename: "halloween_haunted_hill", alt: "Halloween - Haunted Hill", id: "10", classes: "thumb img-thumbnail"},
-    {filename: "halloween_jackolantern_and_skull", alt: "Halloween - Jackolantern and Skull", id: "11", classes: "thumb img-thumbnail"},
-    {filename: "halloween_kitty", alt: "Halloween - Kitty", id: "12", classes: "thumb img-thumbnail"},
-    {filename: "thankyou_bouquet", alt: "Thank You - Bouquet", id: "13", classes: "thumb img-thumbnail"},
-    {filename: "thankyou_hand_heart", alt: "Thank You - Hand Heart", id: "14", classes: "thumb img-thumbnail"},
-    {filename: "thankyou_heart_and_roses", alt: "Thank You - Heart and Roses", id: "15", classes: "thumb img-thumbnail"},
-    {filename: "thankyou_watercolor_landscape", alt: "Thank You - Watercolor Landscape", id: "16", classes: "thumb img-thumbnail"},
-    {filename: "thankyou_sun", alt: "Thank You - Sun", id: "17", classes: "thumb img-thumbnail"},
-    {filename: "thankyou_sunrise", alt: "Thank You - Sunrise", id: "18", classes: "thumb img-thumbnail"},
-    {filename: "thankyou_unicorn", alt: "Thank You - Unicorn", id: "19", classes: "thumb img-thumbnail"},
-    {filename: "thankyou_elephant", alt: "Thank You - Elephant", id: "20", classes: "thumb img-thumbnail"},
-    {filename: "hanukkah_clay", alt: "Hanukkah - Clay", id: "21", classes: "thumb img-thumbnail"},
-    {filename: "hanukkah_snowy_menorah", alt: "Hanukkah - Snowy Menorah", id: "22", classes: "thumb img-thumbnail"},
-    {filename: "christmas_santa_cottage", alt: "Christmas - Santa Cottage", id: "23", classes: "thumb img-thumbnail"},
-    {filename: "christmas_vintage_vector", alt: "Christmas - Vintage Vector", id: "24", classes: "thumb img-thumbnail"},
+    {category: "birthday", filename: "birthday_balloon_cake", alt: "Birthday - Balloon Cake", id: "1", classes: "thumb img-thumbnail"},
+    {category: "birthday", filename: "birthday_cupcake_cart", alt: "Birthday - Cupcake Cart", id: "2", classes: "thumb img-thumbnail"},
+    {category: "birthday", filename: "birthday_cupcake_line_art", alt: "Birthday - Cupcake Line Art", id: "3", classes: "thumb img-thumbnail"},
+    {category: "birthday", filename: "birthday_gift_box", alt: "Birthday - Gift Box", id: "4", classes: "thumb img-thumbnail"},
+    {category: "birthday", filename: "birthday_happy_cake", alt: "Birthday - Happy Cake", id: "5", classes: "thumb img-thumbnail"},
+    {category: "birthday", filename: "birthday_owl", alt: "Birthday - Owl", id: "6", classes: "thumb img-thumbnail"},
+    {category: "birthday", filename: "birthday_unicorn", alt: "Birthday - Unicorn", id: "7", classes: "thumb img-thumbnail"},
+    {category: "birthday", filename: "birthday_wreath", alt: "Birthday - Wreath", id: "8", classes: "thumb img-thumbnail"},
+    {category: "halloween", filename: "halloween_jackolanterns", alt: "Halloween - Jackolanterns", id: "9", classes: "thumb img-thumbnail"},
+    {category: "halloween", filename: "halloween_haunted_hill", alt: "Halloween - Haunted Hill", id: "10", classes: "thumb img-thumbnail"},
+    {category: "halloween", filename: "halloween_jackolantern_and_skull", alt: "Halloween - Jackolantern and Skull", id: "11", classes: "thumb img-thumbnail"},
+    {category: "halloween", filename: "halloween_kitty", alt: "Halloween - Kitty", id: "12", classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thankyou_bouquet", alt: "Thank You - Bouquet", id: "13", classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thankyou_hand_heart", alt: "Thank You - Hand Heart", id: "14", classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thankyou_heart_and_roses", alt: "Thank You - Heart and Roses", id: "15", classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thankyou_watercolor_landscape", alt: "Thank You - Watercolor Landscape", id: "16", classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thankyou_sun", alt: "Thank You - Sun", id: "17", classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thankyou_sunrise", alt: "Thank You - Sunrise", id: "18", classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thankyou_unicorn", alt: "Thank You - Unicorn", id: "19", classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thankyou_elephant", alt: "Thank You - Elephant", id: "20", classes: "thumb img-thumbnail"},
+    {category: "hanukkah", filename: "hanukkah_clay", alt: "Hanukkah - Clay", id: "21", classes: "thumb img-thumbnail"},
+    {category: "hanukkah", filename: "hanukkah_snowy_menorah", alt: "Hanukkah - Snowy Menorah", id: "22", classes: "thumb img-thumbnail"},
+    {category: "christmas", filename: "christmas_santa_cottage", alt: "Christmas - Santa Cottage", id: "23", classes: "thumb img-thumbnail"},
+    {category: "christmas", filename: "christmas_vintage_vector", alt: "Christmas - Vintage Vector", id: "24", classes: "thumb img-thumbnail"},
 
 ];
 
-function displayImages() {
-    imagesData.forEach(image => {
-    const imgElement = document.createElement('img');
-    imgElement.src = `img/${image.filename}.jpg`;
-    imgElement.alt = image.alt;
-    imgElement.id = image.id;
-    imgElement.className = image.classes;
+let activeButton = null; // To track the currently active button
 
-    document.getElementById('card_images').appendChild(imgElement);
-    });
+function displayImages(category = null) {
+    // Clear the current images
+    const cardImages = document.getElementById('card_images');
+    cardImages.innerHTML = '';
+
+    // Filter and display images based on the category
+    imagesData
+        .filter(image => !category || image.category === category)
+        .forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = `img/${image.filename}.jpg`;
+            imgElement.alt = image.alt;
+            imgElement.id = image.id;
+            imgElement.className = image.classes;
+
+            cardImages.appendChild(imgElement);
+        });
+
     // Add event listeners to all image thumbnails
     const thumbnails = document.querySelectorAll('.thumb');
     thumbnails.forEach((thumb) => {
@@ -46,6 +56,60 @@ function displayImages() {
         });
     });
 }
+
+// Function to handle button style changes
+function updateButtonStyles(clickedButtonId) {
+    const buttons = document.querySelectorAll('.filters button');
+    buttons.forEach((button) => {
+        if (button.id === clickedButtonId) {
+            // Make the clicked button solid
+            button.classList.remove('btn-outline-secondary');
+            button.classList.add('btn-secondary');
+        } else {
+            // Revert others back to outlined
+            button.classList.remove('btn-secondary');
+            button.classList.add('btn-outline-secondary');
+        }
+    });
+}
+
+function handleButtonClick(category, buttonId, event) {
+    event.preventDefault(); // Prevent page scroll
+
+    if (activeButton === buttonId) {
+        // If the clicked button is already active, reset the filter to show all images
+        displayImages();
+        updateButtonStyles(null); // Revert all buttons to outlined
+        activeButton = null; // No active button anymore
+    } else {
+        // Set the new active button and display filtered images
+        displayImages(category);
+        updateButtonStyles(buttonId);
+        activeButton = buttonId; // Set the new active button
+    }
+}
+
+
+document.getElementById('birthday').addEventListener('click', function(event) {
+    handleButtonClick('birthday', 'birthday', event); // Pass event to the function
+});
+document.getElementById('christmas').addEventListener('click', function(event) {
+    handleButtonClick('christmas', 'christmas', event);
+});
+document.getElementById('halloweed').addEventListener('click', function(event) {
+    handleButtonClick('halloween', 'halloweed', event);
+});
+document.getElementById('hanukkah').addEventListener('click', function(event) {
+    handleButtonClick('hanukkah', 'hanukkah', event);
+});
+document.getElementById('thanksgiving').addEventListener('click', function(event) {
+    handleButtonClick('thanksgiving', 'thanksgiving', event);
+});
+document.getElementById('thank_you').addEventListener('click', function(event) {
+    handleButtonClick('thank_you', 'thank_you', event);
+});
+
+
 
 // CARD FLIP
 document.querySelectorAll('.flip').forEach(card => {
@@ -107,6 +171,7 @@ document.getElementById('toInput').addEventListener('input', updateCardAndUrl);
 document.getElementById('fromInput').addEventListener('input', updateCardAndUrl);
 document.getElementById('messageInput').addEventListener('input', updateCardAndUrl);
 
+/*
 // Function to update the front card background image and flip to front
 function updateBackgroundImage(imageId) {
     const frontDiv = document.querySelector('.front');
@@ -134,6 +199,56 @@ function updateBackgroundImage(imageId) {
         if (card.classList.contains('flipped')) {
             card.classList.remove('flipped');
         }
+    } else {
+        console.error(`Image with ID ${imageId} not found in imagesData`);
+    }
+}
+*/
+// Variable to keep track of the currently selected thumbnail
+let selectedThumbnail = null;
+
+// Function to update the front card background image and flip to front
+function updateBackgroundImage(imageId) {
+    const frontDiv = document.querySelector('.front');
+    const card = document.querySelector('.flip');
+    
+    // Ensure the elements exist
+    if (!frontDiv || !card) {
+        console.error('Front card or flip element not found in the DOM.');
+        return;
+    }
+    
+    // Find the image data by ID in the imagesData array
+    const imageData = imagesData.find(image => image.id === imageId.toString());
+    
+    if (imageData) {
+        // Construct the image URL from the filename in the array
+        const imageUrl = `img/${imageData.filename}.jpg`;
+        
+        // Update the background image
+        frontDiv.style.backgroundImage = `url(${imageUrl})`;
+        frontDiv.setAttribute('data-image-id', imageId); // Store the image ID
+        updateCardAndUrl(); // Assuming this updates the card's URL and other details
+        
+        // Ensure the card flips to the front if it's currently on the back
+        if (card.classList.contains('flipped')) {
+            card.classList.remove('flipped');
+        }
+
+        // Handle thumbnail border changes
+        const clickedThumbnail = document.getElementById(imageId);
+        
+        // Remove the border from the previously selected thumbnail, if any
+        if (selectedThumbnail) {
+            selectedThumbnail.style.border = 'none';
+        }
+
+        // Add a 2px grey border to the clicked thumbnail
+        clickedThumbnail.style.border = '1px solid grey';
+
+        // Set the clicked thumbnail as the new selected thumbnail
+        selectedThumbnail = clickedThumbnail;
+        
     } else {
         console.error(`Image with ID ${imageId} not found in imagesData`);
     }

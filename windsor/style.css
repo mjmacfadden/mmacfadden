@@ -5,6 +5,7 @@
 body {
 text-align: center;
 font-family: "Poppins", sans-serif;
+padding-bottom:400px
 }
 .logo{
     color:#CCC;
@@ -139,15 +140,41 @@ p.jiggle:hover {
     animation: jiggle 0.3s ease 1;
 }
 
+
+/*
+=================================================
+FILTER BUTTONS
+=================================================
+*/
+.filters button{
+    font-size:10px !important;
+    margin-bottom:5px;
+}
+
+.input_form{
+    position:relative;
+}
+.filters{
+    position:absolute;
+    bottom:40px;
+}
+
+/*
+=================================================
+MOBILE ONLY
+=================================================
+*/
 @media (max-width: 768px) {
     /* Your custom styles for small screens here */
     .center-card{
         max-height:200px;
     }
-    .flip > .front,
-.flip > .back {
-    max-width:300px;
-    max-height:375px;
-    margin:0 auto;
-}
+    .flip,  
+    .back{
+        max-width:300px;
+        max-height:375px;
+        margin:0 auto 20px auto;
+    }
+    .filters{
+        position:static;
   }
