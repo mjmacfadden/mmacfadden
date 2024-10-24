@@ -16,6 +16,14 @@ const imagesData = [
     {filename: "thankyou_hand_heart", alt: "Thank You - Hand Heart", id: "14", classes: "thumb img-thumbnail"},
     {filename: "thankyou_heart_and_roses", alt: "Thank You - Heart and Roses", id: "15", classes: "thumb img-thumbnail"},
     {filename: "thankyou_watercolor_landscape", alt: "Thank You - Watercolor Landscape", id: "16", classes: "thumb img-thumbnail"},
+    {filename: "thankyou_sun", alt: "Thank You - Sun", id: "17", classes: "thumb img-thumbnail"},
+    {filename: "thankyou_sunrise", alt: "Thank You - Sunrise", id: "18", classes: "thumb img-thumbnail"},
+    {filename: "thankyou_unicorn", alt: "Thank You - Unicorn", id: "19", classes: "thumb img-thumbnail"},
+    {filename: "thankyou_elephant", alt: "Thank You - Elephant", id: "20", classes: "thumb img-thumbnail"},
+    {filename: "hanukkah_clay", alt: "Hanukkah - Clay", id: "21", classes: "thumb img-thumbnail"},
+    {filename: "hanukkah_snowy_menorah", alt: "Hanukkah - Snowy Menorah", id: "22", classes: "thumb img-thumbnail"},
+    {filename: "christmas_santa_cottage", alt: "Christmas - Santa Cottage", id: "23", classes: "thumb img-thumbnail"},
+    {filename: "christmas_vintage_vector", alt: "Christmas - Vintage Vector", id: "24", classes: "thumb img-thumbnail"},
 
 ];
 
