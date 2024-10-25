@@ -34,6 +34,8 @@ const imagesData = [
     {category: "graduation", filename: "graduation_congratulations_cap", alt: "Graduation - Congratulations Cap", id: "31" , classes: "thumb img-thumbnail"},
     {category: "thanksgiving", filename: "thanksgiving_stoic_turkey", alt: "Thanksgiving - Stoic Turkey", id: "32" , classes: "thumb img-thumbnail"},
     {category: "thanksgiving", filename: "thanksgiving_turkey_cornicopia", alt: "Thanksgiving - Turkey Cornicopia", id: "33" , classes: "thumb img-thumbnail"},
+    {category: "congratulations", filename: "congratulations_splat", alt: "Congratulations - Splat", id: "34" , classes: "thumb img-thumbnail"},
+
 ];
 
 let activeButton = null; // To track the currently active button
@@ -194,39 +196,6 @@ document.getElementById('toInput').addEventListener('input', updateCardAndUrl);
 document.getElementById('fromInput').addEventListener('input', updateCardAndUrl);
 document.getElementById('messageInput').addEventListener('input', updateCardAndUrl);
 
-/*
-// Function to update the front card background image and flip to front
-function updateBackgroundImage(imageId) {
-    const frontDiv = document.querySelector('.front');
-    const card = document.querySelector('.flip');
-    
-    // Ensure the elements exist
-    if (!frontDiv || !card) {
-        console.error('Front card or flip element not found in the DOM.');
-        return;
-    }
-    
-    // Find the image data by ID in the imagesData array
-    const imageData = imagesData.find(image => image.id === imageId.toString());
-    
-    if (imageData) {
-        // Construct the image URL from the filename in the array
-        const imageUrl = `img/${imageData.filename}.jpg`;
-        
-        // Update the background image
-        frontDiv.style.backgroundImage = `url(${imageUrl})`;
-        frontDiv.setAttribute('data-image-id', imageId); // Store the image ID
-        updateCardAndUrl(); // Assuming this updates the card's URL and other details
-        
-        // Ensure the card flips to the front if it's currently on the back
-        if (card.classList.contains('flipped')) {
-            card.classList.remove('flipped');
-        }
-    } else {
-        console.error(`Image with ID ${imageId} not found in imagesData`);
-    }
-}
-*/
 // Variable to keep track of the currently selected thumbnail
 let selectedThumbnail = null;
 
