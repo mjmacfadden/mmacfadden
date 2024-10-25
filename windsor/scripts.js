@@ -357,21 +357,24 @@ function copyUrlToClipboard() {
     });
 }
 */
-// Function to share or copy the current URL
+// Function to share on mobile or copy the current URL on desktop
 function shareOrCopyUrl() {
     const currentUrl = window.location.href; // Get the full URL including parameters
 
-    if (navigator.share) {
-        // If Web Share API is supported (on mobile)
+    // Check if the device is mobile and Web Share API is supported
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+    if (isMobile && navigator.share) {
+        // If it's a mobile device and Web Share API is supported
         navigator.share({
-            title: document.title,       // Use the document's title for the share dialog
-            text: 'Check this out!',
+            title: document.title,
+            text: 'I sent you a little something from Windsor Greetings.',
             url: currentUrl
         })
         .then(() => console.log('URL shared successfully!'))
         .catch(err => console.error('Failed to share the URL: ', err));
     } else {
-        // If Web Share API is not supported (on desktop), copy the URL to clipboard
+        // On desktop or if Web Share API is unavailable, copy the URL to clipboard
         navigator.clipboard.writeText(currentUrl)
         .then(() => {
             // Show the copied message
