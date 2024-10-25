@@ -347,6 +347,7 @@ function loadImageFromUrlParams(imageId) {
 }
 
 // Function to copy the current URL with parameters to the clipboard
+/*
 function copyUrlToClipboard() {
     const currentUrl = window.location.href; // Get the full URL including parameters
 
@@ -355,6 +356,37 @@ function copyUrlToClipboard() {
         console.error('Failed to copy the URL: ', err);
     });
 }
+*/
+// Function to share or copy the current URL
+function shareOrCopyUrl() {
+    const currentUrl = window.location.href; // Get the full URL including parameters
+
+    if (navigator.share) {
+        // If Web Share API is supported (on mobile)
+        navigator.share({
+            title: document.title,       // Use the document's title for the share dialog
+            text: 'Check this out!',
+            url: currentUrl
+        })
+        .then(() => console.log('URL shared successfully!'))
+        .catch(err => console.error('Failed to share the URL: ', err));
+    } else {
+        // If Web Share API is not supported (on desktop), copy the URL to clipboard
+        navigator.clipboard.writeText(currentUrl)
+        .then(() => {
+            // Show the copied message
+            const copiedMessage = document.querySelector('.copied');
+            copiedMessage.style.display = 'block';
+
+            // Hide the message after 1.5 seconds
+            setTimeout(() => {
+                copiedMessage.style.display = 'none';
+            }, 1500); // 1.5 seconds
+        })
+        .catch(err => console.error('Failed to copy the URL: ', err));
+    }
+}
+
 
 //Display "copied url" message after button click
 function copyUrlToClipboard() {
