@@ -1,5 +1,6 @@
 // Array of arrays to hold image data
 const imagesData = [
+    {category: "default", filename: "choose_a_design", alt: "Choose A Design", id: "0", classes: "thumb img-thumbnail default_image"},
     {category: "birthday", filename: "birthday_balloon_cake", alt: "Birthday - Balloon Cake", id: "1", classes: "thumb img-thumbnail"},
     {category: "birthday", filename: "birthday_cupcake_cart", alt: "Birthday - Cupcake Cart", id: "2", classes: "thumb img-thumbnail"},
     {category: "birthday", filename: "birthday_cupcake_line_art", alt: "Birthday - Cupcake Line Art", id: "3", classes: "thumb img-thumbnail"},
@@ -160,7 +161,7 @@ function getUrlParams() {
         to: params.get('to') || '', 
         from: params.get('from') || '', 
         message: params.get('message') || '',
-        imageId: params.get('imageId') || '1', // Default to image 1
+        imageId: params.get('imageId') || '0', // Default to image 0
         hideClass: params.get('hide') || 'false' // New hide parameter
     };
 }
@@ -174,9 +175,9 @@ function updateCardAndUrl() {
     const hideClass = document.querySelector('.hide') ? 'true' : 'false';
 
     // Update the card with new values
-    document.getElementById('to').innerHTML = `To: ${toValue}`;
-    document.getElementById('from').innerHTML = `From: ${fromValue}`;
-    document.getElementById('message').innerHTML = messageValue;
+    document.getElementById('to').innerText = `To: ${toValue}`;
+    document.getElementById('from').innerText = `From: ${fromValue}`;
+    document.getElementById('message').innerText = messageValue;
 
     // Flip the card if input is typed and it's not already flipped
     if (toValue || fromValue || messageValue) {
@@ -310,9 +311,9 @@ function urlParams() {
     // Only update the card if the URL parameters differ from defaults
     if (isParamsDifferent) {
         // Update the card content
-        document.getElementById('to').innerHTML = `To: ${params.to}`;
-        document.getElementById('from').innerHTML = `From: ${params.from}`;
-        document.getElementById('message').innerHTML = params.message;
+        document.getElementById('to').innerText = `To: ${params.to}`;
+        document.getElementById('from').innerText = `From: ${params.from}`;
+        document.getElementById('message').innerText = params.message;
 
         // Optional: Populate input fields with the current URL values
         document.getElementById('toInput').value = params.to !== '' ? params.to : '';

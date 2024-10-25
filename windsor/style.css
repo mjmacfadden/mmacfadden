@@ -104,6 +104,9 @@ padding-bottom:400px
 IMAGE GALLERY 
 =================================================
 */
+.default_image{
+    display:none;
+}
 .thumb{
     max-width:149px;
 }
