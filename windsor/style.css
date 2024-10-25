@@ -178,10 +178,10 @@ MOBILE ONLY
     }
     .flip,  
     .back{
-        max-width:300px;
-        max-height:375px;
+
         margin:0 auto 20px auto;
     }
     .filters{
         position:static;
-  }
+    }
+}
