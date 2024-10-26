@@ -35,7 +35,8 @@ const imagesData = [
     {category: "thanksgiving", filename: "thanksgiving_stoic_turkey", alt: "Thanksgiving - Stoic Turkey", id: "32" , classes: "thumb img-thumbnail"},
     {category: "thanksgiving", filename: "thanksgiving_turkey_cornicopia", alt: "Thanksgiving - Turkey Cornicopia", id: "33" , classes: "thumb img-thumbnail"},
     {category: "congratulations", filename: "congratulations_splat", alt: "Congratulations - Splat", id: "34" , classes: "thumb img-thumbnail"},
-
+    {category: "just_because", filename: "just_because_mouse", alt: "Just Because - Mouse", id: "36" , classes: "thumb img-thumbnail"},
+    {category: "just_because", filename: "just_because_thinking_of_you_bear", alt: "Just Because - Thinking of You Bear", id: "37" , classes: "thumb img-thumbnail"},
 ];
 
 let activeButton = null; // To track the currently active button
@@ -132,7 +133,9 @@ document.getElementById('thanksgiving').addEventListener('click', function(event
 document.getElementById('thank_you').addEventListener('click', function(event) {
     handleButtonClick('thank_you', 'thank_you', event);
 });
-
+document.getElementById('just_because').addEventListener('click', function(event) {
+    handleButtonClick('just_because', 'just_because', event);
+});
 
 
 
@@ -173,7 +176,7 @@ function updateCardAndUrl() {
     const toValue = document.getElementById('toInput').value || '';
     const fromValue = document.getElementById('fromInput').value || '';
     const messageValue = document.getElementById('messageInput').value || '';
-    const imageId = document.querySelector('.front').getAttribute('data-image-id') || '1';
+    const imageId = document.querySelector('.front').getAttribute('data-image-id') || '0';
     const hideClass = document.querySelector('.hide') ? 'true' : 'false';
 
     // Update the card with new values
@@ -264,7 +267,7 @@ function urlParams() {
         to: '',
         from: '',
         message: '',
-        imageId: '1', // Default image ID
+        imageId: '0', // Default image ID
         hideClass: 'false'
     };
 
