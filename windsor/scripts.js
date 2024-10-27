@@ -42,9 +42,10 @@ const imagesData = [
     {category: "just_because", filename: "just_because_thinking_of_you_stars_and_sun", alt: "Just Because - Thinking of Stars and Sun", id: "40" , classes: "thumb img-thumbnail"},
     {category: "thank_you", filename: "thank_you_fox", alt: "Thank You - Fox", id: "41" , classes: "thumb img-thumbnail"},
     {category: "thank_you", filename: "thank_you_cute_critters", alt: "Thank You - Cute Critters", id: "42" , classes: "thumb img-thumbnail"},
-    {category: "thank_you", filename: "thank_you_fox", alt: "Thank You - Critters", id: "43" , classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thank_you_critters", alt: "Thank You - Critters", id: "43" , classes: "thumb img-thumbnail"},
     {category: "thanksgiving", filename: "thanksgiving_turkey_fence", alt: "Thanksgiving - Turkey Fence", id: "44" , classes: "thumb img-thumbnail"},
     {category: "just_because", filename: "just_because_autumn_lake", alt: "Just Because - Autumn Lake", id: "45" , classes: "thumb img-thumbnail"},
+    {category: "thank_you", filename: "thank_you_bouquet_and_sun", alt: "Thank You - Bouquet and Sun", id: "46", classes: "thumb img-thumbnail"},
 
 ];
 
@@ -67,7 +68,7 @@ function displayImages(category = null) {
         .filter(image => !category || image.category === category)
         .forEach(image => {
             const imgElement = document.createElement('img');
-            imgElement.src = `img/${image.filename}.jpg`;
+            imgElement.src = `img/thumbs/${image.filename}.jpg`;
             imgElement.alt = image.alt;
             imgElement.id = image.id;
             imgElement.className = image.classes;
