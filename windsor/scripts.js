@@ -46,6 +46,8 @@ const imagesData = [
     {category: "thanksgiving", filename: "thanksgiving_turkey_fence", alt: "Thanksgiving - Turkey Fence", id: "44" , classes: "thumb img-thumbnail"},
     {category: "just_because", filename: "just_because_autumn_lake", alt: "Just Because - Autumn Lake", id: "45" , classes: "thumb img-thumbnail"},
     {category: "thank_you", filename: "thank_you_bouquet_and_sun", alt: "Thank You - Bouquet and Sun", id: "46", classes: "thumb img-thumbnail"},
+    {category: "sympathy", filename: "sympathy_cherry_blossom", alt: "Sympathy - Cherry Blossom", id: "47", classes: "thumb img-thumbnail"},
+
 
 ];
 
@@ -145,6 +147,9 @@ document.getElementById('thank_you').addEventListener('click', function(event) {
 });
 document.getElementById('just_because').addEventListener('click', function(event) {
     handleButtonClick('just_because', 'just_because', event);
+});
+document.getElementById('sympathy').addEventListener('click', function(event) {
+    handleButtonClick('sympathy', 'sympathy', event);
 });
 
 
