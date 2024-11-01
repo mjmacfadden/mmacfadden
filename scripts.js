@@ -58,9 +58,32 @@ const redirects = {
   "/templates": "/templates.html",
   "/mark-more": "/markmore.html",
   "/about/": "/about.html",
-  "/periodic-square/": "periodic-square.html",
-  "/2018/01/25/project-based-grading/":
-    "https://mmacfadden.substack.com/p/project-based-grading",
+  "/periodic-square/": "/periodic-square.html",
+  "/2018/01/25/project-based-grading/": "https://mmacfadden.substack.com/p/project-based-grading",
+  "/windsor/" : "http://windsor.com",
+};
+
+// Get the current path and search parameters
+const currentPath = window.location.pathname;
+const queryParams = window.location.search;
+
+// Check if the current path exists in the redirects object
+if (redirects[currentPath]) {
+  // Redirect to the new URL and include the query parameters
+  window.location.href = redirects[currentPath] + queryParams;
+}
+
+/*
+// Create an object with old paths as keys and new paths as values
+const redirects = {
+  "/mark-more.html": "/markmore.php",
+  "/templates/": "/templates.html",
+  "/Templates/": "/templates.html",
+  "/templates": "/templates.html",
+  "/mark-more": "/markmore.html",
+  "/about/": "/about.html",
+  "/periodic-square/": "/periodic-square.html",
+  "/2018/01/25/project-based-grading/": "https://mmacfadden.substack.com/p/project-based-grading",
 };
 
 // Get the current path
@@ -71,3 +94,5 @@ if (redirects[currentPath]) {
   // Redirect to the new URL
   window.location.href = redirects[currentPath];
 }
+
+*/
