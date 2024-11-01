@@ -61,7 +61,9 @@ const redirects = {
   "/about/": "/about.html",
   "/periodic-square/": "/periodic-square.html",
   "/2018/01/25/project-based-grading/": "https://mmacfadden.substack.com/p/project-based-grading",
-  "/windsor/" : "http://windsorgreetings.com",
+  "/windsor" : "https://windsorgreetings.com",
+  "/windsor/" : "https://windsorgreetings.com",
+  "/windsor/index.html" : "https://windsorgreetings.com",
 };
 
 // Get the current path and search parameters
