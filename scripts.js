@@ -55,6 +55,7 @@ const redirects = {
   "/mark-more.html": "/markmore.php",
   "/templates/": "/templates.html",
   "/Templates/": "/templates.html",
+  "/Templates": "/templates.html",
   "/templates": "/templates.html",
   "/mark-more": "/markmore.html",
   "/about/": "/about.html",
