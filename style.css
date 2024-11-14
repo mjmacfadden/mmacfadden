@@ -356,6 +356,55 @@ PERIODIC SQUARE GENERATOR
   margin-top: 10px;
 }
 
+
+/*
+=================================================
+RSS FEED
+=================================================
+*/
+.rss_container{
+  background-color: #141414;
+  color:#f1f1f1;
+}
+.rss_feed{
+  max-width:728px;
+  margin:0 auto;
+}
+#latest-post{
+
+}
+#latest-post p{
+  line-height:1.8em;
+}
+#latest-post img{
+  width:100%;
+  height:auto;
+}
+#latest-post .image-caption{
+  text-align:center;
+  font-size:smaller;
+  color:#ccc;
+}
+.image-link-expand{
+  display:none;
+}
+#latest-post .primary{
+  background-color:#30bdb6;
+  color:#fff;
+  border-radius:5px;
+  padding:5px 10px;
+  text-decoration:none;
+  text-align:center;
+  text-transform:uppercase;
+  display:block;
+  margin:44px auto;
+  max-width:150px;
+  transition:.2s;
+}
+
+#latest-post .primary:hover{
+  background-color:#30bdb6d4;
+}  
 @media (max-width: 1200px) {
   /* Your custom styles for small screens here */
   .project {
