@@ -51,7 +51,8 @@ document.querySelectorAll(".story-link").forEach((link) => {
 });
 
 //RSS Feed
-const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://mmacfadden.substack.com/feed';
+const feedUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://mmacfadden.substack.com/feed?t=1699981800`;
+
 
 async function fetchLatestPost() {
   try {
