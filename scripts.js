@@ -137,7 +137,7 @@ async function fetchLatestPosts() {
         const subtitle = item.description || 'No Subtitle Provided';
 
         return `
-          <div class="post col-md-4">
+          <div class="post col-md-4 my-4">
             <a href="${item.link}" class="link_with_image" target="_blank">
               <div class="post_image_wrapper">
                 ${imageUrl ? `<img src="${imageUrl}" alt="${title}" class="featured-image">` : ''}
