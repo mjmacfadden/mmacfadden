@@ -50,6 +50,8 @@ document.querySelectorAll(".story-link").forEach((link) => {
   });
 });
 
+
+/*
 //RSS Feed
 const feedUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://mmacfadden.substack.com/feed?t=1699981800`;
 
@@ -86,7 +88,7 @@ async function fetchLatestPost() {
 }
 
 fetchLatestPost();
-
+*/
 
 // Redirects: Create an object with old paths as keys and new paths as values
 const redirects = {
@@ -113,3 +115,51 @@ if (redirects[currentPath]) {
   // Redirect to the new URL and include the query parameters
   window.location.href = redirects[currentPath] + queryParams;
 }
+
+const feedUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://mmacfadden.substack.com/feed&t=1699981800`;
+
+async function fetchLatestPosts() {
+  try {
+    const response = await fetch(feedUrl);
+    const data = await response.json();
+
+    // Get up to three items from the feed
+    const latestItems = (data.items || []).slice(0, 3);
+
+    if (latestItems.length > 0) {
+      const postsHTML = latestItems.map(item => {
+        // Assuming the first image in the content is the featured image
+        const imageUrlMatch = item.content.match(/<img src="([^"]+)"/);
+        const imageUrl = imageUrlMatch ? imageUrlMatch[1] : ''; // Default to empty if no image found
+
+        // Extract title and subtitle (assuming subtitle is in the description)
+        const title = item.title;
+        const subtitle = item.description || 'No Subtitle Provided';
+
+        return `
+          <div class="post col-md-4">
+            <a href="${item.link}" class="link_with_image" target="_blank">
+              <div class="post_image_wrapper">
+                ${imageUrl ? `<img src="${imageUrl}" alt="${title}" class="featured-image">` : ''}
+              </div>
+              <div class="post_meta_data">
+                <h3>${title}</h3>
+                <p><strong>${subtitle}</strong></p>
+              </div>
+            </a>
+          </div>
+        `;
+      }).join('');
+
+      // Update HTML with the latest posts details
+      document.getElementById('latest-posts').innerHTML = postsHTML;
+    } else {
+      document.getElementById('latest-posts').textContent = 'No posts available.';
+    }
+  } catch (error) {
+    document.getElementById('latest-posts').textContent = 'Failed to load the latest posts.';
+    console.error('Error fetching the RSS feed:', error);
+  }
+}
+
+fetchLatestPosts();

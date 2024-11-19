@@ -362,7 +362,53 @@ PERIODIC SQUARE GENERATOR
 RSS FEED
 =================================================
 */
+
 .rss_container{
+  background-color: #d0e3e4;
+
+}
+.post{
+  position:relative;
+  max-height:250px;
+  overflow: hidden;
+}
+.post_image_wrapper{
+  background-color:#30bdb6;
+  height:100%;
+  width:100%;
+}
+.post img{
+  width:100%;;
+  margin-top:-44px;
+}
+.link_with_image img{
+  filter: brightness(40%);
+  transition:.2s;
+}
+.link_with_image:hover img{
+  filter: brightness(60%);
+}
+.post_meta_data{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  padding:25px;
+}
+.post h3{
+  color:#FFF;
+  text-decoration:none;
+  font-size:22px;
+  line-height: 1;
+  opacity:.9
+}
+.post p{
+  color:#FFF;
+  opacity:.7;
+}
+
+/*.rss_container{
   background-color: #141414;
   color:#f1f1f1;
 }
@@ -404,7 +450,11 @@ RSS FEED
 
 #latest-post .primary:hover{
   background-color:#30bdb6d4;
-}  
+}  */
+
+
+
+
 @media (max-width: 1200px) {
   /* Your custom styles for small screens here */
   .project {
