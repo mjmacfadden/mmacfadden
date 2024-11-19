@@ -121,13 +121,21 @@
   </div>
 </div>
 
-<div class="container-fluid py-4">
-    <div class="row py-4 text-center">
+<div class="container py-4">
+    <div class="row py-4 text-center books_wrapper">
         <h2 class="py-4">I wrote a book!</h2>
         <p>Actually, I wrote three books, and you can read them for free <a href="books.php">here</a><p>
-        <img src="img/some_bears.jpg" class="img-fluid" style="width:100%; max-width:250px;" alt="Some Bears - By Michael and Michelle Macfadden" />
-        <img src="img/some_cows.jpg" class="img-fluid" style="width:100%; max-width:250px;" alt="Some Cows - By Michael Macfadden" />
-        <img src="img/some_whales.jpg" class="img-fluid" style="width:100%; max-width:250px;" alt="Some Whales - By Michael and Michelle Macfadden" />
+
+        <div class="col-md-4">
+          <img src="img/some_bears.jpg" class="img-fluid" style="width:100%; max-width:250px;" alt="Some Bears - By Michael and Michelle Macfadden" />
+        </div>
+        <div class="col-md-4">
+          <img src="img/some_cows.jpg" class="img-fluid" style="width:100%; max-width:250px;" alt="Some Cows - By Michael Macfadden" />
+        </div>
+        <div class="col-md-4">
+          <img src="img/some_whales.jpg" class="img-fluid" style="width:100%; max-width:250px;" alt="Some Whales - By Michael and Michelle Macfadden" />
+        </div>
+
         <br>
         <p>If you've read them here, and you want a hard copy for yourself, you can pick one up on Amazon.</p>
         <a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank"><button class="mb-4 btn btn-primary">BOY NOW <i class="bi bi-amazon"></i></button></a>
@@ -137,7 +145,7 @@
 <div class="rss_container">
   <div class="container py-4">
     <div class="rss_feed">
-      <h2 class="my-4 py-4 text-center">Latest Post from My Substack:</h2>
+      <h2 class="my-4 py-4 text-center">Latest post from my Substack:</h2>
       <div id="latest-posts" class="row pb-4 mb-4">
         
         Loading latest post...

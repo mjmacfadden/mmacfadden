@@ -221,7 +221,9 @@ MARK MORE
 BOOKS
 =================================================
 */
-.some_bears {
+.books_wrapper{
+  max-width:750px;
+  margin:0 auto;
 
 }
 .story_book {
