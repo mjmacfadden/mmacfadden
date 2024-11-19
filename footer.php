@@ -30,27 +30,9 @@
         <div class="col-md-3 mb-3">
           <h5>Subscribe</h5>
           <p>Subscribe to my substack</p>
-          <!-- https://substackapi.com/ -->
-          <div id="custom-substack-embed"></div>
-          <script>
-            window.CustomSubstackWidget = {
-              substackUrl: "mmacfadden.substack.com",
-              placeholder: "example@gmail.com",
-              buttonText: "Subscribe",
-              theme: "custom",
-              colors: {
-                primary: "#30BDB6",
-                input: "#FFFFFF",
-                email: "#212529",
-                text: "#212529",
-              },
-
-              // Go to substackapi.com to unlock custom redirect
-
-            };
-          </script>
-          <script src="https://substackapi.com/widget.js" async></script>
-          </div>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#substackModal">
+            SUBSCRIBE NOW
+          </button>
         </div>
       </div>
     </div>

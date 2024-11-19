@@ -124,35 +124,16 @@
 
 <!-- SUBSTACK -->
 <div class="substack my-4 py-4">
-    <div class="container templates pt-4">
+    <div class="container templates py-4">
         <div class="row text-center">
             <div class="col">
                 <p>follow me on:</p>
                 <img src="img/substack_logo.png" alt="Substack Logo" class="my-2"/>
                 <h2 class="mt-4">Creativity and Innovation in Teaching and Learning.</h2>
                 <p class="mb-4">Join hundreds of other creatives and innovators to receive my weekly round up and occassional essays.</p>
-                <!-- https://substackapi.com/ -->
-                <div class="pb-4">
-                    <div id="custom-substack-embed" class="my-4"></div>
-                    <script>
-                            window.CustomSubstackWidget = {
-                            substackUrl: "mmacfadden.substack.com",
-                            placeholder: "example@gmail.com",
-                            buttonText: "Subscribe",
-                            theme: "custom",
-                            colors: {
-                                primary: "#30BDB6",
-                                input: "#FFFFFF",
-                                email: "#212529",
-                                text: "#212529",
-                            },
-
-                            // Go to substackapi.com to unlock custom redirect
-
-                            };
-                    </script>
-                    <script src="substack_widget.js" async></script>
-                </div>
+                <button type="button" class="btn btn-lg btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#substackModal">
+                    SUBSCRIBE NOW
+                </button>
             </div>
         </div>
     </div>

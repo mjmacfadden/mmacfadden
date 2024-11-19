@@ -12,27 +12,10 @@
         <img src="img/substack_logo.png" style="width:80%; max-width:400px;" alt="Find me on Substack" class="mt-1 mb-4"/>
         <h2 class="mt-4">Creativity and Innovation in Teaching and Learning.</h2>
         <p class="mb-4">Join hundreds of other creatives and innovators to receive my weekly round up and occassional essays.</p>
-        <!-- https://substackapi.com/ -->
         <div class="pb-4">
-          <div id="custom-substack-embed" class="my-4"></div>
-          <script>
-                window.CustomSubstackWidget = {
-                  substackUrl: "mmacfadden.substack.com",
-                  placeholder: "example@gmail.com",
-                  buttonText: "Subscribe",
-                  theme: "custom",
-                  colors: {
-                    primary: "#30BDB6",
-                    input: "#FFFFFF",
-                    email: "#212529",
-                    text: "#212529",
-                  },
-
-                  // Go to substackapi.com to unlock custom redirect
-
-                };
-          </script>
-          <script src="https://substackapi.com/widget.js" async></script>
+          <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#substackModal">
+            SUBSCRIBE NOW
+          </button>
         </div>
       </div>
     </div>
