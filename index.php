@@ -14,7 +14,7 @@
         <p class="mb-4">Join hundreds of other creatives and innovators to receive my weekly round up and occassional essays.</p>
         <div class="pb-4">
           <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#substackModal">
-            SUBSCRIBE NOW
+            Subscribe Now
           </button>
         </div>
       </div>

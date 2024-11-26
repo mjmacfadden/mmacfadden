@@ -132,7 +132,7 @@
                 <h2 class="mt-4">Creativity and Innovation in Teaching and Learning.</h2>
                 <p class="mb-4">Join hundreds of other creatives and innovators to receive my weekly round up and occassional essays.</p>
                 <button type="button" class="btn btn-lg btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#substackModal">
-                    SUBSCRIBE NOW
+                    Subscribe Now
                 </button>
             </div>
         </div>
