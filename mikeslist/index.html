@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Mike's List</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:image" content="img/og-img.jpg" />
+  <meta property="og:title" content="Mike's List" />
+  <meta property="og:description" content="The ultimate gift guide for guys like Mike." />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+  
+  <!-- STYLE -->
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <div class="wrapper">
+    <i class="bi bi-question-circle-fill ui-icon" data-bs-toggle="modal" data-bs-target="#fullScreenModal"></i>
+    
+    <div class="container text-center pt-2">
+      <a href="/">
+        <img src="img/mikeslist_christmas_logo.png" class="site-logo" alt="Mike's List Logo" />
+      </a>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="container text-center py-3">
+      <input type="text" id="search-input" class="my-3" placeholder="Search..." oninput="searchProducts()" />
+      <br />
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('all')">All</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('apparel')">Apparel</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('books')">Books</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('edc')">Every Day Carry</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('electronics')">Electronics</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('happy_hour')">Happy Hour</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('misc')">Miscellaneous</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('music')">Music</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('office')">Office Goods</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('outdoors')">Outdoors</button>
+      <button type="button" class="btn btn-sm btn-secondary" onclick="filterProducts('sport')">Sport</button>
+    </div>
+
+    <div class="container text-center">
+      <div class="row" id="array-values"></div>
+    </div>
+  </div>
+
+  <!-- Full-Screen Modal -->
+  <div class="modal fade" id="fullScreenModal" tabindex="-1" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="fullScreenModalLabel">Welcome to Mike's List</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Welcome to Mike's List, my personal gift guide featuring the coolest gizmos and gadgets around. I'm always on the lookout for the latest and greatest tech to share with you. Whether you're shopping for a tech-savvy friend or hunting for the perfect gift for the gadget lover in your life, I've got you covered.</p>
+
+          <p>I spend a lot of time scouring the internet and trying out new products to bring you the best recommendations. If you know of a must-have gadget I should check out, let me know&mdash;I&rsquo;m always looking for the next big thing!</p>
+
+          <p>When you buy something using the links on my site, I earn a small commission. Because of that, I go out of my way to make sure every product I recommend is top-notch. My goal is to help you get the most value for your money and find that perfect gift for someone special&mdash;or maybe even yourself.</p>
+
+          <p>Thanks for stopping by Mike's List. I hope you find something you love, and I&rsquo;d love to have you back often to see what&rsquo;s new!</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+  <script src="scripts.js" async defer></script>
+</body>
+</html>
+

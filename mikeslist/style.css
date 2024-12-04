@@ -1,0 +1,53 @@
+/*
+=================================================
+GLOBAL
+=================================================
+*/
+body {
+  color: #666;
+}
+.site-logo {
+  width: 200px;
+}
+a{
+  color:#999;
+  transition:.2s;
+}
+a:hover{
+  color:#666;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.btn-sm {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.card:hover{
+  cursor:pointer;
+}
+.card-title{
+  font-size:.8rem;
+}
+
+.ui-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  color: #000;
+}
+
+.card-img-top{
+  max-height:125px;
+  width:auto;
+  object-fit: contain;
+}
