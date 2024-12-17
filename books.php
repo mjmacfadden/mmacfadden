@@ -37,7 +37,7 @@ include 'header.php';
                 include 'books/somecows.php';
             ?>      
             <div class="col text-center">
-            <a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank"><button class="mb-4 btn btn-primary">BOY NOW <i class="bi bi-amazon"></i></button></a>
+            <a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank"><button class="mb-4 btn btn-primary">BUY NOW <i class="bi bi-amazon"></i></button></a>
             </div>
         </div>
 
