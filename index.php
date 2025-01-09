@@ -138,7 +138,7 @@
 
         <br>
         <p>If you've read them here, and you want a hard copy for yourself, you can pick one up on Amazon.</p>
-        <a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank"><button class="mb-4 btn btn-primary">BOY NOW <i class="bi bi-amazon"></i></button></a>
+        <a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank"><button class="mb-4 btn btn-primary">BUY NOW <i class="bi bi-amazon"></i></button></a>
     </div>
 </div>
 
