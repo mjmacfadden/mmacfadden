@@ -48,23 +48,35 @@
             <label for="primaryColorPicker" class="form-label">Primary Color</label>
             <p>Select a primary color for your collage assets:</p>
             <input type="color" id="primaryColorPicker" class="form-control form-control-color w-100 mb-4" value="#30bdb6">
-            <div>
-                <select id="fontSelector">
-                    <option value="Poppins">Poppins</option>
-                    <option value="Alfa Slab One">Alfa Slab One</option>
-                    <option value="Ephesis">Ephesis</option>
-                    <!-- Add more Google Font options here -->
-                </select>
-            
-                <input type="number" id="fontSize" value="16" min="8" max="72"> <!-- Font size in px -->
-                
-                <select id="fontStyle">
-                    <option value="normal">Normal</option>
-                    <option value="italic">Italic</option>
-                    <option value="bold">Bold</option>
-                    <option value="bold italic">Bold Italic</option>
-                </select>
-            </div>
+
+                    <label for="fontSelector" class="form-label">Font Family</label>
+                    <select id="fontSelector" class="form-select">
+                        <option value="Poppins">Poppins</option>
+                        <option value="Alfa Slab One">Alfa Slab One</option>
+                        <option value="Ephesis">Ephesis</option>
+                        <!-- Add more Google Font options here -->
+                    </select>
+
+
+                <!-- Font Size -->
+
+                    <label for="fontSize" class="form-label">Font Size (px)</label>
+                    <input type="number" id="fontSize" class="form-control" value="36" min="8" max="72">
+    
+
+                <!-- Font Style -->
+
+                    <label for="fontStyle" class="form-label">Font Style</label>
+                    <select id="fontStyle" class="form-select">
+                        <option value="normal">Normal</option>
+                        <option value="italic">Italic</option>
+                        <option value="bold">Bold</option>
+                        <option value="bold italic">Bold Italic</option>
+                    </select>
+
+
+        
+
 
             <button class="btn btn-primary w-100 my-4" onclick="generateWords()">Generate</button>
         </div>

@@ -100,7 +100,6 @@ NAVIGATION MENU
 .word-box {
     font-size: 2rem;
     font-weight: bold;
-    text-transform: uppercase;
     padding: 10px 20px;
     display: inline-block;
     transform: rotate(var(--rotate));
