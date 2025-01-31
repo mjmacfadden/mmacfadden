@@ -20,19 +20,11 @@
             <i class="bi bi-grid-1x2-fill"></i>
         </a>
         <a href="#" class="icon flash" id="settingsIcon" data-target="#chatPanel">
-            <i class="bi bi-gear"></i>
+            <i class="bi bi-input-cursor-text"></i>
         </a>
         <a href="#" class="icon" id="fileIcon" data-target="#fileExplorer">
-            <i class="bi bi-folder"></i>
+            <i class="bi bi-image"></i>
         </a>
-        <!--
-        <a href="#" id="uploadIcon" data-target="#uploadPanel">
-            <i class="bi bi-upload"></i>
-        </a>
-        <a href="#" id="settingsIcon" data-target="#settingsMenu">
-            <i class="bi bi-gear"></i>
-        </a>
-        -->
     </div>
 
     <!-- Expanded Navigation Panels -->
@@ -40,7 +32,7 @@
     <!-- CHAT -->
     <div class="expanded-nav flex-column" id="chatPanel">
         <div class="px-3">
-            <h5 class="pt-3 chat-title">Asset Settings</h5>
+            <h5 class="pt-3 chat-title">Text Settings</h5>
             <hr class="mb-3">
             <label for="wordInput" class="form-label">Word</label>
             <p>Enter a word in the field below to create collage assets:</p>
@@ -49,35 +41,24 @@
             <p>Select a primary color for your collage assets:</p>
             <input type="color" id="primaryColorPicker" class="form-control form-control-color w-100 mb-4" value="#30bdb6">
 
-                    <label for="fontSelector" class="form-label">Font Family</label>
-                    <select id="fontSelector" class="form-select">
-                        <option value="Poppins">Poppins</option>
-                        <option value="Alfa Slab One">Alfa Slab One</option>
-                        <option value="Ephesis">Ephesis</option>
-                        <!-- Add more Google Font options here -->
-                    </select>
-
-
+                <label for="fontSelector" class="form-label">Font Family</label>
+                <select id="fontSelector" class="form-select">
+                    <option value="Poppins">Poppins</option>
+                    <option value="Alfa Slab One">Alfa Slab One</option>
+                    <option value="Ephesis">Ephesis</option>
+                    <!-- Add more Google Font options here -->
+                </select>
                 <!-- Font Size -->
-
-                    <label for="fontSize" class="form-label">Font Size (px)</label>
-                    <input type="number" id="fontSize" class="form-control" value="36" min="8" max="72">
-    
-
+                <label for="fontSize" class="form-label">Font Size (px)</label>
+                <input type="number" id="fontSize" class="form-control" value="36" min="8" max="72">
                 <!-- Font Style -->
-
-                    <label for="fontStyle" class="form-label">Font Style</label>
-                    <select id="fontStyle" class="form-select">
-                        <option value="normal">Normal</option>
-                        <option value="italic">Italic</option>
-                        <option value="bold">Bold</option>
-                        <option value="bold italic">Bold Italic</option>
-                    </select>
-
-
-        
-
-
+                <label for="fontStyle" class="form-label">Font Style</label>
+                <select id="fontStyle" class="form-select">
+                    <option value="normal">Normal</option>
+                    <option value="italic">Italic</option>
+                    <option value="bold">Bold</option>
+                    <option value="bold italic">Bold Italic</option>
+                </select>
             <button class="btn btn-primary w-100 my-4" onclick="generateWords()">Generate</button>
         </div>
         
@@ -85,13 +66,25 @@
 
     <!-- FILE EXPLORER -->
     <div id="fileExplorer" class="expanded-nav">
-        <h5 class="p-3">File Explorer</h5>
+        <div class="px-3 image-wrapper">
+            <h5 class="p-3">Image Assets</h5>
+            <hr class="mb-3">
+            <div class="image-container">
+                <img src="img/yellow_number.jpg"  class="img-fluid rounded ">
+            </div>
+            <div class="image-container">
+                <img src="img/cracked_paint.jpg"  class="img-fluid rounded ">
+            </div>
+            <div class="image-container">
+                <img src="img/halftone.jpg"  class="img-fluid rounded ">
+            </div>
+         </div>
     </div>
 
     <div class="container main-content text-center mt-5">
         <h1 class="mb-4">Analog Collage Asset Generator</h1>
 
-        <div id="wordContainer" class="d-flex flex-wrap justify-content-center gap-3"></div>
+        <div id="wordContainer" class="d-flex flex-wrap justify-content-center"></div>
         <div class="container-toolbar">
             <i class="bi bi-trash" id="clearContainer"></i>
         </div>

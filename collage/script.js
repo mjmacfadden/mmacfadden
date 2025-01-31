@@ -41,6 +41,40 @@ document.querySelector('.main-content').addEventListener('click', function() {
     });
 });
 
+//ADD IMAGEe
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all the image containers
+    const imageContainers = document.querySelectorAll('.image-container');
+
+    // Get the word container where the images will be added
+    const wordContainer = document.getElementById('wordContainer');
+
+    // Loop through each image container
+    imageContainers.forEach(container => {
+        // Add a click event listener to each image container
+        container.addEventListener('click', function() {
+            // Get the image element inside the clicked container
+            const imgElement = container.querySelector('img');
+
+            // Create a new image element
+            const newImg = document.createElement('img');
+            newImg.src = imgElement.src; // Set the source of the new image
+            newImg.classList.add('img-fluid', 'displayed-image'); // Add the same classes as the original image
+
+            // Append the new image to the word container
+            wordContainer.appendChild(newImg);
+        });
+    });
+});
+
+// Clear Words Function
+function clearContainer() {
+    let container = document.getElementById("wordContainer");
+    container.innerHTML = ""; // Clear previous results
+}
+
+document.getElementById("clearContainer").addEventListener('click', clearContainer);
+
 
 // COLOR PICKER
 let primaryColor = "#30bdb6"; // Default color
@@ -94,10 +128,6 @@ function shadeColor(rgb, factor) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-// Add event listeners for font, size, and style changes
-document.getElementById("fontSelector").addEventListener("change");
-document.getElementById("fontSize").addEventListener("input");
-document.getElementById("fontStyle").addEventListener("change");
 
 // Update generateWords function to include font settings
 function generateWords() {
@@ -129,10 +159,3 @@ function generateWords() {
     }
 }
 
-// Clear Words Function
-function clearContainer() {
-    let container = document.getElementById("wordContainer");
-    container.innerHTML = ""; // Clear previous results
-}
-
-document.getElementById("clearContainer").addEventListener('click', clearContainer);

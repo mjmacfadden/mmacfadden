@@ -100,7 +100,7 @@ NAVIGATION MENU
 .word-box {
     font-size: 2rem;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 15px 30px;
     display: inline-block;
     transform: rotate(var(--rotate));
 }
@@ -164,3 +164,25 @@ CONTAINER TOOLBAR
 .container-toolbar i:hover{
     opacity:1;
 }
+
+
+/*
+=================================================
+IMAGE ASSETS
+=================================================
+*/
+.image-container {
+    width: 125px; /* Set desired width */
+    height: 125px; /* Set desired height */
+    overflow: hidden;
+    display:inline-block;
+    margin:3px;;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops the image while maintaining aspect ratio */
+}
+.displayed-image{
+max-width:400px;}
