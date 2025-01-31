@@ -1,4 +1,4 @@
-//UX
+//UX Menu Fucntion
 document.querySelectorAll('.nav-skinny a').forEach(icon => {
     icon.addEventListener('click', function() {
         const target = document.querySelector(this.dataset.target);
@@ -41,6 +41,7 @@ document.querySelector('.main-content').addEventListener('click', function() {
     });
 });
 
+
 // COLOR PICKER
 let primaryColor = "#30bdb6"; // Default color
 
@@ -48,6 +49,9 @@ let primaryColor = "#30bdb6"; // Default color
 document.getElementById("primaryColorPicker").addEventListener("input", function (e) {
     primaryColor = e.target.value;
 });
+
+
+
 
 // Function to generate shades with greater contrast
 function generateShades(baseColor, count) {
@@ -90,16 +94,23 @@ function shadeColor(rgb, factor) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-// Updated generateWords function
+// Add event listeners for font, size, and style changes
+document.getElementById("fontSelector").addEventListener("change");
+document.getElementById("fontSize").addEventListener("input");
+document.getElementById("fontStyle").addEventListener("change");
+
+// Update generateWords function to include font settings
 function generateWords() {
     let word = document.getElementById("wordInput").value.trim();
     if (!word) return;
 
     let container = document.getElementById("wordContainer");
-    container.innerHTML = ""; // Clear previous results
+    //container.innerHTML = ""; // Clear previous results - Commented out, you might want to keep or remove this based on your preference
 
-    // Generate 5 shades with greater contrast
     let shades = generateShades(primaryColor, 5);
+    let selectedFont = document.getElementById("fontSelector").value;
+    let selectedSize = document.getElementById("fontSize").value + 'px';
+    let selectedStyle = document.getElementById("fontStyle").value.split(' ');
 
     for (let i = 0; i < 5; i++) {
         let div = document.createElement("div");
@@ -107,7 +118,21 @@ function generateWords() {
         div.className = "word-box";
         div.style.backgroundColor = shades[i].backgroundColor;
         div.style.color = shades[i].color;
-        div.style.setProperty("--rotate", `${Math.random() * 10 - 5}deg`);
+        
+        // Apply font settings
+        div.style.fontFamily = `'${selectedFont}', sans-serif`; // Fallback to sans-serif if Google Font fails to load
+        div.style.fontSize = selectedSize;
+        div.style.fontStyle = selectedStyle.includes('italic') ? 'italic' : 'normal';
+        div.style.fontWeight = selectedStyle.includes('bold') ? 'bold' : 'normal';
+
         container.appendChild(div);
     }
 }
+
+// Clear Words Function
+function clearContainer() {
+    let container = document.getElementById("wordContainer");
+    container.innerHTML = ""; // Clear previous results
+}
+
+document.getElementById("clearContainer").addEventListener('click', clearContainer);

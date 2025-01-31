@@ -103,7 +103,6 @@ NAVIGATION MENU
     text-transform: uppercase;
     padding: 10px 20px;
     display: inline-block;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
     transform: rotate(var(--rotate));
 }
 
@@ -145,4 +144,24 @@ BUTTONS
 .form-control:focus{
     border-color:#936ca4 !important;
     box-shadow:0 0 0 .25rem rgba(167, 55, 182, 0.15)
+}
+
+/*
+=================================================
+CONTAINER TOOLBAR
+=================================================
+*/
+.container-toolbar{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    cursor:pointer;
+}
+.container-toolbar i{
+    font-size:21px;
+    opacity:.8;
+}
+
+.container-toolbar i:hover{
+    opacity:1;
 }
