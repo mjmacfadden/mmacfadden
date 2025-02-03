@@ -41,7 +41,7 @@ document.querySelector('.main-content').addEventListener('click', function() {
     });
 });
 
-//ADD IMAGEe
+//ADD IMAGE
 document.addEventListener('DOMContentLoaded', function() {
     // Get all the image containers
     const imageContainers = document.querySelectorAll('.image-container');
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Create a new image element
             const newImg = document.createElement('img');
             newImg.src = imgElement.src; // Set the source of the new image
-            newImg.classList.add('img-fluid', 'displayed-image'); // Add the same classes as the original image
+            newImg.classList.add('img-fluid', 'displayed-image', 'draggable'); // Add the same classes as the original image
 
             // Append the new image to the word container
             wordContainer.appendChild(newImg);
@@ -145,7 +145,7 @@ function generateWords() {
     for (let i = 0; i < 5; i++) {
         let div = document.createElement("div");
         div.textContent = word;
-        div.className = "word-box";
+        div.className = "word-box draggable";
         div.style.backgroundColor = shades[i].backgroundColor;
         div.style.color = shades[i].color;
         
@@ -157,5 +157,123 @@ function generateWords() {
 
         container.appendChild(div);
     }
+}
+
+
+//RULER
+function createRulerMarks(ruler, isHorizontal) {
+    const dpi = 96; // Default browser DPI
+    const inches = isHorizontal ? ruler.offsetWidth / dpi : ruler.offsetHeight / dpi;
+    for (let i = 0; i <= inches; i++) {
+        let mark = document.createElement('div');
+        mark.style[isHorizontal ? 'left' : 'top'] = `${i * dpi}px`;
+        mark.textContent = i;
+        ruler.appendChild(mark);
+    }
+}
+createRulerMarks(document.getElementById('ruler-top'), true);
+createRulerMarks(document.getElementById('ruler-left'), false);
+
+
+//INTERACT.JS
+interact('.draggable')
+    .draggable({
+        listeners: {
+            move(event) {
+                const target = event.target;
+                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                const angle = parseFloat(target.getAttribute('data-angle')) || 0;
+                target.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
+                target.setAttribute('data-x', x);
+                target.setAttribute('data-y', y);
+            }
+        }
+    })
+    .resizable({
+        edges: { left: true, right: true, bottom: true, top: true },
+        modifiers: [
+            // Maintain aspect ratio
+            interact.modifiers.aspectRatio({
+                // Get initial aspect ratio from the element's dimensions
+                ratio: function(event) {
+                    const target = event.target;
+                    // If we haven't stored the initial ratio yet, calculate and store it
+                    if (!target.getAttribute('data-initial-ratio')) {
+                        const rect = target.getBoundingClientRect();
+                        const initialRatio = rect.width / rect.height;
+                        target.setAttribute('data-initial-ratio', initialRatio);
+                        return initialRatio;
+                    }
+                    // Return stored ratio for subsequent resizes
+                    return parseFloat(target.getAttribute('data-initial-ratio'));
+                }
+            })
+        ],
+        listeners: {
+            move(event) {
+                let { width, height } = event.rect;
+                event.target.style.width = `${width}px`;
+                event.target.style.height = `${height}px`;
+            }
+        }
+    });
+
+interact('.rotate-handle').draggable({
+    listeners: {
+        move(event) {
+            const box = event.target.parentElement;
+            const rect = box.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            let angle = Math.atan2(event.clientY - centerY, event.clientX - centerX) * (180 / Math.PI);
+            angle = Math.round(angle / 15) * 15; // Snap to 15-degree increments
+            box.style.transform = `translate(${box.getAttribute('data-x') || 0}px, ${box.getAttribute('data-y') || 0}px) rotate(${angle}deg)`;
+            box.setAttribute('data-angle', angle);
+        }
+    }
+});
+
+//DOWNLOAD PDF
+async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const content = document.getElementById("wordContainer");
+
+    if (!content) {
+        console.error("Error: Element with ID 'wordContainer' not found.");
+        return;
+    }
+
+    // Temporarily hide rulers
+    const rulers = document.querySelectorAll("#wordContainer .ruler, #wordContainer .ruler *");
+    rulers.forEach(el => el.style.visibility = "hidden");
+
+    // Temporarily remove translateX for accurate capture
+    content.style.transform = "none";
+
+    setTimeout(() => {
+        html2canvas(content, { 
+            scale: 2, 
+            useCORS: true, 
+            logging: true, 
+            width: content.scrollWidth,
+            height: content.scrollHeight 
+        }).then(canvas => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF("p", "mm", "a4");
+
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+            pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+            pdf.save("download.pdf");
+
+            // Restore transform after capturing
+            content.style.transform = "translateX(-50%)";
+
+            // Restore ruler visibility
+            rulers.forEach(el => el.style.visibility = "visible");
+        }).catch(error => console.error("html2canvas error:", error));
+    }, 300);
 }
 

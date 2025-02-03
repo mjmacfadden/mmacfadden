@@ -8,6 +8,14 @@ body,
 .main-content{
     height:100%;
 }
+body{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4a0;
+    margin: 0;
+    margin-bottom:50px;
+}
 
 /*
 =================================================
@@ -24,8 +32,9 @@ NAVIGATION MENU
     align-items: center;
     padding: 10px 0;
     position: fixed;
-    z-index:9;
+    z-index:1000001;
     top:0;
+    left:0;
 }
 .nav-skinny a {
     color: white;
@@ -87,7 +96,7 @@ NAVIGATION MENU
     left: 34px;
     height: 100%;
     transition: width 0.3s ease;
-    z-index:10;
+    z-index:1000002;
 }
 .expanded-nav.open {
     width: 300px;
@@ -103,6 +112,7 @@ NAVIGATION MENU
     padding: 15px 30px;
     display: inline-block;
     transform: rotate(var(--rotate));
+    height:fit-content;
 }
 
 /*
@@ -185,4 +195,116 @@ IMAGE ASSETS
     object-fit: cover; /* Crops the image while maintaining aspect ratio */
 }
 .displayed-image{
-max-width:400px;}
+    width:250px;
+    height:auto;
+}
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.rotate-handle {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 24px;
+    height: 24px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotate-handle i {
+    color: white;
+    font-size: 16px;
+}
+
+/*
+=================================================
+RULER
+=================================================
+*/
+#wordContainer{
+    width: 100%;
+    max-width:816px;
+    height:1056px;
+    margin:0 auto 50px auto;
+    margin-left: calc(50% + 35px);
+    transform: translateX(-50%);
+    position: relative;
+    background: white;
+    border: 1px dashed #ccc;
+    overflow: hidden;  
+    padding:24px;
+}
+.ruler {
+    position: absolute;
+    background: #ddd;
+    z-index:1000000;
+}
+.ruler.horizontal {
+    width: 100%;
+    height: 20px;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #aaa;
+    display: flex;
+    align-items: center;
+}
+.ruler.vertical {
+    width: 20px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #aaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ruler div {
+    font-size: 10px;
+    color: #333;
+    position: absolute;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important; /* Ensures background colors print */
+    print-color-adjust: exact !important;
+  }
+  body{
+    background-color: #FFF;
+  }
+  body * {
+    visibility: hidden;
+  }
+
+  #wordContainer, #wordContainer * {
+    visibility: visible;
+  }
+  #wordContainer .ruler,
+  #wordContainer .ruler *{
+    visibility:hidden !important;
+  }
+  
+  #wordContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8.5in;
+    max-width:8.5in;
+    margin-left:0;
+    border:none;
+    transform:none;
+    height:auto;
+    page-break-inside: avoid; /* Prevent content from splitting across pages */
+  }
+
+  @page {
+    size: 8.5in auto; /* Auto height based on content */
+    margin: 0in; /* Add margins to prevent content cutoff */
+  }
+}
