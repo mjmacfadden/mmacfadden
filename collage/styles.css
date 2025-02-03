@@ -169,6 +169,7 @@ CONTAINER TOOLBAR
 .container-toolbar i{
     font-size:21px;
     opacity:.8;
+    margin:5px;
 }
 
 .container-toolbar i:hover{
