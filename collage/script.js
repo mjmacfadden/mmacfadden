@@ -202,35 +202,64 @@ function shadeColor(rgb, factor) {
 }
 
 
-// Update generateWords function to include font settings
 function generateWords() {
     let word = document.getElementById("wordInput").value.trim();
     if (!word) return;
 
     let container = document.getElementById("wordContainer");
-    //container.innerHTML = ""; // Clear previous results - Commented out, you might want to keep or remove this based on your preference
-
-    let shades = generateShades(primaryColor, 5);
+    let primaryColor = document.getElementById("primaryColorPicker").value;
     let selectedFont = document.getElementById("fontSelector").value;
     let selectedSize = document.getElementById("fontSize").value + 'px';
     let selectedStyle = document.getElementById("fontStyle").value.split(' ');
+    let useShades = document.getElementById("shadeOption").checked;
 
-    for (let i = 0; i < 5; i++) {
-        let div = document.createElement("div");
-        div.textContent = word;
-        div.className = "word-box draggable";
-        div.style.backgroundColor = shades[i].backgroundColor;
-        div.style.color = shades[i].color;
-        
-        // Apply font settings
-        div.style.fontFamily = `'${selectedFont}', sans-serif`; // Fallback to sans-serif if Google Font fails to load
-        div.style.fontSize = selectedSize;
-        div.style.fontStyle = selectedStyle.includes('italic') ? 'italic' : 'normal';
-        div.style.fontWeight = selectedStyle.includes('bold') ? 'bold' : 'normal';
+    let colors = useShades ? generateShades(primaryColor, 5) : [{ backgroundColor: primaryColor, color: getContrastColor(primaryColor) }];
 
-        container.appendChild(div);
-    }
+    colors.forEach(colorSet => {
+        // Create a wrapper div for the word and rotate handle
+        let wrapper = document.createElement("div");
+        wrapper.classList.add('word-wrapper', 'draggable');
+
+        // Create the word div
+        let wordDiv = document.createElement("div");
+        wordDiv.textContent = word;
+        wordDiv.className = "word-box";
+        wordDiv.style.backgroundColor = colorSet.backgroundColor;
+        wordDiv.style.color = colorSet.color;
+        wordDiv.style.fontFamily = `'${selectedFont}', sans-serif`;
+        wordDiv.style.fontSize = selectedSize;
+        wordDiv.style.fontStyle = selectedStyle.includes('italic') ? 'italic' : 'normal';
+        wordDiv.style.fontWeight = selectedStyle.includes('bold') ? 'bold' : 'normal';
+
+        // Create a rotate handle
+        let rotateHandle = document.createElement("div");
+        rotateHandle.classList.add('rotate-handle');
+        rotateHandle.innerHTML = '↻';
+
+        // Append the word div and rotate handle to the wrapper
+        wrapper.appendChild(wordDiv);
+        wrapper.appendChild(rotateHandle);
+
+        // Append the wrapper to the container
+        container.appendChild(wrapper);
+    });
 }
+
+// Helper function to get contrast color (you may already have this)
+function getContrastColor(hexColor) {
+    // Convert hex to RGB
+    let r = parseInt(hexColor.substr(1,2), 16);
+    let g = parseInt(hexColor.substr(3,2), 16);
+    let b = parseInt(hexColor.substr(5,2), 16);
+    
+    // Calculate luminance
+    let luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    
+    // Return black or white depending on luminance
+    return luminance > 0.5 ? '#000000' : '#FFFFFF';
+}
+
+
 
 
 //RULER
