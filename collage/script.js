@@ -56,16 +56,89 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get the image element inside the clicked container
             const imgElement = container.querySelector('img');
 
+            // Create a new wrapper div for the image and rotate handle
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('image-wrapper', 'draggable');
+
             // Create a new image element
             const newImg = document.createElement('img');
             newImg.src = imgElement.src; // Set the source of the new image
-            newImg.classList.add('img-fluid', 'displayed-image', 'draggable'); // Add the same classes as the original image
+            newImg.classList.add('img-fluid', 'displayed-image'); // Add classes to the image
 
-            // Append the new image to the word container
-            wordContainer.appendChild(newImg);
+            // Create a rotate handle
+            const rotateHandle = document.createElement('div');
+            rotateHandle.classList.add('rotate-handle');
+            rotateHandle.innerHTML = '↻'; // You can use any symbol or icon for the rotate handle
+
+            // Append the image and rotate handle to the wrapper
+            wrapper.appendChild(newImg);
+            wrapper.appendChild(rotateHandle);
+
+            // Append the wrapper to the word container
+            wordContainer.appendChild(wrapper);
+
+            // Initialize interact.js for the new wrapper
+            initializeInteract(wrapper);
         });
     });
 });
+
+function initializeInteract(element) {
+    interact(element)
+        .draggable({
+            listeners: {
+                move(event) {
+                    const target = event.target;
+                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                    const angle = parseFloat(target.getAttribute('data-angle')) || 0;
+                    target.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
+                }
+            }
+        })
+        .resizable({
+            edges: { left: true, right: true, bottom: true, top: true },
+            modifiers: [
+                interact.modifiers.aspectRatio({
+                    ratio: function(event) {
+                        const target = event.target;
+                        if (!target.getAttribute('data-initial-ratio')) {
+                            const rect = target.getBoundingClientRect();
+                            const initialRatio = rect.width / rect.height;
+                            target.setAttribute('data-initial-ratio', initialRatio);
+                            return initialRatio;
+                        }
+                        return parseFloat(target.getAttribute('data-initial-ratio'));
+                    }
+                })
+            ],
+            listeners: {
+                move(event) {
+                    let { width, height } = event.rect;
+                    event.target.style.width = `${width}px`;
+                    event.target.style.height = `${height}px`;
+                }
+            }
+        });
+
+    interact(element.querySelector('.rotate-handle')).draggable({
+        listeners: {
+            move(event) {
+                const box = event.target.parentElement;
+                const rect = box.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                let angle = Math.atan2(event.clientY - centerY, event.clientX - centerX) * (180 / Math.PI);
+                angle = Math.round(angle / 15) * 15; // Snap to 15-degree increments
+                box.style.transform = `translate(${box.getAttribute('data-x') || 0}px, ${box.getAttribute('data-y') || 0}px) rotate(${angle}deg)`;
+                box.setAttribute('data-angle', angle);
+            }
+        }
+    });
+}
+
 
 // Clear Words Function
 function clearContainer() {
