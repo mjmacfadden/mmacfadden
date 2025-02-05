@@ -74,6 +74,56 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+//ADD IMAGE FROM DIRECT URL
+document.addEventListener('DOMContentLoaded', function() {
+    const imageUrlInput = document.getElementById('imageUrlInput');
+    const addImageButton = document.getElementById('addImageFromUrl');
+    const wordContainer = document.getElementById('wordContainer');
+
+    addImageButton.addEventListener('click', function() {
+        const imageUrl = imageUrlInput.value.trim();
+        if (imageUrl) {
+            addImageToCanvas(imageUrl);
+            imageUrlInput.value = ''; // Clear the input field
+        }
+    });
+
+    function addImageToCanvas(url) {
+        // Create a wrapper div for the image and rotation handle
+        const wrapper = document.createElement('div');
+        wrapper.className = 'image-wrapper draggable';
+
+        // Create the new image element
+        const newImg = document.createElement('img');
+        newImg.src = url;
+        newImg.classList.add('img-fluid', 'displayed-image');
+
+        // Create the rotation handle with Bootstrap icon
+        const rotateHandle = document.createElement("i");
+        rotateHandle.className = "bi bi-arrow-repeat rotate-handle";
+
+        // Create the trash can icon for deletion
+        const trashIcon = document.createElement("i");
+        trashIcon.className = "bi bi-trash delete-icon";
+
+        newImg.onerror = function() {
+            alert('Failed to load image. Please check the URL and try again.');
+        };
+
+        newImg.onload = function() {
+            // Append elements to the wrapper
+            wrapper.appendChild(newImg);
+            wrapper.appendChild(rotateHandle);
+
+            // Append the wrapper to the word container
+            wordContainer.appendChild(wrapper);
+
+            // Add delete functionality
+            addDeleteFunctionality(wrapper);
+        };
+    }
+});
+
 
 // Clear Words Function
 function clearContainer() {

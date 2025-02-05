@@ -16,6 +16,11 @@ body{
     margin: 0;
     margin-bottom:50px;
 }
+.title{
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: 700;
+}
 
 /*
 =================================================
@@ -216,12 +221,13 @@ IMAGE ASSETS
     object-fit: cover; /* Crops the image while maintaining aspect ratio */
 }
 .displayed-image{
-    width:250px;
+    width:100%;
     height:auto;
 }
 .image-wrapper {
     position: relative;
     display: inline-block;
+    width:250px;
 }
 .trash {
     position: absolute;
