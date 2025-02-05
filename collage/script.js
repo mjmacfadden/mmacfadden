@@ -321,6 +321,10 @@ async function downloadPDF() {
     const rulers = document.querySelectorAll("#wordContainer .ruler, #wordContainer .ruler *");
     rulers.forEach(el => el.style.visibility = "hidden");
 
+    // Temporarily hide rotate handles
+    const rotateHandles = document.querySelectorAll("#wordContainer .rotate-handle");
+    rotateHandles.forEach(el => el.style.display = "none");
+
     // Temporarily remove translateX for accurate capture
     content.style.transform = "none";
 
@@ -346,7 +350,10 @@ async function downloadPDF() {
 
             // Restore ruler visibility
             rulers.forEach(el => el.style.visibility = "visible");
+
+            // Restore rotate handle visibility
+            rotateHandles.forEach(el => el.style.display = "");
+
         }).catch(error => console.error("html2canvas error:", error));
     }, 300);
 }
-

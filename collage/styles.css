@@ -16,7 +16,12 @@ body{
     margin: 0;
     margin-bottom:50px;
 }
-
+.title{
+    text-transform:uppercase;
+    font-size:28px;
+    font-weight:700;
+    opacity:80%;
+}
 /*
 =================================================
 NAVIGATION MENU
@@ -208,16 +213,18 @@ IMAGE ASSETS
 .rotate-handle {
     position: absolute;
     top: -20px;
-    right: -20px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 20px;
     height: 20px;
-    background-color: #007bff;
+    background-color: #999;
     color: white;
     border-radius: 50%;
     text-align: center;
     line-height: 20px;
     cursor: pointer;
 }
+
 
 
 /*
@@ -313,6 +320,9 @@ RULER
     transform:none;
     height:auto;
     page-break-inside: avoid; /* Prevent content from splitting across pages */
+  }
+  .rotate-handle {
+    display:none;
   }
 
   @page {
