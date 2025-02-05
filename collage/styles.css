@@ -270,7 +270,21 @@ RULER
     color: #333;
     position: absolute;
 }
-
+.vertical div{
+    border-bottom:1px solid #999;
+    width:100%;
+    padding-bottom:4px;
+}
+.vertical div:first-of-type{
+    padding-top:2px;
+    padding-bottom:2px;
+}
+.horizontal div{
+    border-right:1px solid #999;
+    height:100%;
+    padding-right:4px;
+    padding-top:2px;
+}
 @media print {
   * {
     -webkit-print-color-adjust: exact !important; /* Ensures background colors print */
