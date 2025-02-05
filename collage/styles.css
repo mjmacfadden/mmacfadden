@@ -222,7 +222,7 @@ IMAGE ASSETS
 }
 .displayed-image{
     width:100%;
-    height:auto;
+    height:100%;
 }
 .image-wrapper {
     position: relative;
