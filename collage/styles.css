@@ -16,12 +16,7 @@ body{
     margin: 0;
     margin-bottom:50px;
 }
-.title{
-    text-transform:uppercase;
-    font-size:28px;
-    font-weight:700;
-    opacity:80%;
-}
+
 /*
 =================================================
 NAVIGATION MENU
@@ -120,6 +115,7 @@ NAVIGATION MENU
     height:fit-content;
 }
 
+
 /*
 =================================================
 BUTTONS
@@ -180,8 +176,27 @@ CONTAINER TOOLBAR
 .container-toolbar i:hover{
     opacity:1;
 }
-
-
+/*
+=================================================
+ROTATE
+=================================================
+*/
+.rotate-handle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color:#999;
+    font-size:16px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
+}
 /*
 =================================================
 IMAGE ASSETS
@@ -201,30 +216,33 @@ IMAGE ASSETS
     object-fit: cover; /* Crops the image while maintaining aspect ratio */
 }
 .displayed-image{
-    width:100%;
+    width:250px;
+    height:auto;
 }
 .image-wrapper {
     position: relative;
     display: inline-block;
-    width:250px;
-    height:auto;
 }
-
-.rotate-handle {
+.trash {
     position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background-color: #999;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 20px;
+    bottom: 5px;
+    right: 5px;
     cursor: pointer;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
 }
 
+.image-wrapper:hover > .trash,
+.image-wrapper:hover > .rotate-handle,
+.word-box:hover > .trash,
+.word-box:hover > .rotate-handle {
+    opacity: 1;
+    visibility: visible;
+}
 
 
 /*
@@ -320,9 +338,6 @@ RULER
     transform:none;
     height:auto;
     page-break-inside: avoid; /* Prevent content from splitting across pages */
-  }
-  .rotate-handle {
-    display:none;
   }
 
   @page {

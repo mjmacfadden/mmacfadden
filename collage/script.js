@@ -43,147 +43,94 @@ document.querySelector('.main-content').addEventListener('click', function() {
 
 //ADD IMAGE
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all the image containers
     const imageContainers = document.querySelectorAll('.image-container');
-
-    // Get the word container where the images will be added
     const wordContainer = document.getElementById('wordContainer');
 
-    // Loop through each image container
     imageContainers.forEach(container => {
-        // Add a click event listener to each image container
         container.addEventListener('click', function() {
-            // Get the image element inside the clicked container
             const imgElement = container.querySelector('img');
 
-            // Create a new wrapper div for the image and rotate handle
+            // Create a wrapper div for the image and rotation handle
             const wrapper = document.createElement('div');
-            wrapper.classList.add('image-wrapper', 'draggable');
+            wrapper.className = 'image-wrapper draggable';
 
-            // Create a new image element
+            // Create the new image element
             const newImg = document.createElement('img');
-            newImg.src = imgElement.src; // Set the source of the new image
-            newImg.classList.add('img-fluid', 'displayed-image'); // Add classes to the image
+            newImg.src = imgElement.src;
+            newImg.classList.add('img-fluid', 'displayed-image');
 
-            // Create a rotate handle
-            const rotateHandle = document.createElement('div');
-            rotateHandle.classList.add('rotate-handle');
-            rotateHandle.innerHTML = '↻'; // You can use any symbol or icon for the rotate handle
+            // Create the rotation handle with Bootstrap icon
+            const rotateHandle = document.createElement("i");
+            rotateHandle.className = "bi bi-arrow-repeat rotate-handle";
 
-            // Append the image and rotate handle to the wrapper
+            // Append the image and rotation handle to the wrapper
             wrapper.appendChild(newImg);
             wrapper.appendChild(rotateHandle);
 
             // Append the wrapper to the word container
             wordContainer.appendChild(wrapper);
-
-            // Initialize interact.js for the new wrapper
-            initializeInteract(wrapper);
+            addDeleteFunctionality(wrapper); // Add this line
         });
     });
 });
-
-function initializeInteract(element) {
-    interact(element)
-        .draggable({
-            listeners: {
-                move(event) {
-                    const target = event.target;
-                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-                    const angle = parseFloat(target.getAttribute('data-angle')) || 0;
-                    target.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
-                    target.setAttribute('data-x', x);
-                    target.setAttribute('data-y', y);
-                }
-            }
-        })
-        .resizable({
-            edges: { left: true, right: true, bottom: true, top: true },
-            modifiers: [
-                interact.modifiers.aspectRatio({
-                    ratio: function(event) {
-                        const target = event.target;
-                        if (!target.getAttribute('data-initial-ratio')) {
-                            const rect = target.getBoundingClientRect();
-                            const initialRatio = rect.width / rect.height;
-                            target.setAttribute('data-initial-ratio', initialRatio);
-                            return initialRatio;
-                        }
-                        return parseFloat(target.getAttribute('data-initial-ratio'));
-                    }
-                })
-            ],
-            listeners: {
-                move(event) {
-                    let { width, height } = event.rect;
-                    event.target.style.width = `${width}px`;
-                    event.target.style.height = `${height}px`;
-                }
-            }
-        });
-
-    interact(element.querySelector('.rotate-handle')).draggable({
-        listeners: {
-            move(event) {
-                const box = event.target.parentElement;
-                const rect = box.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                let angle = Math.atan2(event.clientY - centerY, event.clientX - centerX) * (180 / Math.PI);
-                angle = Math.round(angle / 15) * 15; // Snap to 15-degree increments
-                box.style.transform = `translate(${box.getAttribute('data-x') || 0}px, ${box.getAttribute('data-y') || 0}px) rotate(${angle}deg)`;
-                box.setAttribute('data-angle', angle);
-            }
-        }
-    });
-}
 
 
 // Clear Words Function
 function clearContainer() {
     let container = document.getElementById("wordContainer");
-    container.innerHTML = ""; // Clear previous results
+    
+    // Remove all child elements except those with class "ruler"
+    Array.from(container.children).forEach(child => {
+        if (!child.classList.contains('ruler')) {
+            child.remove();
+        }
+    });
 }
+
 
 document.getElementById("clearContainer").addEventListener('click', clearContainer);
 
 
 // COLOR PICKER
-let primaryColor = "#30bdb6"; // Default color
+let primaryColor = "#30bdb6"; // Default background color
+let textColor = "#ffffff"; // Default text color
 
-// Update primary color when the color picker changes
+// Update background color when the color picker changes
 document.getElementById("primaryColorPicker").addEventListener("input", function (e) {
     primaryColor = e.target.value;
+});
+// Update text color when the color picker changes
+document.getElementById("textColorPicker").addEventListener("input", function (e) {
+    textColor = e.target.value;
 });
 
 
 
-
 // Function to generate shades with greater contrast
-function generateShades(baseColor, count) {
+function generateShades(baseColor, textColor, count) {
     let shades = [];
     let baseRgb = hexToRgb(baseColor);
+    let textRgb = hexToRgb(textColor);
 
     for (let i = 0; i < count; i++) {
         if (i === 3) {
             // Fourth word: Black background with primary color as text
             shades.push({ backgroundColor: "#000000", color: baseColor });
         } else if (i === 4) {
-            // Fifth word: White background with black text
+            // Fifth word: White background with text color
             shades.push({ backgroundColor: "#ffffff", color: "#000000" });
         } else {
             // Generate lighter and darker shades for the first three words
             let factor = (i / (count - 3)) * 2 - 1; // Range from -1 to 1
             let shade = shadeColor(baseRgb, factor * 0.8); // Increase shade intensity
-            // Change the text color to black for the third item (index 2)
-            let textColor = (i === 2) ? "#000000" : "#ffffff";
+            // Use the provided text color for all words
             shades.push({ backgroundColor: shade, color: textColor });
         }
     }
 
     return shades;
 }
+
 
 // Helper function to convert hex to RGB
 function hexToRgb(hex) {
@@ -202,64 +149,64 @@ function shadeColor(rgb, factor) {
 }
 
 
+// Update the generateWords function
 function generateWords() {
     let word = document.getElementById("wordInput").value.trim();
     if (!word) return;
 
     let container = document.getElementById("wordContainer");
-    let primaryColor = document.getElementById("primaryColorPicker").value;
+    let generateShadesOption = document.getElementById('shadeOption').checked;
     let selectedFont = document.getElementById("fontSelector").value;
     let selectedSize = document.getElementById("fontSize").value + 'px';
     let selectedStyle = document.getElementById("fontStyle").value.split(' ');
-    let useShades = document.getElementById("shadeOption").checked;
 
-    let colors = useShades ? generateShades(primaryColor, 5) : [{ backgroundColor: primaryColor, color: getContrastColor(primaryColor) }];
+    if (generateShadesOption) {
+        let shades = generateShades(primaryColor, textColor, 5);
+        for (let i = 0; i < 5; i++) {
+            createWordBox(word, shades[i], selectedFont, selectedSize, selectedStyle);
+        }
+    } else {
+        createWordBox(word, { backgroundColor: primaryColor, color: textColor }, selectedFont, selectedSize, selectedStyle);
+    }
 
-    colors.forEach(colorSet => {
-        // Create a wrapper div for the word and rotate handle
-        let wrapper = document.createElement("div");
-        wrapper.classList.add('word-wrapper', 'draggable');
+    function createWordBox(word, style, font, size, fontStyle) {
+        let div = document.createElement("div");
+        div.textContent = word;
+        div.className = "word-box draggable";
+        div.style.backgroundColor = style.backgroundColor;
+        div.style.color = style.color;
+        div.style.fontFamily = `'${font}', sans-serif`;
+        div.style.fontSize = size;
+        div.style.fontStyle = fontStyle.includes('italic') ? 'italic' : 'normal';
+        div.style.fontWeight = fontStyle.includes('bold') ? 'bold' : 'normal';
+        
+        // Add rotation handle with Bootstrap icon
+        let rotateHandle = document.createElement("i");
+        rotateHandle.className = "bi bi-arrow-repeat rotate-handle";
+        div.appendChild(rotateHandle);
 
-        // Create the word div
-        let wordDiv = document.createElement("div");
-        wordDiv.textContent = word;
-        wordDiv.className = "word-box";
-        wordDiv.style.backgroundColor = colorSet.backgroundColor;
-        wordDiv.style.color = colorSet.color;
-        wordDiv.style.fontFamily = `'${selectedFont}', sans-serif`;
-        wordDiv.style.fontSize = selectedSize;
-        wordDiv.style.fontStyle = selectedStyle.includes('italic') ? 'italic' : 'normal';
-        wordDiv.style.fontWeight = selectedStyle.includes('bold') ? 'bold' : 'normal';
+        container.appendChild(div);
+        addDeleteFunctionality(div); // Add this line
+    }
 
-        // Create a rotate handle
-        let rotateHandle = document.createElement("div");
-        rotateHandle.classList.add('rotate-handle');
-        rotateHandle.innerHTML = '↻';
+}
 
-        // Append the word div and rotate handle to the wrapper
-        wrapper.appendChild(wordDiv);
-        wrapper.appendChild(rotateHandle);
+//TRASH FUNCTIONALITY
+function addDeleteFunctionality(element) {
+    // Create the trash icon
+    const trashIcon = document.createElement('i');
+    trashIcon.className = 'bi bi-trash delete-icon trash';
 
-        // Append the wrapper to the container
-        container.appendChild(wrapper);
+    // Add click event listener for deletion
+    trashIcon.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+        element.remove();
     });
+
+    // Append the trash icon to the element
+    element.appendChild(trashIcon);
+    element.style.position = 'relative'; // Ensure proper positioning of the icon
 }
-
-// Helper function to get contrast color (you may already have this)
-function getContrastColor(hexColor) {
-    // Convert hex to RGB
-    let r = parseInt(hexColor.substr(1,2), 16);
-    let g = parseInt(hexColor.substr(3,2), 16);
-    let b = parseInt(hexColor.substr(5,2), 16);
-    
-    // Calculate luminance
-    let luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-    
-    // Return black or white depending on luminance
-    return luminance > 0.5 ? '#000000' : '#FFFFFF';
-}
-
-
 
 
 //RULER
@@ -350,10 +297,6 @@ async function downloadPDF() {
     const rulers = document.querySelectorAll("#wordContainer .ruler, #wordContainer .ruler *");
     rulers.forEach(el => el.style.visibility = "hidden");
 
-    // Temporarily hide rotate handles
-    const rotateHandles = document.querySelectorAll("#wordContainer .rotate-handle");
-    rotateHandles.forEach(el => el.style.display = "none");
-
     // Temporarily remove translateX for accurate capture
     content.style.transform = "none";
 
@@ -379,10 +322,7 @@ async function downloadPDF() {
 
             // Restore ruler visibility
             rulers.forEach(el => el.style.visibility = "visible");
-
-            // Restore rotate handle visibility
-            rotateHandles.forEach(el => el.style.display = "");
-
         }).catch(error => console.error("html2canvas error:", error));
     }, 300);
 }
+
