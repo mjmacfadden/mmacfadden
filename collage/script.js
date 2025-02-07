@@ -208,18 +208,19 @@ function generateWords() {
     let generateShadesOption = document.getElementById('shadeOption').checked;
     let selectedFont = document.getElementById("fontSelector").value;
     let selectedSize = document.getElementById("fontSize").value + 'px';
-    let selectedStyle = document.getElementById("fontStyle").value.split(' ');
+    let selectedWeight = document.getElementById("fontWeight").value;
+    let selectedStyle = document.getElementById("fontStyle").value;
 
     if (generateShadesOption) {
         let shades = generateShades(primaryColor, textColor, 5);
         for (let i = 0; i < 5; i++) {
-            createWordBox(word, shades[i], selectedFont, selectedSize, selectedStyle);
+            createWordBox(word, shades[i], selectedFont, selectedSize, selectedWeight, selectedStyle);
         }
     } else {
-        createWordBox(word, { backgroundColor: primaryColor, color: textColor }, selectedFont, selectedSize, selectedStyle);
+        createWordBox(word, { backgroundColor: primaryColor, color: textColor }, selectedFont, selectedSize, selectedWeight, selectedStyle);
     }
 
-    function createWordBox(word, style, font, size, fontStyle) {
+    function createWordBox(word, style, font, size, weight, fontStyle) {
         let div = document.createElement("div");
         div.textContent = word;
         div.className = "word-box draggable";
@@ -227,8 +228,8 @@ function generateWords() {
         div.style.color = style.color;
         div.style.fontFamily = `'${font}', sans-serif`;
         div.style.fontSize = size;
-        div.style.fontStyle = fontStyle.includes('italic') ? 'italic' : 'normal';
-        div.style.fontWeight = fontStyle.includes('bold') ? 'bold' : 'normal';
+        div.style.fontWeight = weight;
+        div.style.fontStyle = fontStyle;
         
         // Add rotation handle with Bootstrap icon
         let rotateHandle = document.createElement("i");
@@ -236,10 +237,11 @@ function generateWords() {
         div.appendChild(rotateHandle);
 
         container.appendChild(div);
-        addDeleteFunctionality(div); // Add this line
+        addDeleteFunctionality(div);
     }
 
 }
+
 
 //TRASH FUNCTIONALITY
 function addDeleteFunctionality(element) {
