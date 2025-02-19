@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Collage Asset Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:wght@900&family=Roboto+Slab:wght@900&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        #input, #colorSchemes {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #output {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .asset {
+            padding: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .scheme-option {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #output, #output * {
+                visibility: visible;
+            }
+            #output {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Enter comma-separated words">
+    <div id="colorSchemes">
+        <h3>Color Schemes:</h3>
+        <label class="scheme-option"><input type="checkbox" name="colorScheme" value="retro"> Retro</label>
+        <label class="scheme-option"><input type="checkbox" name="colorScheme" value="pastel"> Pastel</label>
+        <label class="scheme-option"><input type="checkbox" name="colorScheme" value="bold"> Bold</label>
+        <label class="scheme-option"><input type="checkbox" name="colorScheme" value="monochrome"> Monochrome</label>
+    </div>
+    <button onclick="generateAssets()">Generate</button>
+    <button onclick="window.print()">Print</button>
+    <div id="output"></div>
+
+    <script>
+        const colorSchemes = {
+            retro: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FDCB6E', '#6C5CE7'],
+            pastel: ['#FFB3BA', '#BAFFC9', '#BAE1FF', '#FFFFBA', '#FFDFBA'],
+            bold: ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF'],
+            monochrome: ['#000000', '#333333', '#666666', '#999999', '#CCCCCC']
+        };
+
+        function generateAssets() {
+            const input = document.getElementById('input').value;
+            const words = input.split(',').map(word => word.trim());
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+
+            const fonts = ['Abril Fatface', 'Playfair Display', 'Roboto Slab'];
+            const selectedSchemes = getSelectedColorSchemes();
+            const colors = selectedSchemes.length > 0 ? selectedSchemes.flat() : Object.values(colorSchemes).flat();
+
+            words.forEach(word => {
+                const asset = document.createElement('div');
+                asset.className = 'asset';
+                asset.textContent = word;
+                asset.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+                asset.style.color = colors[Math.floor(Math.random() * colors.length)];
+                asset.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                output.appendChild(asset);
+            });
+        }
+
+        function getSelectedColorSchemes() {
+            const checkboxes = document.querySelectorAll('input[name="colorScheme"]:checked');
+            return Array.from(checkboxes).map(cb => colorSchemes[cb.value]);
+        }
+    </script>
+</body>
+</html>
+
