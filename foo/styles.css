@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:wght@900&family=Roboto+Slab:wght@900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+#input, #colorSchemes {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#output {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.asset {
+    padding: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+.scheme-option {
+    display: inline-block;
+    margin-right: 15px;
+}
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #output, #output * {
+        visibility: visible;
+    }
+    #output {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
