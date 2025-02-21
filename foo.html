@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Collection Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="emailForm" class="p-4 border rounded">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    placeholder="your@email.com"
+                >
+                <div id="error" class="invalid-feedback">
+                    Please enter a valid email address
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary d-flex align-items-center gap-2">
+                <span>Submit</span>
+                <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+            </button>
+        </form>
+        <div id="success" class="alert alert-success mt-3 d-none" role="alert">
+            Thank you! Email recorded.
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('email');
+            const error = document.getElementById('error');
+            const success = document.getElementById('success');
+            const spinner = document.getElementById('spinner');
+            const submitBtn = event.target.querySelector('button');
+            
+            // Reset previous states
+            emailInput.classList.remove('is-invalid');
+            error.classList.remove('d-block');
+            success.classList.add('d-none');
+            
+            // Basic email validation
+            const email = emailInput.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailInput.classList.add('is-invalid');
+                error.classList.add('d-block');
+                return;
+            }
+
+            // Show spinner and disable button
+            spinner.classList.remove('d-none');
+            submitBtn.disabled = true;
+
+            // Send to Google Sheet
+            fetch('https://script.google.com/macros/s/AKfycbwMTy2YbJZHIg8PwSeIt37SMMgDi6BfBGWiuPlSwM90CgVa0ZDLZIQK3TNwWY_WwSySNg/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(() => {
+                // Success case
+                spinner.classList.add('d-none');
+                submitBtn.disabled = false;
+                success.classList.remove('d-none');
+                document.getElementById('emailForm').reset();
+            })
+            .catch(err => {
+                // Error case
+                spinner.classList.add('d-none');
+                submitBtn.disabled = false;
+                emailInput.classList.add('is-invalid');
+                error.textContent = 'Something went wrong. Try again.';
+                error.classList.add('d-block');
+            });
+        }
+
+        // Add submit handler
+        document.getElementById('emailForm').addEventListener('submit', handleSubmit);
+    </script>
+</body>
+</html>
+
+<!-- https://script.google.com/macros/s/AKfycbwMTy2YbJZHIg8PwSeIt37SMMgDi6BfBGWiuPlSwM90CgVa0ZDLZIQK3TNwWY_WwSySNg/exec -->

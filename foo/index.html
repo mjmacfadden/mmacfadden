@@ -5,21 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analog Collage Asset Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:wght@900&family=Roboto+Slab:wght@900&family=Indie+Flower&family=Caveat&family=Amatic+SC:wght@700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <input type="text" id="input" placeholder="Enter comma-separated words">
-    <div id="colorSchemes">
-        <h3>Color Schemes:</h3>
-        <label class="scheme-option"><input type="checkbox" name="colorScheme" value="retro"> Retro</label>
-        <label class="scheme-option"><input type="checkbox" name="colorScheme" value="pastel"> Pastel</label>
-        <label class="scheme-option"><input type="checkbox" name="colorScheme" value="bold"> Bold</label>
-        <label class="scheme-option"><input type="checkbox" name="colorScheme" value="monochrome"> Monochrome</label>
+    <div class="container">
+        <h1>Analog Collage Asset Generator</h1>
+        <input type="text" id="input" placeholder="Enter comma-separated words">
+        <div id="controls">
+            <label>Asset Size: <input type="range" id="size" min="20" max="100" value="36"></label>
+            <label>Shape:
+                <select id="shape">
+                    <option value="rectangle">Rectangle</option>
+                    <option value="circle">Circle</option>
+                </select>
+            </label>
+            <label>Font:
+                <select id="font">
+                    <option value="'Abril Fatface', serif">Abril Fatface</option>
+                    <option value="'Playfair Display', serif">Playfair Display</option>
+                    <option value="'Roboto Slab', serif">Roboto Slab</option>
+                    <option value="'Indie Flower', cursive">Indie Flower</option>
+                    <option value="'Caveat', cursive">Caveat</option>
+                    <option value="'Amatic SC', cursive">Amatic SC</option>
+                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                </select>
+            </label>
+        </div>
+        <div id="colorSchemes">
+            <h3>Color Schemes:</h3>
+            <label class="scheme-option"><input type="checkbox" name="colorScheme" value="retro"> Retro</label>
+            <label class="scheme-option"><input type="checkbox" name="colorScheme" value="pastel"> Pastel</label>
+            <label class="scheme-option"><input type="checkbox" name="colorScheme" value="bold"> Bold</label>
+            <label class="scheme-option"><input type="checkbox" name="colorScheme" value="monochrome"> Monochrome</label>
+            <label>Custom: <input type="color" id="customColor" value="#000000"></label>
+        </div>
+        <div class="buttons">
+            <button id="generateBtn">Generate</button>
+            <button id="previewBtn">Toggle Preview</button>
+            <button id="printBtn">Print</button>
+        </div>
+        <div id="output"></div>
     </div>
-    <button onclick="generateAssets()">Generate</button>
-    <button onclick="window.print()">Print</button>
-    <div id="output"></div>
-
     <script src="script.js" defer></script>
 </body>
 </html>
-
