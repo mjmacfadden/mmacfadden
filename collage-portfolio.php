@@ -22,6 +22,16 @@
 <div class="container py-4 collage-portfolio">
   <div class="row py-4">
     <div class="col-lg-2 col-md-4 p-3">
+      <a href="img/collage/0024.jpg" data-lightbox="gallery" data-title="0024">
+        <img class="img-fluid" src="img/collage/0024.jpg">
+      </a>
+    </div>
+    <div class="col-lg-2 col-md-4 p-3">
+      <a href="img/collage/0023.jpg" data-lightbox="gallery" data-title="0023">
+        <img class="img-fluid" src="img/collage/0023.jpg">
+      </a>
+    </div>
+    <div class="col-lg-2 col-md-4 p-3">
       <a href="img/collage/0022.jpg" data-lightbox="gallery" data-title="0022">
         <img class="img-fluid" src="img/collage/0022.jpg">
       </a>
