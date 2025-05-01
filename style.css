@@ -168,6 +168,22 @@ HOME PAGE
 .projects h3 {
   font-weight: 200;
 }
+.projects .tracing_app {
+  background-image: url("img/projects/tracing_app.webp");
+}
+.projects .windsor {
+  background-image: url("img/projects/windsor_greetings_2.png");
+}
+.projects .printer_app {
+  background-image: url("img/projects/substack_printer.png");
+}
+.projects .tracing_app  h3,
+.projects .printer_app h3{
+  font-size: 2rem !important;  
+}
+.projects .cbg_lessons {
+  background-image: url("img/projects/cbg_lessons.png");
+}
 .projects .american_handkerchief {
   background-image: url("img/projects/american_handkerchief.jpg");
 }

@@ -47,36 +47,36 @@
       </div>
     </div>
     <div class="row d-flex and align-items-stretch text-light text-shadow text-center" style="height:100%;">
-      <div class="col-sm-12 col-md-3 py-4 project american_handkerchief">
-        <img src="img/projects/american_handkerchief_logo.png" class="img-shadow img-fluid py-4" alt="American Handkerchief" />
+      <div class="col-sm-12 col-md-3 py-4 project tracing_app">
+        <h3 class="text-shadow pt-4" style="font-weight:700; font-size:3rem; padding-bottom:0">Mike's Tracing<br>App</h3>
         <br>
-        <a href="https://www.americanhandkerchief.com" target="_blank">
+        <a href="/trace" target="_blank">
           <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
         </a>
       </div>
-      <div class="col-sm-12 col-md-3 project mqotd text-light pt-4">
-        <h3 class="text-shadow pt-4" style="font-weight:700; font-size:3rem; padding-bottom:0">"MQOTD"</h3>
-        <p>MOVIE QUOTE OF THE DAY</P>
+      <div class="col-sm-12 col-md-3 project printer_app">
+        <h3 class="text-shadow mt-4 pt-4" style="font-weight:700; font-size:1.5rem; padding-bottom:0">Mike's Substack Printer App</h3>
         <br>
-        <a href="https://www.moviequoteoftheday.com" target="_blank">
-          <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
-        </a>
-      </div>
-      <div class="col-sm-12 col-md-3 project cryptoswatch">
-        <img src="img/projects/cryptoswatch_logo.png" class="img-shadow img-fluid py-4 px-4 mt-4" style="max-width:200px; opacity:.8;" alt="cryptoswatch" />
-        <br>
-        <a href="https://www.cryptoswatches.com" target="_blank">
+        <a href="https://mjmacfadden.github.io/rss-reader/" target="_blank">
           <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
         </a>
 
       </div>
-      <div class="col-sm-12 col-md-3 project meaningful_attendance pt-4">
-        <h3 class="text-shadow mt-4 pt-4" style="font-weight:700; font-size:1.5rem; padding-bottom:0">MEANINGFUL<br>ATTENDANCE</h3>
+      <div class="col-sm-12 col-md-3 project cbg_lessons pt-4">
+        <h3 class="text-shadow mt-4 pt-4" style="font-weight:700; font-size:1.5rem; padding-bottom:0">CBG Lessons</h3>
         <p></P>
         <br>
-        <a href="https://www.meaningfulattendance.com" target="_blank">
+        <a href="https://mjmacfadden.github.io/cbglessons" target="_blank">
           <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
         </a>
+        </a>
+      </div>
+            <div class="col-sm-12 col-md-3 project windsor text-light pt-4">
+        <img src="img/projects/windsor_greetings_logo_white.png" class="img-shadow img-fluid py-4 px-4 mt-4" style="max-width:200px; opacity:.8;" alt="Windsor Greetings" />
+        <p>Handmade digital greeting cards</P>
+        <br>
+        <a href="https://www.windsorgreetings.com" target="_blank">
+          <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
         </a>
       </div>
     </div>
@@ -140,6 +140,51 @@
         <p>If you've read them here, and you want a hard copy for yourself, you can pick one up on Amazon.</p>
         <a href="https://www.amazon.com/s?i=digital-text&rh=p_27%3AMichael+Macfadden&s=relevancerank&text=Michael+Macfadden&ref=dp_byline_sr_ebooks_1" target="_blank"><button class="mb-4 btn btn-primary">BUY NOW <i class="bi bi-amazon"></i></button></a>
     </div>
+</div>
+
+<div class="projects">
+  <div class="container-fluid">
+    <div class="row pb-4">
+      <div class="col text-center">
+        <h6>Some more projects: <img src="img/arrow_down.png" alt="downward arrow" style="height:25px; position:relative; top:10px; left:5px;"/></h6>
+        
+      </div>
+    </div>
+    <div class="row d-flex and align-items-stretch text-light text-shadow text-center" style="height:100%;">
+      <div class="col-sm-12 col-md-3 py-4 project american_handkerchief">
+        <img src="img/projects/american_handkerchief_logo.png" class="img-shadow img-fluid py-4" alt="American Handkerchief" />
+        <br>
+        <a href="https://www.americanhandkerchief.com" target="_blank">
+          <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
+        </a>
+      </div>
+      <div class="col-sm-12 col-md-3 project mqotd text-light pt-4">
+        <h3 class="text-shadow pt-4" style="font-weight:700; font-size:3rem; padding-bottom:0">"MQOTD"</h3>
+        <p>MOVIE QUOTE OF THE DAY</P>
+        <br>
+        <a href="https://www.moviequoteoftheday.com" target="_blank">
+          <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
+        </a>
+      </div>
+      <div class="col-sm-12 col-md-3 project cryptoswatch">
+        <img src="img/projects/cryptoswatch_logo.png" class="img-shadow img-fluid py-4 px-4 mt-4" style="max-width:200px; opacity:.8;" alt="cryptoswatch" />
+        <br>
+        <a href="https://www.cryptoswatches.com" target="_blank">
+          <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
+        </a>
+
+      </div>
+      <div class="col-sm-12 col-md-3 project meaningful_attendance pt-4">
+        <h3 class="text-shadow mt-4 pt-4" style="font-weight:700; font-size:1.5rem; padding-bottom:0">MEANINGFUL<br>ATTENDANCE</h3>
+        <p></P>
+        <br>
+        <a href="https://www.meaningfulattendance.com" target="_blank">
+          <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
+        </a>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="rss_container">
