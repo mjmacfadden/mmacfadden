@@ -178,7 +178,7 @@
         <h3 class="text-shadow mt-4 pt-4" style="font-weight:700; font-size:1.5rem; padding-bottom:0">MEANINGFUL<br>ATTENDANCE</h3>
         <p></P>
         <br>
-        <a href="https://www.meaningfulattendance.com" target="_blank">
+        <a href="https://mjmacfadden.github.io/meaningfulattendance/" target="_blank">
           <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
         </a>
         </a>
