@@ -1191,7 +1191,6 @@ const dropdown = document.getElementById('tag-filters');
 const layoutBtn = document.getElementById('layoutBtn');
 const layoutPanel = document.getElementById('layout-panel');
 const layoutList = document.getElementById('layout-list');
-const clearLayoutBtn = document.getElementById('clearLayoutBtn');
 const effectsBtn = document.getElementById('effectsBtn');
 const effectsDropdown = document.getElementById('blend-modes');
 const imageBtn = document.getElementById('imageBtn');
@@ -1330,25 +1329,6 @@ clearImageBtn.addEventListener('click', function() {
     imageModal.classList.remove('show');
     renderCollage();
     resetHeartButton();
-});
-
-clearLayoutBtn.addEventListener('click', function() {
-    selectedLayout = null;
-    layoutSelectedImages = null;
-    layoutImageCount = null;
-    // Reset all layout buttons to outline style
-    document.querySelectorAll('.layout-option').forEach(btn => {
-        btn.classList.remove('btn-primary');
-        btn.classList.add('btn-outline-secondary');
-    });
-    renderCollage();
-    resetHeartButton();
-    
-    // Update URL
-    setTimeout(() => {
-        const settings = getCollageSettings();
-        encodeSettingsToURL(settings);
-    }, 100);
 });
 
 // Real-time text input
@@ -2364,12 +2344,12 @@ document.getElementById('infoBtn').addEventListener('click', () => {
         if (link !== 'NA') {
             // Add protocol if missing
             const url = link.startsWith('http') ? link : 'https://' + link;
-            linkDisplay = `<a href="${url}" target="_blank" rel="noopener noreferrer">${link}</a>`;
+            linkDisplay = `<a href="${url}" target="_blank" rel="noopener noreferrer" class="truncate-link" title="${link}">${link}</a>`;
         } else {
             linkDisplay = 'NA';
         }
         
-        infoHtml += `<tr><td>${fileName}</td><td>${attribution}</td><td>${linkDisplay}</td></tr>`;
+        infoHtml += `<tr><td>${fileName}</td><td><div class="truncate-link" title="${attribution}">${attribution}</div></td><td>${linkDisplay}</td></tr>`;
     });
     
     infoHtml += '</tbody></table>';
