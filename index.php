@@ -162,7 +162,7 @@
         <h3 class="text-shadow pt-4" style="font-weight:700; font-size:3rem; padding-bottom:0">"MQOTD"</h3>
         <p>MOVIE QUOTE OF THE DAY</P>
         <br>
-        <a href="https://www.moviequoteoftheday.com" target="_blank">
+        <a href="https://www.mmacfadden.com/mqotd" target="_blank">
           <button type="button" class="btn btn-outline-light btn-shadow">Go Now</button>
         </a>
       </div>
