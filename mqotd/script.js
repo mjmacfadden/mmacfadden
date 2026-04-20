@@ -1459,11 +1459,11 @@ if (navigator.share) {
           todaysQuote.quote +
           '"\n\n' +
           textResultes +
-          "\n\nmoivequoteoftheday.com/?date=" +
+          "\n\nmmacfadden.com/mqotd?date=" +
           (date ? date : today),
         //title: 'MQOTD',
         //text: 'MQOTD: Guesses: ' + numberOfGuesses.toString() + ', Hints: ' + numberOfHints.toString(),
-        //url: 'https://moviequoteoftheday.com/',
+        //url: 'https://mmacfadden.com/mqotd',
         //files: [file],
       });
 
