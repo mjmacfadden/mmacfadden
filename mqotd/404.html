@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie Quote of the Day</title>
+
+
+    <meta property="og:url"           content="https://moviequoteoftheday.com" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Movie Quote Of The Day" />
+    <meta property="og:image"         content="og-img.png" />
+
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link href="style.css" rel="stylesheet">
+    
+  </head>
+  <body class="text-light">
+        
+    <!-- NAVIGATION -->
+    <div class="container-fluid pt-2 pb-0 navigation">
+      <div class="row">
+          <div class="col"><h1 class="text-start logo"><span class="gradient-text">"MQOTD"</span></h1></div>
+          <div class="col">
+            <h1 class="settings text-end">
+              <i class="bi bi-gear" data-bs-toggle="modal" data-bs-target="#settingsModal"></i>
+            </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row mt-5 pt-5">
+            <div class="col mt-5">
+                <h1 class="error">404</h1>
+                <p class="mb-5">Oops, there's nothing here.</p>
+                <a href="index.html" class="pb-5"><button class="btn btn-primary primary-color" type="submit">GO HOME</button></a>
+            </div>   
+          </div>  
+    </div>
+        
+    <div class="container footer mt-5 pt-5">
+        <div class="row">
+            <p>© 2023 MOVIE QUOTE OF THE DAY<br><small>POWERED BY: </small><img src="img/tmdb-long.png" class="tmdb"/></p>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-dark" id="settingsModalLabel">About</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-dark text-start">
+            <p>Every day, we feature a new movie quote for you to guess, so you can test your knowledge of famous movie quotes. A new challenge emerges eacb day at 12:00 AM your time, so be sure to check back daily for a new quote to guess.</p>
+            <p>Our game is easy to play. Simply read the quote, guess which movie it's from, and submit your answer. If you're correct, you'll earn bragging rights and can share your success with your friends.
+            </p>
+            <p>If you have any questions or feedback, feel free to reach out on Twitter at <a href="https://twitter.com/mjmacfadden" target="_blank">@mjmacfadden</a>. We're always looking for ways to improve our game and make it more enjoyable for our users. Thank you for playing our movie quote of the day trivia game and we hope you enjoy testing your movie knowledge with us!</p>
+          </div>
+        </div>
+      </div>
+    </div>         
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>

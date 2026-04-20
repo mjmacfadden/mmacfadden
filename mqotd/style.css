@@ -1,0 +1,243 @@
+/*
+=================================================
+GLOBAL
+=================================================
+*/
+html,
+body {
+  height: 100%;
+}
+html {
+  background-color: rgb(13, 14, 24);
+}
+body {
+  text-align: center;
+
+  background: linear-gradient(
+    0deg,
+    rgba(13, 14, 24, 1) 0%,
+    rgba(39, 42, 70, 1) 100%
+  );
+  background-image: url("img/movie-poster.png");
+  background-position-y: 50px;
+}
+.primary {
+  color: #7affc8;
+}
+.btn {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.btn-primary,
+.btn-primary:active {
+  background-color: #7affc8 !important;
+  color: #272a46 !important;
+  border-color: #71eeba !important;
+}
+.btn-primary:hover {
+  background-color: #6ae1af !important;
+  color: #0d0e18;
+  border-color: #71eeba;
+}
+.btn-secondary,
+.btn-secondary:active {
+  background-color: #00c3ff;
+  border-color: #00b0e6;
+}
+.btn-secondary:hover {
+  background-color: #00b0e6 !important;
+  border-color: #00b0e6;
+}
+.gradient-text {
+  background-color: #7affc8;
+  background-image: linear-gradient(90deg, #00c3ff, #7affc8);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+/*
+=================================================
+NAVBAR
+=================================================
+*/
+.navigation {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  background: #0d0e18;
+}
+.logo {
+  font-weight: 700;
+  float: left;
+}
+.settings {
+  cursor: pointer;
+}
+
+/*
+=================================================
+TYPOGRAPHY
+=================================================
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+h2 {
+  color: #666;
+}
+.smallest {
+  font-size: 0.6em;
+}
+
+.error {
+  font-weight: 100;
+  font-size: 10em;
+}
+a {
+  text-decoration: none;
+}
+
+/*
+=================================================
+MODAL
+=================================================
+*/
+#poster {
+  max-height: 250px;
+}
+
+/*
+=================================================
+UI/UX
+=================================================
+*/
+#error-message {
+  display: none;
+}
+#hint {
+  display: none;
+}
+.hint-exit {
+  float: right;
+}
+#date,
+#todaysDate {
+  font-size: 1.2em;
+  font-weight: 800;
+}
+#date{
+  display:none;
+}
+#quote {
+  font-family: "Courier Prime", monospace;
+  font-size: 1.8em;
+  color: #fff;
+  padding: 20px 0 50px 0;
+}
+.container {
+  max-width: 600px;
+}
+.green {
+  background-color: #6aaa64;
+  color: #ffffff;
+}
+.green:hover {
+  background-color: #619c5b;
+  color: #ffffff;
+}
+.stats {
+  font-size: 0.8em;
+}
+.results {
+  font-size: 2.5em;
+  font-weight: 100;
+}
+.grey {
+  color: #999999;
+}
+
+#st-1.st-has-labels .st-btn.st-remove-label > span,
+#st-1.st-has-labels .st-btn.st-remove-label {
+  display: inline-block !important;
+}
+
+.fs-7 {
+  font-size: 0.8rem !important;
+}
+
+.modal-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.try-again,
+.try-again:active {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1px solid #fff;
+}
+.try-again:hover {
+  background-color: #ffffff10;
+  color: #fff;
+}
+#fail {
+  cursor: pointer;
+  opacity: 0.5;
+}
+/*
+=================================================
+FOOTER
+=================================================
+*/
+.footer {
+  margin-top: 50px;
+  opacity: 0.5;
+}
+.tmdb {
+  width: 150px;
+  margin: 10px auto;
+}
+
+/*
+=================================================
+SUGGESTION ENGINE
+=================================================
+*/
+#guess-form {
+  position: relative;
+}
+#suggestions {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+  border: 1px solid #ccc;
+  color: #0d0e18;
+}
+
+#suggestions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#suggestions li {
+  padding: 10px;
+  cursor: pointer;
+  list-style: none;
+  text-align: left;
+}
+
+#suggestions li:hover {
+  background-color: #f1f1f1;
+}
+.selected {
+  background-color: #f1f1f1;
+}
