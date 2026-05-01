@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windsor Greetings - Teacher Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+            color: #25383d;
+        }
+
+        .navbar-brand {
+            font-family: 'Merriweather', serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #25383d !important;
+        }
+
+        .sidebar-nav {
+            position: sticky;
+            top: 80px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+        }
+
+        .sidebar-nav .nav-link {
+            color: #333;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid transparent;
+            margin-left: 0;
+        }
+
+        .sidebar-nav .nav-link:hover {
+            background-color: #f8f9fa;
+        }
+
+        .sidebar-nav .nav-link.active {
+            border-left-color: #25383d;
+            font-weight: bold;
+            background-color: #f5f1ed;
+            color: #25383d;
+        }
+
+        .chapter-section {
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .chapter-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #25383d;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .unit {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #25383d;
+            border-radius: 0.25rem;
+        }
+
+        .unit-title {
+            font-family: 'Merriweather', serif;
+            font-weight: bold;
+            color: #25383d;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .discussion-question {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .discussion-question::before {
+            content: "•";
+            margin-left: -1rem;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .book-showcase {
+            background: linear-gradient(135deg, #25383d 0%, #25383d 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 0.5rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .book-showcase h2 {
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .book-showcase .btn-lg {
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .book-image-container {
+            margin-bottom: 2rem;
+        }
+
+        .book-image-container img {
+            max-width: 200px;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-chapters {
+            flex-direction: column;
+        }
+
+        .navbar-chapters .nav-link {
+            color: #333 !important;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        .navbar-chapters .nav-link.active {
+            font-weight: bold;
+            color: #25383d !important;
+        }
+
+        @media (min-width: 992px) {
+            .navbar-chapters {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#top">Windsor Greetings - Teacher Guide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <nav class="navbar-nav navbar-chapters ms-auto">
+                    <a class="nav-link" href="#chapter1">Chapter 1: The Big Announcement</a>
+                    <a class="nav-link" href="#chapter2">Chapter 2: Flashback</a>
+                    <a class="nav-link" href="#chapter3">Chapter 3: The After-Dinner Conversation</a>
+                    <a class="nav-link" href="#chapter4">Chapter 4: The Cousin Meeting</a>
+                    <a class="nav-link" href="#chapter5">Chapter 5: A Hallmark Deal</a>
+                    <a class="nav-link" href="#chapter6">Chapter 6: The Confrontation</a>
+                    <a class="nav-link" href="#chapter7">Chapter 7: The Hospital</a>
+                    <a class="nav-link" href="#chapter8">Chapter 8: Succession</a>
+                    <a class="nav-link" href="#chapter9">Chapter 9: Moving Forward</a>
+                    <a class="nav-link" href="#chapter10">Chapter 10: Starting Over</a>
+                    <a class="nav-link" href="#book-showcase" style="color: #28a745;">📚 Get the Book</a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-lg">
+        <div class="row" style="margin-top: 2rem;">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <nav class="sidebar-nav nav flex-column">
+                    <a class="nav-link active" href="#chapter1">Chapter 1: The Big Announcement</a>
+                    <a class="nav-link" href="#chapter2">Chapter 2: Flashback</a>
+                    <a class="nav-link" href="#chapter3">Chapter 3: The After-Dinner Conversation</a>
+                    <a class="nav-link" href="#chapter4">Chapter 4: The Cousin Meeting</a>
+                    <a class="nav-link" href="#chapter5">Chapter 5: A Hallmark Deal</a>
+                    <a class="nav-link" href="#chapter6">Chapter 6: The Confrontation</a>
+                    <a class="nav-link" href="#chapter7">Chapter 7: The Hospital</a>
+                    <a class="nav-link" href="#chapter8">Chapter 8: Succession</a>
+                    <a class="nav-link" href="#chapter9">Chapter 9: Moving Forward</a>
+                    <a class="nav-link" href="#chapter10">Chapter 10: Starting Over</a>
+                    <a class="nav-link" href="#book-showcase" style="margin-top: 1rem; color: #28a745;">📚 Get the Book</a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9" data-bs-spy="scroll" data-bs-target=".sidebar-nav" data-bs-offset="100">
+                <h1 style="margin-bottom: 2rem; color: #1f3a5c; font-weight: bold;">Windsor Greetings - Reading Discussion Guide</h1>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.8;">
+                    To assist teachers in embedding literacy into the INCubatoredu curriculum, below is a set of reading discussion questions for each chapter of Windsor Greetings. These questions are designed to help students bridge the gap between narrative character development and the entrepreneurial concepts found in the curriculum units.
+                </p>
+
+                <!-- Chapter 1 -->
+                <section id="chapter1" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 1: The Big Announcement</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Alex left his hometown to start a technology company in San Francisco. What does this suggest about the "Entrepreneurial Mindset" of seeing potential beyond one's immediate surroundings?</div>
+                        <div class="discussion-question">Alex describes the failed Kroger deal as a result of Tyler's "strategic plan" becoming "incomprehensible nonsense". If Tyler had used a Business Model Canvas (BMC), how might he have better identified the most at-risk parts of the deal?</div>
+                        <div class="discussion-question">Identify a "bug list" item Alex might have noted regarding his family's outdated business operations before he left for San Francisco.</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">Tyler's revisions to the Kroger presentation altered the tone and strategic plan. Did Tyler actually conduct "problem interviews" with Kroger to understand their needs, or was he pitching based on assumptions?</div>
+                        <div class="discussion-question">Alex mentions a "shift in consumer demand for artisanal greeting cards". How could market sizing data help the family determine if their niche is large enough to sustain their lifestyle?</div>
+                        <div class="discussion-question">Describe the "Customer Persona" of the traditional Windsor Greetings buyer based on the description of the business as a "relic of a different era".</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">The business bears the family's name, "Windsor Greetings". How does this name function as a "Brand" to distinguish the company from mass-market competitors?</div>
+                        <div class="discussion-question">What "Channels" does the company currently use to reach its buyers, and why is Alex concerned about their effectiveness?</div>
+                        <div class="discussion-question">Alex used his software connections to land the Kroger meeting. How does "Customer Relationship" management differ when dealing with a grocery giant versus individual buyers?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">Alex reveals the family business is struggling with "mounting medical bills" and declining revenue. Which category of "SG&A" or "Startup Costs" would these personal financial pressures fall under in a business model?</div>
+                        <div class="discussion-question">Based on the Kroger deal's failure, how did Tyler's "forecast" for the company's future likely differ from the reality Alex saw?</div>
+                        <div class="discussion-question">Why is "financial health" critical for a CEO like Tyler to understand before taking over a company that is no longer profitable?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">What was the "riskiest assumption" Tyler made when he decided to revise the Kroger presentation deck?</div>
+                        <div class="discussion-question">If Alex were to design an MVP to test a new software solution for Kroger, what would be the simplest, least expensive method?</div>
+                        <div class="discussion-question">How did Tyler fail to "maximize the internet and technology resources" available when he ignored Alex's software expertise?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">The lack of a legal mechanism to prevent Henry from naming Tyler successor is a "Legal" hurdle. What kind of "Legal Status" or "LLC agreement" might have changed this?</div>
+                        <div class="discussion-question">Alex analyzes the "Marketplace Data" of his brother's failures. How can data analysis inform a team's decision to "pivot or persevere"?</div>
+                        <div class="discussion-question">Tyler's "revisions" to the deck were presented as his own. What "Intellectual Property" issues arise when one team member takes credit for another's work?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">Alex describes Tyler's laugh as "inauthentic". How does "Storytelling" authenticity impact a founder's ability to persuade investors or customers?</div>
+                        <div class="discussion-question">Alex "mentally prepared" for the family dynamic. How is this similar to a founder identifying "tactics to promote their business" in a hostile market?</div>
+                        <div class="discussion-question">What is the "Financial Story" Tyler is trying to tell his father versus the one Alex sees in the numbers?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">Alex applauded at the table but knew Tyler would "never be CEO". How does this "Minimum Success Criteria" for Tyler's pitch differ from Alex's secret goal?</div>
+                        <div class="discussion-question">How could Alex use "verbal and nonverbal best practices" to expose Tyler's incompetence without alienating his father?</div>
+                        <div class="discussion-question">What "funding request" would Windsor Greetings need to make today to survive the next twenty years?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 2 -->
+                <section id="chapter2" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 2: Flashback</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Alex observes that the warehouse organizes merchandise by "artist name, not alphabetically". How does this demonstrate "Design Thinking" by identifying a customer (or employee) pain point?</div>
+                        <div class="discussion-question">Tyler calls his office time "strategizing" while Alex focuses on the "Lean Method's build-test-learn cycle". Who is actually being more entrepreneurial?</div>
+                        <div class="discussion-question">What is the "Unique Value Proposition" (UVP) of a Windsor card that justifies a price ten times higher than average?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">Henry says Windsor cards are "vessels for meaning and love". How could "empathy mapping" help a founder validate if customers actually feel this way?</div>
+                        <div class="discussion-question">Tyler dismisses digital cards, saying "Paper is our lifeblood". What "Market Research" did he ignore by not talking to the "mobile generation"?</div>
+                        <div class="discussion-question">If Alex were to create a "Customer Persona" for the warehouse employees, what would their biggest "pain" be?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">Alex suggests putting the catalog online to save the "80% of marketing budget" spent on paper. How would this change the "Distribution Channels" for the company?</div>
+                        <div class="discussion-question">How does Tyler's micromanagement of employees affect the "Customer Relationships" and internal team culture?</div>
+                        <div class="discussion-question">Alex reads Wired magazine and wants to go digital. How does "Market Research" (secondary research) influence his ideas for "Customer Connections"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">Alex claims digital systems would "save a full work day each week". How would this "efficiency" impact the company's "SG&A" costs?</div>
+                        <div class="discussion-question">Analyze the "COGS" of an artisanal card versus a mass-produced one. Why can Windsor charge so much more?</div>
+                        <div class="discussion-question">If the company spends 80% of its budget on paper catalogs, what is its "Customer Acquisition Cost" likely to be compared to digital marketing?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">Alex wants to update the inventory system. What would be a "Minimum Viable Product" (MVP) version of this system to test its efficacy before full scale?</div>
+                        <div class="discussion-question">Why is Tyler's refusal to "test" Alex's digital ideas a failure of the "build-test-learn" mindset?</div>
+                        <div class="discussion-question">If Alex created a "Website Wireframe" for an online catalog, what features would be essential to test his assumption?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">Tyler presents Alex's ideas as his own in the boardroom. Does Alex have a legal claim to this "Intellectual Property"?</div>
+                        <div class="discussion-question">How does Tyler's "Forward Strategy" presentation fail to use "marketplace data" to validate his claims?</div>
+                        <div class="discussion-question">What "legal protocols" should Alex have used to protect his ideas before telling Tyler?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">How does Tyler use "Storytelling" to persuade the brothers that Alex's ideas were actually his own?</div>
+                        <div class="discussion-question">Henry "beams with pride" during Tyler's pitch. How does Tyler's "Sales Planning" focus on the audience's emotions rather than the data?</div>
+                        <div class="discussion-question">What is the "Brand Story" Henry believes in, and how does Tyler exploit it?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">Evaluate Tyler's "pitch" to the board. Which "verbal and nonverbal best practices" did he likely use to sway his father?</div>
+                        <div class="discussion-question">If Alex were to "provide feedback to peers," what would he say about Tyler's ethics in this pitch?</div>
+                        <div class="discussion-question">How does the "Forward Strategy" title serve as a "hook" for a board of directors looking for growth?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 3 -->
+                <section id="chapter3" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 3: The After-Dinner Conversation</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Alex tells his mother he is "moving back home". How does this demonstrate the "Entrepreneur Mindset" of taking a personal risk to solve a business problem?</div>
+                        <div class="discussion-question">Alex identifies that the company "hasn't turned a profit in three years". Is this a "problem ideation" moment or a "solution ideation" moment?</div>
+                        <div class="discussion-question">Alex has a "plan". How does this plan align with the "Enduring Understanding" that creativity is a core component of entrepreneurship?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">Alex used "quarterly reports" to understand the business's decline. How is "analyzing data from investigations" different from conducting customer interviews?</div>
+                        <div class="discussion-question">Jan has a "motherly instinct" and "always knew" Alex was up to something. How is this similar to "gaining empathy" for a customer segment?</div>
+                        <div class="discussion-question">If the "customer base is shrinking," how can Alex use "market sizing" to determine if there is still a "Serviceable Addressable Market"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">Alex's position on the family council is "mostly symbolic". How can "Customer Relationships" within a team or board influence high-level business decisions?</div>
+                        <div class="discussion-question">How does Jan's "support" of Alex function as a form of internal "Brand" loyalty?</div>
+                        <div class="discussion-question">Alex whispers to his mother. How does "adjusting tone and terminology based on the audience" help him keep his secret?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">Alex notes the company "won't be able to make payroll by Easter". Which "Financial Model" input would show this upcoming "burn rate"?</div>
+                        <div class="discussion-question">How does Alex's discovery that expenses are increasing while profits are down impact the company's "financial health"?</div>
+                        <div class="discussion-question">What "pricing strategy" could a struggling company like Windsor Greetings use to generate immediate cash?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">Alex's "MVP" is buying out his cousins to secure a majority stake. What is the "riskiest assumption" he is testing with this move?</div>
+                        <div class="discussion-question">How does Alex's "funding request" (using his own money from a previous win) differ from a typical startup's funding request?</div>
+                        <div class="discussion-question">If Alex had to "pitch" this share-buyout plan to his cousins, what would his "Slide Deck" include?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">Why did Alex force his cousins to sign "NDAs"?. What "legal protocol" does this fall under?</div>
+                        <div class="discussion-question">Alex bought a "sizable portion of his uncle Tom's stake" years ago. How does this historical "Legal Plan" benefit his current goal?</div>
+                        <div class="discussion-question">What kind of "Legal Entity" (LLC, S-Corp, etc.) would Windsor Greetings likely be if the shares are split among family members?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">How does Alex use "Storytelling" to convince his mother that his plan is the right one for the family legacy?</div>
+                        <div class="discussion-question">Jan noticed "the age in his mother's face". How does visual empathy help a founder craft a more persuasive "Financial Story"?</div>
+                        <div class="discussion-question">What "marketing tactic" is Alex using by sharing his secret only with his mother at first?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">Evaluate Alex's "verbal and nonverbal" communication with Jan in the kitchen. Was he persuasive?</div>
+                        <div class="discussion-question">Alex's "Minimum Success Criteria" is securing the final piece of the puzzle from Kenny. How does he plan to measure this success?</div>
+                        <div class="discussion-question">How does Tyler's "eavesdropping" represent a competitive threat to Alex's final "pitch" to Kenny?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 4 -->
+                <section id="chapter4" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 4: The Cousin Meeting</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Alex views his negotiation with Kenny through the lens of interests, noting Kenny's is "singular: money". How does understanding a partner's "interests" serve as a form of problem ideation for a deal?</div>
+                        <div class="discussion-question">Alex considers Kenny a "joke" but needs his shares. In a great startup team, why is it important to manage individuals with different strengths even if you dislike them?</div>
+                        <div class="discussion-question">Identify the Unique Value Proposition (UVP) Alex is offering Kenny compared to what the current state of the company offers him.</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">Alex assumes Kenny's shares are "essentially worthless". What market research or data analysis did Alex fail to conduct regarding other "buyers" in the market?</div>
+                        <div class="discussion-question">Kenny's "customer persona" is someone who values leisure over legacy. How should this persona have dictated Alex's solution interview approach?</div>
+                        <div class="discussion-question">Tyler appearing with a "leather folder" suggests he conducted his own investigations. How did Tyler's "discovery" process outperform Alex's in this chapter?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">Kenny represents a "Channel" for Alex to gain control. How does Tyler's "Relationship" with Kenny disrupt Alex's distribution path?</div>
+                        <div class="discussion-question">How does the setting of a "tiki bar" affect the positioning and tone of the business conversation?</div>
+                        <div class="discussion-question">Tyler's "big smile" is a marketing tactic intended to signal victory. How does non-verbal communication influence business connections?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">Alex calculates that the deal "wouldn't be terribly expensive" because the company is unprofitable. What financial model inputs led him to this valuation?</div>
+                        <div class="discussion-question">If the company hasn't made a profit in three years, what is its likely financial health regarding "burn rate"?</div>
+                        <div class="discussion-question">Kenny wants a "one-time" payout. Is this better categorized as a startup cost for Alex's new venture or a personal expense?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">Alex's "MVP" was the assumption that he could buy out his cousins quickly. What was the riskiest assumption he made about his competition (Tyler)?</div>
+                        <div class="discussion-question">If Alex had used a project management tool, how could he have tracked Tyler's movements to prevent this setback?</div>
+                        <div class="discussion-question">How did Tyler's "leather folder" act as a stand-in prototype for his own business plan?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">Alex forced his cousins to sign NDAs. Why did this legal protocol fail to stop Tyler from buying Kenny's shares?</div>
+                        <div class="discussion-question">Tyler is called the "newest minority stake shareholder". What legal status changes occur when shares are transferred in this way?</div>
+                        <div class="discussion-question">What fiduciary duty does a minority shareholder have to the rest of the family business?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">Tyler uses the "story" of the leather folder to gain leverage. How does this storytelling technique influence the "investor" (Kenny)?</div>
+                        <div class="discussion-question">How does Kenny's celebratory tone serve as an authentic or inauthentic promotion of the deal he just made?</div>
+                        <div class="discussion-question">If Alex were to craft a sales plan for Kenny now, how would he have to "overcome objections" created by Tyler?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">Tyler's "pitch" to Kenny was successful. What minimum success criteria did Tyler likely meet to close the deal?</div>
+                        <div class="discussion-question">Alex is "the computer genius" in Kenny's eyes. How does this brand identity help or hurt him when requesting funding or support?</div>
+                        <div class="discussion-question">What funding request would Alex have to make now to outbid Tyler for the remaining control?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 5 -->
+                <section id="chapter5" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 5: A Hallmark Deal</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Tyler was "born on third base thinking he hit a triple". How does this reflect an entrepreneurial mindset that relies on existing resources rather than just new problems?</div>
+                        <div class="discussion-question">Tyler identifies that Henry has been "hamstringing" the business. How does this problem ideation differ from Alex's focus on technology?</div>
+                        <div class="discussion-question">The competitor offers a "buyout of intellectual property". What is the Unique Value Proposition for the competitor in this deal?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">The executive team at the Kansas City giant represents a new "customer segment" for Tyler. How did Tyler gain empathy for their mass-market needs?</div>
+                        <div class="discussion-question">Tyler "tanked" the Kroger deal on purpose. How does this subvert the Lean Method of testing business assumptions with honesty?</div>
+                        <div class="discussion-question">What market size data would a giant corporation use to justify a "staggering" offer for a small artisanal brand?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">Tyler used "first class" travel as a channel for building a relationship with the competitor. Is this a "physical" or "virtual" connection strategy?</div>
+                        <div class="discussion-question">How does the brand of Windsor Greetings change if it moves from "artisanal" to "mass-market"?</div>
+                        <div class="discussion-question">Tyler acts as a "salesman" for the IP. What marketing tactics did he use to make the competitor "aware and interested"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">The buyout offer is "large enough to erase all financial troubles". How would this appear in a forecasted financial model for the family's retirement?</div>
+                        <div class="discussion-question">Tyler's deal includes a "healthy salary and signing bonus". Are these SG&A costs for the buyer or startup revenue for Tyler?</div>
+                        <div class="discussion-question">What would you recommend about the financial story this deal tells for the company's future?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">Tyler's "verbal commitment" is essentially his MVP test. What is the riskiest assumption he is testing regarding his father's approval?</div>
+                        <div class="discussion-question">The competitor's boardroom is described as "something out of a movie". How does presentation environment affect the "prep for pitch"?</div>
+                        <div class="discussion-question">If the deal is a "silver bullet," why is it still considered an experiment rather than a final solution at this stage?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">The deal is for "intellectual property". What legal protocols (patents, trademarks, etc.) are being transferred in this transaction?</div>
+                        <div class="discussion-question">Tyler's deal is done "in secrecy". What legal issues regarding "truth in advertising" or "fiduciary duty" might arise?</div>
+                        <div class="discussion-question">What kind of contract would Tyler need to protect himself if the deal falls through?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">Tyler had to "steady himself" at the numbers. How does a founder's emotional state influence their ability to tell a persuasive "Financial Story"?</div>
+                        <div class="discussion-question">The competitor "produced dozens of movies". How does their storytelling expertise make them a formidable partner or rival?</div>
+                        <div class="discussion-question">Tyler's "sales planning" involves keeping the deal secret from his father. How does audience selection impact a promotional strategy?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">The competitor's offer is the funding request Tyler is entertaining. How does this "capital investment" compare to Alex's plan to use his own money?</div>
+                        <div class="discussion-question">Tyler's "minimum success criteria" for the meeting was a "staggering" offer. Did he meet it?</div>
+                        <div class="discussion-question">How does Tyler's "verbal and nonverbal" conduct in Kansas City differ from his behavior with Alex at home?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 6 -->
+                <section id="chapter6" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 6: The Confrontation</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Henry says Alex "forfeited the right" to the business by moving away. How does an entrepreneur's interests and skills conflict with family expectations?</div>
+                        <div class="discussion-question">Alex views Tyler's plan as a "betrayal" of what the family "stood for". How does this relate to the value proposition of a family-owned brand?</div>
+                        <div class="discussion-question">Identify the competitor's strategy in trying to buy the Windsor name to eliminate the artisanal threat.</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">Henry is "red in the face" and won't listen. How is this a failure of empathy mapping on both sons' parts?</div>
+                        <div class="discussion-question">Alex uses the "letter of intent" as marketplace data. How does this evidence validate his "problem" with Tyler's leadership?</div>
+                        <div class="discussion-question">Tyler claims he is doing what is "best for the family". What customer interview (with the family) could have prevented this conflict?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">The "Windsor Greetings letterhead" on the competitor's letter is a brand indicator. How does seeing a competitor use your brand affect "Customer Relationships"?</div>
+                        <div class="discussion-question">Henry's "disappointment" is a shift in an internal Customer Relationship. How can a founder repair a damaged connection with a "Board" member?</div>
+                        <div class="discussion-question">Alex "held it aloft, letting the logo catch the light". How is this a visual marketing tactic designed to persuade Henry?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">Tyler claims the company is "hemorrhaging cash". In a financial statements analysis, which document (P&L or Balance Sheet) would prove this?</div>
+                        <div class="discussion-question">Henry refuses to step down. How does this business decision based on emotion rather than a "financial model" impact the company's survival?</div>
+                        <div class="discussion-question">If the sons are "behaving" poorly, how does this "team health" affect the business's scalability or "fundability"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">The "Letter of Intent" is a stand-in for the final deal. How is it a "simple, least expensive method" to test the market's interest in the brand?</div>
+                        <div class="discussion-question">Alex's "MVP test" of exposing Tyler relied on the riskiest assumption that Henry would choose Alex's side.</div>
+                        <div class="discussion-question">How does the "stalemate" represent a failure to iterate the business model?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">Alex mentions there is "no mechanism in the bylaws" to remove Henry. What legal protocol in an LLC agreement should have existed?</div>
+                        <div class="discussion-question">The shares are split "45% and 45%" with a "10% swing stake". How does this company formation structure create legal risks?</div>
+                        <div class="discussion-question">What legal issues arise when one partner (Tyler) enters a secret LOI with a competitor?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">Alex "laid it all out" for Henry. How did his storytelling change from defensive to offensive during the confrontation?</div>
+                        <div class="discussion-question">Tyler uses the "financial story" of hemorrhaging cash to justify his actions. Is this story persuasive to an investor (Henry)?</div>
+                        <div class="discussion-question">Henry's "rage replaced by disappointment" shows a failure of the sons' marketing plan for their own futures.</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">If Alex were to pitch a way out of this stalemate, what "minimum success criteria" would he need for a truce?</div>
+                        <div class="discussion-question">The sons are "taking bids like an auctioneer". How does this undermine their professionalism and ethical leadership in a pitch setting?</div>
+                        <div class="discussion-question">What "funding request" (in terms of trust) must the sons make to Henry now?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 7 -->
+                <section id="chapter7" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 7: The Hospital</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Uncle Robert is a "longtime advisor". Why is expert advice critical when a startup or family business faces a "catastrophic" problem?</div>
+                        <div class="discussion-question">Alex feels "guilt" for thinking about the business during a tragedy. How does an entrepreneurial mindset prioritize "seeing potential" even in moments of loss?</div>
+                        <div class="discussion-question">Identify the problem Alex is trying to solve: who gets the "swing stake" of 10%?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">Jan is Uncle Tom's "rock". How does this empathy between them result in Jan being the "ideal customer" for Tom's shares?</div>
+                        <div class="discussion-question">The doctor's soft but "definitive" voice provides qualitative data that the problem (Tom's health) is terminal.</div>
+                        <div class="discussion-question">Alex "instinctively" comforts his mother. How is gaining empathy for a team member's pain similar to gaining empathy for a customer persona?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">Uncle Robert oversaw the "original operating agreement". How does a business's history function as a "brand" that provides solace during a crisis?</div>
+                        <div class="discussion-question">The "rhythm on the heart monitor" is a communication channel. How does the "timing" of this message impact the "customers" (family)?</div>
+                        <div class="discussion-question">Jan "gasp and drop the phone". How does emotional terminology or lack thereof affect "Customer Relationships" during a crisis?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">Alex worries that the "financial statements" offer no provision for succession planning. Why is this a failure of a long-term financial model?</div>
+                        <div class="discussion-question">The "10% swing stake" is now the most valuable asset in the company. How does its "pricing" change now that it determines control?</div>
+                        <div class="discussion-question">If Tom had "abdicated his voting power," how does this affect the financial health of the business now that he is gone?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">Tom's will is a "data-based experiment" to ensure a "gradual decline" rather than a chaotic one.</div>
+                        <div class="discussion-question">Alex's "MVP test" in this chapter is internal: can he stay focused on the business without being "heartless"?</div>
+                        <div class="discussion-question">How does the "transfer of authority" to Jan serve as a pivot in the business's path?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">Jan is an individual with a fiduciary duty now that she holds the shares.</div>
+                        <div class="discussion-question">Uncle Robert "ensured there'd be no dispute" through a will and operating agreement. Which "Legal Status" (LLC vs Corp) makes this easier?</div>
+                        <div class="discussion-question">Tom's instruction was to "not prolong suffering." Is this a form of contract indemnity for the family's emotional liability?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">The doctor "removed his glasses" to signal a "story" of loss. How do nonverbal best practices influence the weight of a message?</div>
+                        <div class="discussion-question">Alex thinks about the "Financial Story" of the company while in the room. How does a founder's vision for the future get promoted during a transition?</div>
+                        <div class="discussion-question">How does Tom's "wish to be reunited" serve as a brand story for the legacy he leaves behind?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">Jan is now the one the brothers must pitch to. What is the "Minimum Success Criteria" for winning her 10% vote?</div>
+                        <div class="discussion-question">Alex's "verbal and nonverbal" conduct in the hospital will influence Jan. Is he persuasive through his support of her?</div>
+                        <div class="discussion-question">What "funding request" (for the shares) would Alex or Tyler make to Jan?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 8 -->
+                <section id="chapter8" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 8: Succession</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Jan has a "unique ability to approach business matters unemotionally". How does this mindset make her a "great startup team" leader?</div>
+                        <div class="discussion-question">Jan identifies the problem: "We stopped working together". Is this a problem ideation or a solution ideation?</div>
+                        <div class="discussion-question">Henry's "creative genius" is a core component, but he lacks "business acumen". How do different strengths make a startup successful?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">Jan has been a "confidant" to senior leaders for years. How did this "discovery" of the internal culture allow her to gain empathy for the employees?</div>
+                        <div class="discussion-question">Jan asks, "do you know why [95% are repeat buyers]?". How can analyzing data from interviews validate this "customer segmentation"?</div>
+                        <div class="discussion-question">The brothers "working in secrecy" failed to test their assumptions with their "customer" (Jan).</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">The boardroom has "framed artifacts" that tell the brand history. How does this "visual positioning" influence the audience?</div>
+                        <div class="discussion-question">Jan says a Windsor Greeting is a "tangible expression of feelings". What is the Unique Value Proposition she is trying to reposition?</div>
+                        <div class="discussion-question">How does Jan's "command of the room" shape the Customer Relationship between the owners?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">Jan states the "financial statements are proof" of Henry's failure. Which document (Income Statement or Balance Sheet) showed the financial health was "diminished"?</div>
+                        <div class="discussion-question">Jan notes the "magic has diminished". In a financial story, how do you measure the loss of "intangible assets" like brand value?</div>
+                        <div class="discussion-question">Jan mentions they might need to "close our doors forever". How does a financial model help a team decide to "pivot or persevere"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">Jan's decision to make them "work together" is an experiment. What is the riskiest assumption she is testing about their sibling rivalry?</div>
+                        <div class="discussion-question">How does the "owners' meeting" function as an MVP Pitch for Jan's leadership?</div>
+                        <div class="discussion-question">Jan says, "I'm nowhere near finished". How does this demonstrate adaptability and resilience in a pitch setting?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">Jan lacks "legal authority" but has "matriarch authority". What legal entity or "LLC agreement" would have prevented this "stalemate"?</div>
+                        <div class="discussion-question">Jan's decision to hold her vote is a legal plan to force a partnership.</div>
+                        <div class="discussion-question">What legal protocols (like a voting trust) could Jan use to enforce her decision?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">Jan tells the "story" of the father and uncles started the business. How does storytelling help her "influence" the brothers?</div>
+                        <div class="discussion-question">How does Jan "adjust tone and terminology" when speaking to Henry versus the sons?</div>
+                        <div class="discussion-question">Jan's marketing plan for the company's future is to return to the "values" of the founders. Is this "authentic" storytelling?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">Both sons' pitches were rejected. What "Minimum Success Criteria" did they fail to meet in Jan's eyes?</div>
+                        <div class="discussion-question">Jan "beaming with pride" in Chapter 2 is gone. How does a pitch's success depend on the "audible" results (financial statements)?</div>
+                        <div class="discussion-question">What "funding request" (for the brothers' future) is Jan now offering them?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 9 -->
+                <section id="chapter9" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 9: Moving Forward</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Alex realizes they need to "reinvent the business". How does this demonstrate the entrepreneurial mindset of seeing potential in "starting something new"?</div>
+                        <div class="discussion-question">Alex's "bug list" item was the "half capacity" building. How did he use creative problem solving to turn this into a coworking space idea?</div>
+                        <div class="discussion-question">Identify the Unique Value Proposition (UVP) of a "mobile-first" digital greeting card.</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">Henry's eulogy about painting houses provides marketplace data on the "personal touch". How does this validate the "customer segment" for the new app?</div>
+                        <div class="discussion-question">Tyler and Alex "excused themselves" to have solution interviews with each other. Did they find "product-market fit" between their two plans?</div>
+                        <div class="discussion-question">Alex assumes the "mobile generation" wants digital cards. What market research should he conduct next to prove this "TAM/SAM"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">Alex wants an "exclusive licensing deal". How does this change the distribution channels for the Windsor name?</div>
+                        <div class="discussion-question">The coworking space is a "physical channel". How does it build a new Customer Relationship with local tenants?</div>
+                        <div class="discussion-question">Alex wants to keep "digital rights" to the name. How does this preserve the brand for future "Customer Connections"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">Alex admits the licensing deal "won't solve all money troubles" but provides "runway". What is the financial story of "runway" in a startup?</div>
+                        <div class="discussion-question">Coworking produces "steady, predictable income". Is this a subscription-based or transaction-based revenue model?</div>
+                        <div class="discussion-question">Alex proposes "ruthless cuts" to the SG&A costs (employees). How does this improve the "financial health" for Henry's retirement?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">The "restructured deal" is a pilot experiment. What is the riskiest assumption Tyler must test during the renegotiation?</div>
+                        <div class="discussion-question">Alex's "MVP" for the coworking space might be renting out one floor first. What is the "simplest, least expensive method" to test this?</div>
+                        <div class="discussion-question">How does the "mobile app" represent a pivot from the original paper-based MVP?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">Alex wants "exclusive licensing" and "digital rights". Which intellectual property laws (copyright vs trademark) apply here?</div>
+                        <div class="discussion-question">The building transition requires a legal plan for new lease agreements with tenants.</div>
+                        <div class="discussion-question">What legal status (LLC, etc.) should the new mobile app venture take to separate it from the family name?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">Alex "put his head down and thought". How does storytelling play a role in his "inspired" pitch to Tyler?</div>
+                        <div class="discussion-question">How will the brothers use sales planning to convince the giant corporation to accept a "licensing deal" instead of a "buyout"?</div>
+                        <div class="discussion-question">What promotional strategies would help the brothers "manage up" to Henry as they transition?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">Henry says, "The business is yours now. We trust you". Is this the final pitch success the brothers needed to launch?</div>
+                        <div class="discussion-question">The brothers now have a "12-month financial plan" involving licensing and coworking. How do they forecast the first year's revenue?</div>
+                        <div class="discussion-question">Tyler's "verbal and nonverbal" agreement with Alex in the study is their first win. How do they work effectively as a team now?</div>
+                    </div>
+                </section>
+
+                <!-- Chapter 10 -->
+                <section id="chapter10" class="chapter-section">
+                    <h2 class="chapter-title">Chapter 10: Starting Over</h2>
+                    
+                    <div class="unit">
+                        <div class="unit-title">Unit 1: Ideation</div>
+                        <div class="discussion-question">Alex moves into "Uncle Tom's old office". How does a founder's environment influence their "creative mindset"?</div>
+                        <div class="discussion-question">Alex discovers a "patinaed key". In entrepreneurship, how do "unseen opportunities" (problems) become business opportunities?</div>
+                        <div class="discussion-question">The "wood-paneled walls" are a "museum" of the startup's history. How does this legacy influence new "ideation"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 2: Customer Discovery</div>
+                        <div class="discussion-question">The "lifetime of personal effects" in the office are marketplace data on Uncle Tom. What can Alex learn about his "ideal partner" from this?</div>
+                        <div class="discussion-question">Alex "questioned everything he thought he knew". How is this similar to a founder testing their assumptions and being forced to "pivot"?</div>
+                        <div class="discussion-question">What "empathy" must Alex gain for Jan now that he has found Tom's secret records?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 3: Customer Connections</div>
+                        <div class="discussion-question">The brothers are "fighting the good fight" together. How does this unified team brand improve their "Customer Relationship" with the corporation?</div>
+                        <div class="discussion-question">Alex used his "mobile-first approach" as a marketing vehicle for the "paper division". Is this an effective marketing tactic for the older generation?</div>
+                        <div class="discussion-question">How does the "Windsor Greetings Headquarters" sign on the building function as physical positioning?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 4: Finances</div>
+                        <div class="discussion-question">The "reduced price" for the name was a pricing strategy choice. How did this affect the "financial viability" of the brothers' new venture?</div>
+                        <div class="discussion-question">Tyler "convinced them" the new app wouldn't "dilute the name". How does brand dilution affect the "valuation" of the company?</div>
+                        <div class="discussion-question">If Alex finds "financial records" in the cabinet, how could they reveal the true financial story of his family?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 5: Building Your MVP</div>
+                        <div class="discussion-question">The "mobile-first approach" is the MVP they are currently launching.</div>
+                        <div class="discussion-question">Alex's "website creation" for the app is the next step. What "Wireframe" would best support the "vessel for meaning" brand?</div>
+                        <div class="discussion-question">The "patinaed key" represents the riskiest assumption that the past is what it seems.</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 6: Legal & MVP Experiment</div>
+                        <div class="discussion-question">Alex finds documents in the cabinet. Could these be legal protocols (like paternity or trust documents) that change "intellectual property" or share ownership?</div>
+                        <div class="discussion-question">The renegotiated deal is now a legal contract. What "Contract Indemnity" should the brothers have included?</div>
+                        <div class="discussion-question">Is finding a "secret" in a filing cabinet a violation of "advertising substantiation" or a family "fiduciary duty"?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 7: Promotion</div>
+                        <div class="discussion-question">Tyler "commanded the boardroom" during the renegotiation. Which sales planning techniques did he use to "ask for the order"?</div>
+                        <div class="discussion-question">Alex's "Financial Story" to the board included a "mobile-first approach". How did this story create investor confidence?</div>
+                        <div class="discussion-question">How will Alex "promote" the secret he found in the filing cabinet to his family? Is it a marketing tactic he should use?</div>
+                    </div>
+
+                    <div class="unit">
+                        <div class="unit-title">Unit 8: Pitch Your Story</div>
+                        <div class="discussion-question">The "Starting Over" chapter title aligns with the Preparing for Launch lesson. What are the first steps for a "funded" team like the Windsors?</div>
+                        <div class="discussion-question">Tyler's "pitch" to the giant corporation "went surprisingly well". What verbal and nonverbal skills did he likely use?</div>
+                        <div class="discussion-question">Alex found a key to a "filing cabinet". In a startup context, what is the "Minimum Success Criteria" for investigating the past without destroying the future?</div>
+                    </div>
+                </section>
+
+                <!-- Book Showcase Section -->
+                <section id="book-showcase" class="book-showcase">
+                    <h2>Get the Book</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+                        Dive deeper into the Windsor Greetings story and explore the entrepreneurial journey of Alex and Tyler as they navigate family dynamics, business challenges, and unexpected opportunities.
+                    </p>
+                    <div class="book-image-container">
+                        <img src="img/windsor_greetings.png" alt="Windsor Greetings Book Cover">
+                    </div>
+                    <p style="margin-bottom: 1.5rem; font-size: 1rem;">
+                        Perfect for entrepreneurship classes, book clubs, and anyone interested in understanding how families navigate business, innovation, and change.
+                    </p>
+                    <a href="https://amzn.to/3Pf5LMU" target="_blank" class="btn btn-light btn-lg">
+                        Purchase on Amazon
+                    </a>
+                </section>
+
+                <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e0e0e0; text-align: center; color: #666;">
+                    <p>© Windsor Greetings - Teacher's Discussion Guide</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Scrollspy
+        const scrollSpyInstance = new bootstrap.ScrollSpy(document.body, {
+            target: '.sidebar-nav',
+            offset: 100
+        });
+
+        // Function to sync mobile menu with active section
+        function syncMobileMenu() {
+            const activeLink = document.querySelector('.sidebar-nav .nav-link.active');
+            if (activeLink) {
+                const href = activeLink.getAttribute('href');
+                document.querySelectorAll('.navbar-chapters .nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                const correspondingMobileLink = document.querySelector(`.navbar-chapters .nav-link[href="${href}"]`);
+                if (correspondingMobileLink) {
+                    correspondingMobileLink.classList.add('active');
+                }
+            }
+        }
+
+        // Sync on scroll
+        document.addEventListener('activate.bs.scrollspy', syncMobileMenu);
+        
+        // Initial sync
+        syncMobileMenu();
+    </script>
+</body>
+</html>
