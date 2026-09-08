@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Backchannel Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Backchannel chat for the classroom - powered by mmacfadden.com">
+    <meta property="og:title" content="Backchannel Chat">
+    <meta property="og:description" content="A backchannel chat tool for watching videos together.">
+    <meta property="og:url" content="https://mmacfadden.com/chat">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================= LOGIN VIEW ============================= -->
+<div id="view-login" class="app-view vh-100 d-flex align-items-center justify-content-center bg-dark text-light">
+    <div class="text-center px-3" style="max-width: 440px;">
+        <h1 class="fw-bold mb-1">Backchannel Chat</h1>
+        <p class="text-white-50 mb-4">A quiet space for live conversations while you work together.</p>
+        <button id="btn-google-signin" class="btn btn-primary btn-lg w-100" type="button">
+            <i class="bi bi-google me-2"></i>Sign in with Google
+        </button>
+        <p class="mt-3 small text-white-50">Only your Gmail and @glenbrook225.org accounts are allowed.</p>
+        <div id="login-notice" class="alert mt-3 mb-0 text-start d-none" role="alert"></div>
+    </div>
+</div>
+
+<!-- ============================= HOME VIEW ============================= -->
+<div id="view-home" class="app-view d-none">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand fw-bold">Backchannel Chat</span>
+            <div class="d-flex align-items-center gap-2">
+                <span id="home-user-email" class="navbar-text small text-white-50 d-none d-sm-inline"></span>
+                <button id="btn-signout-home" class="btn btn-sm btn-outline-light" type="button">Sign out</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container py-5" style="max-width: 560px;">
+        <div id="home-teacher-panel" class="d-none">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="h5 fw-bold mb-1">Create a room</h2>
+                    <p class="text-muted small mb-3">Share the link with everyone you want to chat with.</p>
+                    <button id="btn-create-room" class="btn btn-primary w-100" type="button">
+                        <i class="bi bi-plus-circle me-2"></i>Create New Room
+                    </button>
+                </div>
+            </div>
+            <div id="owner-seed-box" class="card shadow-sm border-warning mb-4 d-none">
+                <div class="card-body">
+                    <h2 class="h5 fw-bold mb-1">First-time setup</h2>
+                    <p class="text-muted small mb-3">You're the account owner. Create the access document so approved Gmail accounts can use the tool.</p>
+                    <button id="btn-seed-settings" class="btn btn-sm btn-warning" type="button">
+                        <i class="bi bi-key me-1"></i>Create access document
+                    </button>
+                </div>
+            </div>
+            <div id="access-manager" class="card shadow-sm mb-4 d-none">
+                <div class="card-body">
+                    <h2 class="h5 fw-bold mb-2">Manage access</h2>
+                    <p class="text-muted small mb-3">Gmail accounts listed here are treated as teachers. School accounts are always allowed automatically.</p>
+                    <ul id="admin-emails-list" class="list-group list-group-flush mb-3"></ul>
+                    <form id="form-add-admin" class="d-flex gap-2">
+                        <input id="input-add-admin" type="email" class="form-control" placeholder="teacher@gmail.com" autocomplete="off">
+                        <button type="submit" class="btn btn-outline-primary text-nowrap">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="home-teacher-list" class="card shadow-sm d-none">
+            <div class="card-body">
+                <h2 class="h5 fw-bold mb-2">Your rooms</h2>
+                <div id="room-list" class="list-group list-group-flush"></div>
+            </div>
+        </div>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="h5 fw-bold mb-1">Join a room</h2>
+                <p class="text-muted small mb-3">Enter the room code from your teacher.</p>
+                <form id="form-join" class="d-flex gap-2">
+                    <input id="input-join-code" class="form-control text-uppercase" placeholder="Room code (e.g. knfep)" maxlength="12" required autocomplete="off">
+                    <button type="submit" class="btn btn-outline-primary text-nowrap">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>Join
+                    </button>
+                </form>
+                <p id="join-feedback" class="small text-danger mt-2 mb-0 d-none"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================= ROOM VIEW ============================= -->
+<div id="view-room" class="app-view d-none">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand fw-bold d-flex align-items-center">
+                <span class="me-2">#</span><span id="room-code-label" class="text-uppercase"></span>
+            </span>
+            <div class="d-flex align-items-center gap-2">
+                <span id="room-role-label" class="badge bg-light text-dark"></span>
+                <button id="btn-signout-room" class="btn btn-sm btn-outline-light" type="button">Sign out</button>
+            </div>
+        </div>
+    </nav>
+    <div id="room-error" class="alert alert-danger rounded-0 text-center mb-0 py-2 d-none"></div>
+    <div id="chat-scroll" class="chat-scroll">
+        <div id="message-list" class="message-list container py-3"></div>
+        <div id="message-empty" class="text-center text-muted py-5 d-none">
+            <p class="h5 mb-0">No messages yet</p>
+            <p class="small">Start the backchannel conversation.</p>
+        </div>
+    </div>
+    <div id="composer-wrap" class="composer-bar bg-body border-top">
+        <div class="container py-2">
+            <form id="form-message" class="d-flex gap-2 align-items-end">
+                <div class="flex-grow-1">
+                    <input id="input-message" class="form-control" placeholder="Say something..." maxlength="1000" autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary" aria-label="Send">
+                    <i class="bi bi-send"></i>
+                </button>
+            </form>
+            <div id="composer-error" class="small text-danger mt-1 d-none"></div>
+        </div>
+    </div>
+</div>
+
+<script src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

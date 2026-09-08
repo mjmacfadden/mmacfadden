@@ -1,0 +1,170 @@
+:root {
+  --teacher-bubble: #0b6bcb;
+  --teacher-bubble-text: #ffffff;
+  --student-bubble: #e9e9eb;
+  --student-bubble-text: #1c1c1e;
+  --link: #0b6bcb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #f5f6f7;
+}
+
+/* ---------- Layout ---------- */
+#view-room {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.chat-scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+  padding-bottom: 1rem;
+}
+
+.composer-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+}
+
+/* ---------- Message bubbles ---------- */
+.message-row {
+  display: flex;
+  width: 100%;
+}
+
+.message-row.teacher-row {
+  justify-content: flex-end;
+}
+
+.message-row.student-row {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 78%;
+  border-radius: 16px;
+  padding: 10px 14px;
+  position: relative;
+  word-break: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.message-row.teacher-row .message-bubble {
+  background: var(--teacher-bubble);
+  color: var(--teacher-bubble-text);
+  border-top-right-radius: 4px;
+}
+
+.message-row.student-row .message-bubble {
+  background: var(--student-bubble);
+  color: var(--student-bubble-text);
+  border-top-left-radius: 4px;
+}
+
+.message-meta {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 2px;
+}
+
+.message-row.teacher-row .message-meta {
+  color: rgba(255, 255, 255, 0.85);
+  text-align: right;
+}
+
+.message-row.student-row .message-meta {
+  color: #6b6b70;
+}
+
+.message-text {
+  white-space: pre-wrap;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.message-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  justify-content: flex-end;
+}
+
+.message-actions button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.message-row.teacher-row .message-actions button {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.message-actions button:hover {
+  color: var(--link);
+}
+
+.message-editing textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  resize: none;
+}
+
+.msg-deleted {
+  font-style: italic;
+  opacity: 0.55;
+}
+
+.message-timestamp {
+  display: block;
+  font-size: 0.66rem;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+/* ---------- Home ---------- */
+.room-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.room-list-item .code {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 575.98px) {
+  .message-bubble {
+    max-width: 88%;
+  }
+}

@@ -1,0 +1,134 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ------------------------------------------------------------------
+    // Access policy
+    //  - Owner Gmail(s): configured in `settings/access`
+    //  - @glenbrook225.org accounts: allowed (teacher or student)
+    //  - Everyone else: denied
+    // ------------------------------------------------------------------
+
+    function isSignedIn() { return request.auth != null; }
+    function emailOf() { return (request.auth.token.email || '').toLowerCase(); }
+
+    // Exact end-of-string match — no lookalike domains.
+    function isSchoolDomain() {
+      return emailOf() != '' && emailOf().matches('^[^@]+@glenbrook225\\.org$');
+    }
+
+    // Explicit admin emails (Owner + any teachers you add).
+    function adminEmails() {
+      return exists(/databases/$(database)/documents/settings/access)
+        ? get(/databases/$(database)/documents/settings/access).data.adminEmails
+        : [];
+    }
+
+    function isListedAdmin(email) {
+      return isSignedIn() && adminEmails().hasAny([email]);
+    }
+
+    function isAdmin() { return isListedAdmin(emailOf()); }
+
+    // Anyone approved to use the tool: listed admin OR any school-domain address.
+    function isApproved() { return isSignedIn() && (isAdmin() || isSchoolDomain()); }
+
+    // ------------------------------------------------------------------
+    // Owner = the personal Gmail used to register the Firebase project.
+    // Must match the first entry in firebase-config.js.
+    // ------------------------------------------------------------------
+    function isOwnerEmail() {
+      return isSignedIn() && emailOf().matches('^mikemacfadden@gmail\\.com$');
+    }
+
+    // ------------------------------------------------------------------
+    // Settings (who may use the tool + admin/teacher emails)
+    // ------------------------------------------------------------------
+    match /settings/access {
+
+      function validSettings(v) {
+        return v.adminEmails is list
+            && v.adminEmails.size() >= 1
+            && v.adminEmails.size() <= 20
+            && v.adminEmails.all(email, email is string && email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+$'));
+      }
+
+      allow read: if isSignedIn();
+      // Bootstrap: owner may create the document exactly once (it does not yet exist).
+      allow create: if isOwnerEmail() && !exists(/databases/$(database)/documents/settings/access)
+                   && validSettings(request.resource.data);
+      // Admins may add/remove admin emails afterwards.
+      allow update: if isAdmin()
+                   && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['adminEmails'])
+                   && validSettings(request.resource.data);
+      allow delete: if false;
+    }
+
+    // ------------------------------------------------------------------
+    // User profiles
+    // ------------------------------------------------------------------
+    match /users/{uid} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && request.auth.uid == uid
+                   && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name','email','updatedAt']);
+      allow update: if isSignedIn() && request.auth.uid == uid
+                   && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name','email','updatedAt']);
+      allow delete: if false;
+    }
+
+    // ------------------------------------------------------------------
+    // Rooms
+    // ------------------------------------------------------------------
+    match /rooms/{roomId} {
+      function validRoom(v) {
+        return v.createdAt is timestamp
+            && v.createdBy is string
+            && v.createdByEmail is string
+            && v.name is string
+            && v.name.size() <= 80
+            && (!('expiresAt' in v) || v.expiresAt is timestamp);
+      }
+
+      allow read: if isSignedIn();
+      allow create: if isApproved() && validRoom(request.resource.data)
+                   && request.resource.data.createdBy == request.auth.uid
+                   && request.resource.data.createdByEmail == emailOf();
+      // Once created, room documents are immutable (messages carry the mutable state).
+      allow update: if false;
+      allow delete: if false;
+
+      // ------------------------------------------------------------------
+      // Messages
+      // ------------------------------------------------------------------
+      match /messages/{messageId} {
+
+        function room() { return get(/databases/$(database)/documents/rooms/$(roomId)); }
+        function isRoomCreator() {
+          return isSignedIn() && room().data.createdBy == request.auth.uid;
+        }
+        function validMessage(v) {
+          return v.text is string && v.text.size() > 0 && v.text.size() <= 1000
+              && v.senderUid is string
+              && v.senderUid == request.auth.uid
+              && v.name is string && v.name.size() <= 60
+              && v.role is string
+              && v.role in ['teacher','student']
+              && v.createdAt is timestamp
+              && (!('updatedAt' in v) || v.updatedAt is timestamp);
+        }
+        // Students and teachers may post in any room; edit/delete is limited to
+        // your own messages, or any message if you created the room.
+        function editDeleteAllowed() {
+          return (request.resource != null && request.resource.data.senderUid == request.auth.uid)
+             || isRoomCreator();
+        }
+
+        allow read: if isApproved();
+        allow create: if isApproved() && validMessage(request.resource.data);
+        allow update: if isApproved() && editDeleteAllowed()
+                   && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['text','updatedAt']);
+        allow delete: if isApproved() && (resource.data.senderUid == request.auth.uid || isRoomCreator());
+      }
+    }
+  }
+}
