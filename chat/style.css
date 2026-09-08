@@ -1,8 +1,8 @@
 :root {
   --teacher-bubble: #0b6bcb;
   --teacher-bubble-text: #ffffff;
-  --student-bubble: #e9e9eb;
-  --student-bubble-text: #1c1c1e;
+  --student-bubble: #d3d3d3;
+  --student-bubble-text: #000000;
   --link: #0b6bcb;
 }
 
@@ -61,6 +61,14 @@ body {
   justify-content: flex-start;
 }
 
+.message-row.my-message-row {
+  justify-content: flex-end;
+}
+
+.message-row.other-message-row {
+  justify-content: flex-start;
+}
+
 .message-bubble {
   max-width: 78%;
   border-radius: 16px;
@@ -68,19 +76,46 @@ body {
   position: relative;
   word-break: break-word;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  overflow: visible; /* ensure triangles are not clipped */
 }
 
-.message-row.teacher-row .message-bubble {
+.message-row.my-message-row .message-bubble {
   background: var(--teacher-bubble);
   color: var(--teacher-bubble-text);
-  border-top-right-radius: 4px;
+  border-top-right-radius: 0; /* square corner for triangle */
 }
 
-.message-row.student-row .message-bubble {
+.message-row.other-message-row .message-bubble {
   background: var(--student-bubble);
   color: var(--student-bubble-text);
-  border-top-left-radius: 4px;
+  border-top-left-radius: 0; /* square corner for triangle */
 }
+
+/* Triangle for user bubble (right side, top corner) */
+.message-row.my-message-row .message-bubble::after {
+  content: "";
+  position: absolute;
+  right: -10px; /* adjusted offset */
+  top: 0; /* aligned at top */
+  border-left: 24px solid transparent;
+  border-top: 24px solid var(--teacher-bubble); /* flat top triangle */
+  width: 0;
+  height: 0;
+  transform: scaleX(-1); /* flip horizontally */
+}
+
+.message-row.other-message-row .message-bubble::before {
+  content: "";
+  position: absolute;
+  left: -10px; /* adjusted offset */
+  top: 0; /* aligned at top */
+  border-right: 24px solid transparent;
+  border-top: 24px solid var(--student-bubble);
+  width: 0;
+  height: 0;
+  transform: scaleX(-1); /* flip horizontally */
+}
+
 
 .message-meta {
   display: block;
@@ -96,6 +131,15 @@ body {
 }
 
 .message-row.student-row .message-meta {
+  color: #6b6b70;
+}
+
+.message-row.my-message-row .message-meta {
+  color: rgba(255, 255, 255, 0.85);
+  text-align: right;
+}
+
+.message-row.other-message-row .message-meta {
   color: #6b6b70;
 }
 

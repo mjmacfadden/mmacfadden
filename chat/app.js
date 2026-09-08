@@ -4,7 +4,20 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 import {
   getFirestore,
-  collection, doc, setDoc, addDoc, updateDoc, deleteDoc, getDoc, getDocs, query, orderBy, limit, onSnapshot, serverTimestamp
+  collection,
+  doc,
+  setDoc,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  getDoc,
+  getDocs,
+  query,
+  orderBy,
+  limit,
+  onSnapshot,
+  serverTimestamp,
+  where,
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 /* =================== Init =================== */
@@ -229,7 +242,7 @@ function renderHome(role) {
 async function loadRoomsList() {
   const el = $("#room-list");
   el.innerHTML = "";
-  const q = query(collection(db, "rooms"), orderBy("createdAt", "desc"), limit(30));
+  const q = query(collection(db, "rooms"), where("createdBy", "==", currentUser.uid), orderBy("createdAt", "desc"), limit(30));
   let snap;
   try {
     snap = await getDocs(q);
@@ -248,9 +261,32 @@ async function loadRoomsList() {
     const item = document.createElement("a");
     item.href = "/chat/?room=" + d.id;
     item.className = "list-group-item list-group-item-action d-flex align-items-center justify-content-between";
-    item.innerHTML =
-      '<span class="fw-semibold text-truncate">' + esc(name) + "</span>" +
-      '<span class="badge bg-primary text-uppercase ms-2">' + esc(d.id) + "</span>";
+    // Create the main content (room name and badge)
+    const nameSpan = '<span class="fw-semibold text-truncate">' + esc(name) + '</span>';
+    const badgeSpan = '<span class="badge bg-primary text-uppercase ms-2">' + esc(d.id) + '</span>';
+    // Delete button (trash can)
+    const delBtn = document.createElement("button");
+    delBtn.type = "button";
+    delBtn.className = "btn btn-sm btn-outline-danger room-delete-btn";
+    delBtn.title = "Delete room";
+    delBtn.innerHTML = "🗑️";
+    delBtn.dataset.roomId = d.id;
+    delBtn.addEventListener("click", async (e) => {
+      e.stopPropagation(); // prevent navigating to the room
+      if (confirm("Delete this room? This cannot be undone.")) {
+        try {
+          await deleteDoc(doc(db, "rooms", d.id));
+          // Refresh the list after deletion
+          await loadRoomsList();
+        } catch (err) {
+          console.error(err);
+          alert("Failed to delete room: " + err.message);
+        }
+      }
+    });
+    // Set innerHTML to include name and badge, then append delete button
+    item.innerHTML = nameSpan + badgeSpan;
+    item.appendChild(delBtn);
     el.appendChild(item);
   });
 }
@@ -487,7 +523,7 @@ function messageEl(m) {
   const canDelete = canManage;
 
   const row = document.createElement("div");
-  row.className = "message-row " + (isTeacherMsg ? "teacher-row" : "student-row");
+  row.className = "message-row " + (isMyMsg ? "my-message-row" : "other-message-row");
   row.dataset.msgId = m.id;
 
   const bubble = document.createElement("div");
