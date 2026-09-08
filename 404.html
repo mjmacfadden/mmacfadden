@@ -9,6 +9,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mike Macfadden - 404</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      // Backchannel Chat: forward /chat/<code> straight into the chat app's
+      // room view (GitHub Pages would otherwise show this 404 page). This runs
+      // before the page paints, so the redirect feels instant.
+      (function () {
+        try {
+          var m = window.location.pathname.match(/\/chat\/([a-zA-Z0-9]+)\/?$/);
+          if (m && m[1]) {
+            window.location.replace('/chat/?room=' + encodeURIComponent(m[1].toLowerCase()));
+            return;
+          }
+        } catch (e) {}
+      })();
+    </script>
     <!-- SEO Meta Tags -->
     <meta name="author" content="Mike Macfadden" />
     <meta name="keywords" content="Mike Macfadden, Michael Macfadden, personal blog, creativity and innovation in teaching and learning, learning strategies, education" />

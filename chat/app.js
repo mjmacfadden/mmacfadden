@@ -227,7 +227,7 @@ async function loadRoomsList() {
     const data = d.data();
     const name = data.name || "Backchannel";
     const item = document.createElement("a");
-    item.href = "chat/" + d.id;
+    item.href = "/chat/?room=" + d.id;
     item.className = "list-group-item list-group-item-action d-flex align-items-center justify-content-between";
     item.innerHTML =
       '<span class="fw-semibold text-truncate">' + esc(name) + "</span>" +
@@ -237,10 +237,14 @@ async function loadRoomsList() {
 }
 
 /* =================== Create / join room =================== */
-function roomCodeFromPath() {
-  const parts = window.location.pathname
-    .split("/")
-    .filter(Boolean);
+function queryRoomCode() {
+  const params = new URLSearchParams(window.location.search);
+  const code = (params.get("room") || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  return code.length >= 3 ? code : null;
+}
+
+function pathRoomCode() {
+  const parts = window.location.pathname.split("/").filter(Boolean);
   const idx = parts.lastIndexOf("chat");
   if (idx >= 0 && parts[idx + 1]) {
     const code = parts[idx + 1].replace(/[^a-z0-9]/g, "").toLowerCase();
@@ -249,10 +253,12 @@ function roomCodeFromPath() {
   return null;
 }
 
+function roomCodeFromPath() {
+  return queryRoomCode() || pathRoomCode();
+}
+
 function navigateToRoom(code) {
-  let base = window.location.pathname;
-  base = base.replace(/[^/]+$/, "");
-  window.location.href = base + code;
+  window.location.href = "/chat/?room=" + encodeURIComponent(code);
 }
 
 function generateCode() {
