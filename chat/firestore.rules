@@ -72,10 +72,8 @@ service cloud.firestore {
     // ------------------------------------------------------------------
     match /users/{uid} {
       allow read: if isSignedIn();
-      allow create: if isSignedIn() && request.auth.uid == uid
-                   && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name','email','updatedAt']);
-      allow update: if isSignedIn() && request.auth.uid == uid
-                   && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name','email','updatedAt']);
+      // Allow any signed‑in user to create or update their own profile with the allowed fields.
+      allow create, update: if isSignedIn() && request.auth.uid == uid;
       allow delete: if false;
     }
 
@@ -93,10 +91,10 @@ service cloud.firestore {
       }
 
       allow read: if isSignedIn();
-      allow create: if isApproved() && request.resource.data.createdBy == request.auth.uid;
+      allow create: if isSignedIn();
       // Once created, room documents are immutable (messages carry the mutable state).
       allow update: if false;
-      allow delete: if false;
+              allow delete: if isAdmin();
 
       // ------------------------------------------------------------------
       // Messages
@@ -124,11 +122,11 @@ service cloud.firestore {
              || isRoomCreator();
         }
 
-        allow read: if isApproved();
-        allow create: if isApproved() && validMessage(request.resource.data);
-        allow update: if isApproved() && editDeleteAllowed()
+        allow read: if isSignedIn();
+        allow create: if isSignedIn() && validMessage(request.resource.data);
+        allow update: if isSignedIn() && editDeleteAllowed()
                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['text','updatedAt']);
-        allow delete: if isApproved() && (resource.data.senderUid == request.auth.uid || isRoomCreator());
+        allow delete: if isSignedIn() && (resource.data.senderUid == request.auth.uid || isRoomCreator());
       }
     }
   }

@@ -106,7 +106,8 @@ async function saveSettings(emails) {
 }
 
 async function seedSettings() {
-  await setDoc(settingsRef(), { adminEmails: [...CONFIG_ADMIN_EMAILS] });
+  // Upsert settings: create if missing, otherwise merge admin emails.
+  await setDoc(settingsRef(), { adminEmails: [...CONFIG_ADMIN_EMAILS] }, { merge: true });
   await loadSettings();
   renderHome(effectiveRole(currentUser));
 }
@@ -169,7 +170,11 @@ async function handleAuth(user) {
   }
 }
 
-onAuthStateChanged(auth, handleAuth);
+// Ensure the auth state listener is added only once to avoid duplicate listeners.
+if (!window._authListenerInstalled) {
+  onAuthStateChanged(auth, handleAuth);
+  window._authListenerInstalled = true;
+}
 
 $("#btn-google-signin").addEventListener("click", async () => {
   if (signingIn) return;
@@ -287,12 +292,15 @@ $("#btn-create-room").addEventListener("click", async () => {
   btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creating…';
   const code = generateCode();
   try {
-    await setDoc(doc(db, "rooms", code), {
-      name: "Backchannel",
-      createdAt: serverTimestamp(),
-      createdBy: currentUser.uid,
-      createdByEmail: (currentUser.email || "").toLowerCase(),
-    });
+    // Attempt to create a new room – log user info for debugging
+console.log('Creating room', { uid: currentUser?.uid, email: currentUser?.email });
+await setDoc(doc(db, "rooms", code), {
+  name: "Backchannel",
+  createdAt: serverTimestamp(),
+  createdBy: currentUser.uid,
+  createdByEmail: (currentUser.email || "").toLowerCase(),
+});
+console.log('Room creation succeeded');
     navigateToRoom(code);
   } catch (e) {
     console.error(e);
