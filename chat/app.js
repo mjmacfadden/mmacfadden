@@ -273,6 +273,7 @@ async function loadRoomsList() {
     delBtn.dataset.roomId = d.id;
     delBtn.addEventListener("click", async (e) => {
       e.stopPropagation(); // prevent navigating to the room
+      e.preventDefault(); // prevent default anchor navigation
       if (confirm("Delete this room? This cannot be undone.")) {
         try {
           await deleteDoc(doc(db, "rooms", d.id));

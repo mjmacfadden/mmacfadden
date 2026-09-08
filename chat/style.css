@@ -173,13 +173,23 @@ body {
   color: var(--link);
 }
 
+.message-editing .message-bubble {
+  min-height: 2.5rem; /* ensure sufficient height during edit */
+  display: flex;
+  align-items: center;
+}
+
 .message-editing textarea {
   width: 100%;
+  height: 100%;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 8px 10px;
   font-size: 0.9rem;
   resize: none;
+  box-sizing: border-box;
+  margin: 0;
+  background: transparent;
 }
 
 .msg-deleted {
