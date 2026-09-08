@@ -470,7 +470,10 @@ function messageEl(m) {
   const isMyMsg = m.senderUid === currentUser.uid;
   const isTeacherMsg = m.role === "teacher";
   const isRoomOwner = activeRoom && activeRoom.data.createdBy === currentUser.uid;
-  const canManage = isMyMsg || isRoomOwner;
+  // Determine effective permissions: teachers only have full control in rooms they created.
+  const userRole = effectiveRole(currentUser).role;
+  const effectiveRoomRole = (userRole === "teacher" && isRoomOwner) ? "teacher" : "student";
+  const canManage = effectiveRoomRole === "teacher" || isMyMsg || isRoomOwner;
   const canEdit = canManage;
   const canDelete = canManage;
 
