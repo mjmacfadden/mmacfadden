@@ -20,6 +20,18 @@ const SCHOOL_DOMAIN = "glenbrook225.org";
 const OWNER_EMAIL = CONFIG_ADMIN_EMAILS[0] || "";
 const ROOM_CODE_LENGTH = 5;
 const CODE_CHARS = "abcdefghijkmnpqrstuvwxyz23456789"; // no ambiguous l, o, 0, 1
+const BUILD_VERSION = "2026-09-08.v2";
+
+if (window.BUILD_VERSION_SLOT) window.BUILD_VERSION_SLOT.textContent = "v" + BUILD_VERSION;
+addEventListener("DOMContentLoaded", () => {
+  const slot = document.getElementById("build-version");
+  if (slot) slot.textContent = "v" + BUILD_VERSION;
+});
+
+function isOwner(email) {
+  email = (email || "").trim().toLowerCase();
+  return OWNER_EMAIL !== "" && email === OWNER_EMAIL;
+}
 
 /* =================== State =================== */
 let currentUser = null;
@@ -62,6 +74,7 @@ function isListedAdmin(email) {
 function effectiveRole(user) {
   if (!user) return { allowed: false, role: "none" };
   const email = (user.email || "").trim().toLowerCase();
+  if (isOwner(email)) return { allowed: true, role: "teacher", owner: true };
   const r = roleForEmail(email);
   if (isListedAdmin(email)) {
     return { allowed: true, role: "teacher" };
@@ -183,19 +196,19 @@ function renderHome(role) {
 
   const email = (currentUser.email || "").toLowerCase();
   const isListedAdminUser = isListedAdmin(email);
-  const isOwnerUser = OWNER_EMAIL === email;
+  const isOwnerUser = isOwner(email);
   const canCreate = role.role === "teacher";
 
-  // Create room panel: any teacher (domain teacher or listed admin).
+  // Create room panel: any teacher (domain teacher, listed admin, or owner).
   $("#home-teacher-panel").classList.toggle("d-none", !canCreate);
 
   // Owner bootstrap prompt: if access doc missing, owner creates it from config.
-  const needSeed = isOwnerUser && adminEmails.length === 0;
+  const needSeed = role.owner && adminEmails.length === 0;
   $("#owner-seed-box").classList.toggle("d-none", !needSeed);
 
-  // Access manager: listed admins only.
-  $("#access-manager").classList.toggle("d-none", !isListedAdminUser || adminEmails.length === 0);
-  if (isListedAdminUser) renderAccessManager();
+  // Access manager: listed admins (owner is implicit admin too).
+  $("#access-manager").classList.toggle("d-none", !(isListedAdminUser || isOwnerUser) || adminEmails.length === 0);
+  if (isListedAdminUser || isOwnerUser) renderAccessManager();
 
   // Room list
   const listPanel = $("#home-teacher-list");
@@ -307,6 +320,8 @@ $("#form-join").addEventListener("submit", async (ev) => {
 });
 
 $("#btn-seed-settings").addEventListener("click", async () => {
+  const btn = $("#btn-seed-settings");
+  btn.disabled = true;
   try {
     await seedSettings();
     $("#owner-seed-box").classList.add("d-none");
@@ -314,7 +329,11 @@ $("#btn-seed-settings").addEventListener("click", async () => {
     renderAccessManager();
     joinFeedback("Settings created. You're all set as the owner.", false);
   } catch (e) {
+    console.error("Seed settings failed", e);
+    joinFeedback("Could not create settings: " + (e.message || e.code), true);
     loginNotice("Could not create settings: " + (e.message || e.code), true);
+  } finally {
+    btn.disabled = false;
   }
 });
 

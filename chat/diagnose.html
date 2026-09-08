@@ -21,11 +21,24 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+    import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
     const out = document.getElementById("out");
     const log = (s) => { const p = document.createElement("div"); p.innerHTML = s; out.appendChild(p); };
     const line = (label, msg, ok) => log('<div>' + label + ': <span class="' + (ok ? 'ok">PASS' : 'bad">FAIL') + '</span> — ' + msg + '</div>');
+
+    async function seedProbe(db, email) {
+      const owner = (email || "").trim().toLowerCase() === "mikemacfadden@gmail.com";
+      if (!owner) { line("Seed write probe", "Skipped (not owner session)", true); return; }
+      try {
+        await setDoc(doc(db, "settings", "access"), { adminEmails: ["mikemacfadden@gmail.com"] });
+        line("Seed write probe", "settings/access created OK — the owner seed works", true);
+      } catch (e) {
+        line("Seed write probe", e.code + ": " + e.message, false);
+      }
+      const snap = await getDoc(doc(db, "settings", "access")).catch((e) => ({ exists: () => false, data: () => ({}) }));
+      line("settings/access doc", snap.exists() ? "EXISTS — adminEmails: " + JSON.stringify(snap.data().adminEmails || []) : "does NOT exist yet", true);
+    }
 
     line("SDK import", "Firebase JS v12 loaded from CDN", true);
 
@@ -40,7 +53,11 @@
       const auth = getAuth(app);
 
       onAuthStateChanged(auth, (u) => {
-        if (u) line("Auth state", "Signed in as " + u.email + " (uid " + u.uid.slice(0,8) + "…)", true);
+        if (u) {
+          const owner = (u.email || "").trim().toLowerCase() === "mikemacfadden@gmail.com";
+          line("Auth state", "Signed in as " + u.email + " (uid " + u.uid.slice(0,8) + "…, isOwner:" + owner + ")", true);
+          seedProbe(db, u.email);
+        }
         else line("Auth state", "Signed out — Login screen is expected. Click ‘Sign in with Google’.", true);
       });
 

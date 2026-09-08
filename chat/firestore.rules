@@ -28,9 +28,11 @@ service cloud.firestore {
       return isSignedIn() && adminEmails().hasAny([email]);
     }
 
-    function isAdmin() { return isListedAdmin(emailOf()); }
+    function isOwner() { return isOwnerEmail(); }
 
-    // Anyone approved to use the tool: listed admin OR any school-domain address.
+    function isAdmin() { return isOwner() || isListedAdmin(emailOf()); }
+
+    // Anyone approved to use the tool: owner Gmail, listed admin, OR any school-domain address.
     function isApproved() { return isSignedIn() && (isAdmin() || isSchoolDomain()); }
 
     // ------------------------------------------------------------------
