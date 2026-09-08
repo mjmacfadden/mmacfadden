@@ -94,7 +94,7 @@ service cloud.firestore {
       allow create: if isSignedIn();
       // Once created, room documents are immutable (messages carry the mutable state).
       allow update: if false;
-      allow delete: if isAdmin() || request.auth.uid == resource.data.createdBy;
+      allow delete: if isAdmin() || request.auth.uid == resource.data.createdBy || !("createdBy" in resource.data);
 
       // ------------------------------------------------------------------
       // Messages

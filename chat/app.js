@@ -264,30 +264,31 @@ async function loadRoomsList() {
     // Create the main content (room name and badge)
     const nameSpan = '<span class="fw-semibold text-truncate">' + esc(name) + '</span>';
     const badgeSpan = '<span class="badge bg-primary text-uppercase ms-2">' + esc(d.id) + '</span>';
-    // Delete button (trash can)
-    const delBtn = document.createElement("button");
-    delBtn.type = "button";
-    delBtn.className = "btn btn-sm btn-outline-danger room-delete-btn";
-    delBtn.title = "Delete room";
-    delBtn.innerHTML = "🗑️";
-    delBtn.dataset.roomId = d.id;
-    delBtn.addEventListener("click", async (e) => {
-      e.stopPropagation(); // prevent navigating to the room
-      e.preventDefault(); // prevent default anchor navigation
-      if (confirm("Delete this room? This cannot be undone.")) {
-        try {
-          await deleteDoc(doc(db, "rooms", d.id));
-          // Refresh the list after deletion
-          await loadRoomsList();
-        } catch (err) {
-          console.error(err);
-          alert("Failed to delete room: " + err.message);
-        }
-      }
-    });
-    // Set innerHTML to include name and badge, then append delete button
+    // Delete button (trash can) - only show if current user created the room
     item.innerHTML = nameSpan + badgeSpan;
-    item.appendChild(delBtn);
+    if (data.createdBy === currentUser.uid) {
+      const delBtn = document.createElement("button");
+      delBtn.type = "button";
+      delBtn.className = "btn btn-sm btn-outline-danger room-delete-btn";
+      delBtn.title = "Delete room";
+      delBtn.innerHTML = "🗑️";
+      delBtn.dataset.roomId = d.id;
+      delBtn.addEventListener("click", async (e) => {
+        e.stopPropagation(); // prevent navigating to the room
+        e.preventDefault(); // prevent default anchor navigation
+        if (confirm("Delete this room? This cannot be undone.")) {
+          try {
+            await deleteDoc(doc(db, "rooms", d.id));
+            // Refresh the list after deletion
+            await loadRoomsList();
+          } catch (err) {
+            console.error(err);
+            alert("Failed to delete room: " + err.message);
+          }
+        }
+      });
+      item.appendChild(delBtn);
+    }
     el.appendChild(item);
   });
 }
