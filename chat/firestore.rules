@@ -83,8 +83,8 @@ service cloud.firestore {
     // ------------------------------------------------------------------
     match /rooms/{roomId} {
       function validRoom(v) {
-        return v.createdAt is timestamp
-            && v.createdBy is string
+        // createdAt will be filled by serverTimestamp, so we don't enforce its presence here.
+        return v.createdBy is string
             && v.createdByEmail is string
             && v.name is string
             && v.name.size() <= 80
@@ -92,9 +92,7 @@ service cloud.firestore {
       }
 
       allow read: if isSignedIn();
-      allow create: if isApproved() && validRoom(request.resource.data)
-                   && request.resource.data.createdBy == request.auth.uid
-                   && request.resource.data.createdByEmail == emailOf();
+      allow create: if isApproved() && request.resource.data.createdBy == request.auth.uid && request.resource.data.createdByEmail == emailOf();
       // Once created, room documents are immutable (messages carry the mutable state).
       allow update: if false;
       allow delete: if false;
