@@ -10,7 +10,7 @@ service cloud.firestore {
     // ------------------------------------------------------------------
 
     function isSignedIn() { return request.auth != null; }
-    function emailOf() { return (request.auth.token.email || '').toLowerCase(); }
+    function emailOf() { return request.auth.token.email || '' ; }
 
     // Exact end-of-string match — no lookalike domains.
     function isSchoolDomain() {
@@ -55,6 +55,7 @@ service cloud.firestore {
             && v.adminEmails.all(email, email is string && email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+$'));
       }
 
+      // Anyone signed in can read the access document (needed for bootstrap and role checks).
       allow read: if isSignedIn();
       // Bootstrap: owner may create the document exactly once (it does not yet exist).
       allow create: if isOwnerEmail() && !exists(/databases/$(database)/documents/settings/access)
@@ -92,7 +93,7 @@ service cloud.firestore {
       }
 
       allow read: if isSignedIn();
-      allow create: if isApproved() && request.resource.data.createdBy == request.auth.uid && request.resource.data.createdByEmail == emailOf();
+      allow create: if isApproved() && request.resource.data.createdBy == request.auth.uid;
       // Once created, room documents are immutable (messages carry the mutable state).
       allow update: if false;
       allow delete: if false;

@@ -140,13 +140,14 @@ function loginNotice(msg, isError) {
 
 async function handleAuth(user) {
   currentUser = user;
-  await loadSettings();
-
   if (!user) {
     loginNotice(denyNotice || "");
     show("login");
     return;
   }
+
+  // Load settings for an authenticated user
+  await loadSettings();
 
   ensureUserRecord(user);
 
