@@ -90,7 +90,7 @@ service cloud.firestore {
             && (!('expiresAt' in v) || v.expiresAt is timestamp);
       }
 
-      allow read: if isSignedIn() && resource.data.createdBy == request.auth.uid;
+      allow read: if isApproved();
       allow create: if isSignedIn();
       // Once created, room documents are immutable (messages carry the mutable state).
       allow update: if false;
